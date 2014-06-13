@@ -1,6 +1,5 @@
 body{
-  background:black;
-  color:white;
+  margin: 0;
 }
 
 .main-container{
@@ -23,7 +22,12 @@ body{
   min-height: 100px;
   }
   
-  .panel:nth-child(2){
+  .panel:nth-child(2n-1){
+      background:black;
+      color:white;
+  }
+  
+  .panel:nth-child(2n){
     background:white;
     color:black;
   }
