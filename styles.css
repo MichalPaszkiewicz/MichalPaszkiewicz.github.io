@@ -1,15 +1,16 @@
 body{
   background:black;
+  color:white;
 }
 
 .panel{
   width: 100%;
-  min-height: 300px;
+  min-height: 100px;
   }
   
   .panel:nth-child(2){
     background:white;
-    
+    color:black;
   }
   
   .panel-box{
