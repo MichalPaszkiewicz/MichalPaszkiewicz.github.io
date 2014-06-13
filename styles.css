@@ -1,10 +1,21 @@
+body{
+  background:black;
+}
+
 .panel{
   width: 100%;
   min-height: 300px;
   }
   
+  .panel:nth-child(2){
+    background:white;
+    
+  }
+  
   .panel-box{
   margin:auto;
+  max-width: 1000px;
+  padding: 20px;
   }
   
   
