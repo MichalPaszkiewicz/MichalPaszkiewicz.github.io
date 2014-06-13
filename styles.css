@@ -27,6 +27,13 @@ body{
       color:white;
   }
   
+  .panel:nth-child(2n-1) a{
+    color: white;
+  font-size: 20px;
+  font-weight: 800;
+    
+  }
+  
   .panel:nth-child(2n){
     background:white;
     color:black;
