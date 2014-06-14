@@ -2,6 +2,10 @@ body{
   margin: 0;
 }
 
+a{
+  margin-right: 100px;
+}
+
 .main-container{
   min-height: 100%;
 }
