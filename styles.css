@@ -4,6 +4,7 @@ body{
 
 a{
   margin-right: 100px;
+  display: inline-block;
 }
 
 .main-container{
