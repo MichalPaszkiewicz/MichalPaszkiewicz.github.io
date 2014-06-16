@@ -28,12 +28,12 @@ a{
   min-height: 100px;
   }
   
-  .panel:nth-child(2n-1), footer{
+  .panel:nth-child(2n-1), .footer{
       background:black;
       color:white;
   }
   
-  .panel:nth-child(2n-1) a, footer a{
+  .panel:nth-child(2n-1) a, .footer a{
     color: white;
   font-size: 20px;
   font-weight: 800;
