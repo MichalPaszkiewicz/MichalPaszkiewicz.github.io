@@ -48,7 +48,10 @@ a{
   
     .panel:nth-child(2n) a{
       text-transform: uppercase;
-      
+      color: black;
+      font-size: 22px;
+      margin-bottom: 0;
+      font-weight: bold;
     }
     
     .panel:nth-child(2n) p{
