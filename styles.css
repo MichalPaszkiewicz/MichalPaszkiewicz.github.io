@@ -43,7 +43,18 @@ a{
   .panel:nth-child(2n){
     background:white;
     color:black;
+    font-family: lucida console;
   }
+  
+    .panel:nth-child(2n) a{
+      text-transform: uppercase;
+      
+    }
+    
+    .panel:nth-child(2n) p{
+      margin-top: 5px;
+    }
+  
   
   .panel-box{
   margin:auto;
