@@ -44,6 +44,7 @@ a{
     background:white;
     color:black;
     font-family: lucida console;
+    text-align: justify;
   }
   
     .panel:nth-child(2n) a{
