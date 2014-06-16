@@ -47,6 +47,10 @@ a{
     text-align: justify;
   }
   
+  .panel p{
+        line-height: 32px;
+  }
+  
     .panel:nth-child(2n) a{
       text-transform: uppercase;
       color: black;
