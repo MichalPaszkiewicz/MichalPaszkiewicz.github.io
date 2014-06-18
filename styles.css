@@ -55,12 +55,16 @@ a{
       text-transform: uppercase;
       color: black;
       font-size: 22px;
-      margin-bottom: 0;
       font-weight: bold;
+      
+      margin: 5px;
+      clear: both;
+      float: left;
     }
     
     .panel:nth-child(2n) p{
       margin-top: 5px;
+      clear: both;
     }
   
   .push{
