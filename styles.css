@@ -64,6 +64,10 @@ a{
       float: left;
     }
     
+    .panel:nth-child(2n) h2{
+      font-size: 2em;
+    }
+    
     .panel:nth-child(2n) p{
       margin-top: 5px;
       clear: both;
