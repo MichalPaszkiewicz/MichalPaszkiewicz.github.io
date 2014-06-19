@@ -79,14 +79,14 @@ a{
   padding: 20px;
   }
   
-  h3, .link{
+  h3, a.link{
     display: inline-block;
     float: left;
     font-size: 18px;
     margin: 18px;
   }
   
-  .link{
+  a.link{
     clear: none;
     color: red;
     text-transform: none;
