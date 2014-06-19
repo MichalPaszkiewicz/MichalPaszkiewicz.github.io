@@ -45,7 +45,7 @@ a{
   .panel:nth-child(2n){
     background:white;
     color:black;
-    font-family: lucida console;
+    font-family: arial;
     text-align: justify;
   }
   
