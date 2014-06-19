@@ -79,14 +79,14 @@ a{
   padding: 20px;
   }
   
-  h3, a.link{
+  h3, .panel:nth-child(2n) a.link{
     display: inline-block;
     float: left;
     font-size: 18px;
     margin: 18px;
   }
   
-  a.link{
+  .panel:nth-child(2n) a.link{
     clear: none;
     color: red;
     text-transform: none;
