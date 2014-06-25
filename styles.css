@@ -54,7 +54,6 @@ a{
   }
   
     .panel:nth-child(2n) a{
-      text-transform: uppercase;
       color: black;
       font-size: 22px;
       font-weight: bold;
