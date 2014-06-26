@@ -98,4 +98,6 @@ a{
   
   .panel:nth-child(2n) a.inline-link{
     margin: 0;
+    float: none;
+    font-size: inherit;
   }
