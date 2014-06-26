@@ -1,0 +1,58 @@
+<head>
+<title>Michal Paszkiewicz</title>
+<meta name="description" content="Cracking vigenere ciphers with typescript/javascript code online.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+  
+  <div class="main-container">
+  <div id="panel1" class="panel">
+    <div class="panel-box">
+      <h1>Michal Paszkiewicz</h1>
+      <h2>Blog</h2>
+    </div>
+  </div>
+
+  <div id="panel2" class="panel">
+    <div class="panel-box">
+      <h2>Cracking codes</h2>
+      <p>
+        I have been rather busy with writing essays, so today's post will be short.
+      </p>
+      
+      <h3>Vigenere cracking tool</h3><a class="link" href="http://www.michalpaszkiewicz.co.uk/Cryptosaurus/vigenere-cracker.html">Link</a>
+      <p>
+        I have been working on my Cryptosaurus project, and have added a new tool. This tool can crack encoded text that has been encoded by a vigenere cipher with a short key.
+      </p>
+      
+      <p>
+        Currently this works on texts encoded by keys of length 9 or less. My code is largely a translation of the python code used by <a class="link" href="http://smurfoncrack.com/pygenere/pygenere.py">pygenere</a>, an already existing cracking tool for vigenere ciphers. Currently my code is not yet complete, so it doesn't work quite as well as <a class="link" href="http://smurfoncrack.com/pygenere/">pygenere</a>, but it will be as good as, if not better, very soon.
+      </p>
+      
+      <p>
+        I have however created a method for scoring decryptions based on how many real english words they produce. The next step on this project will be to use this scoring system to add to the existing methods and therefore return better results.
+      </p>
+   </div>
+  </div>
+  
+  <div class="push"></div>
+  </div>
+<div class="footer">
+    <div class="panel-box">
+      <a href="/index.html">Main site</a>
+      <a href="/blog.html">Back to main blog page</a>
+    </div>
+</div>
+</body>
