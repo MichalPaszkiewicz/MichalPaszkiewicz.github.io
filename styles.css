@@ -96,4 +96,6 @@ a{
     text-transform: none;
   }
   
-  
+  a.inline-link{
+    margin: 0;
+  }
