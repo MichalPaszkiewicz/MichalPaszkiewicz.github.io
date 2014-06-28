@@ -74,6 +74,7 @@ a{
   
   .push{
     height: 100px;
+    clear:both;
   }
   
   .panel-box{
