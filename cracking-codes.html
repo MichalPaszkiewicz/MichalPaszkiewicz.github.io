@@ -36,7 +36,6 @@
       <p>
         I have been working on my Cryptosaurus project, and have added a new tool. This tool can crack encoded text that has been encoded by a vigenere cipher with a short key.
       </p>
-      
       <p>
         Currently this works on texts encoded by keys of length 9 or less. My code is largely a translation of the python code used by <a class="inline-link" href="http://smurfoncrack.com/pygenere/pygenere.py">pygenere</a>, an already existing cracking tool for vigenere ciphers. Currently my code is not yet complete, so it doesn't work quite as well as <a class="inline-link" href="http://smurfoncrack.com/pygenere/">pygenere</a>, but it will be as good as, if not better, very soon.
       </p>
@@ -44,6 +43,9 @@
       <p>
         I have however created a method for scoring decryptions based on how many real english words they produce. The next step on this project will be to use this scoring system to add to the existing methods and therefore return better results.
       </p>
+      
+      <h3>How does the cracker work?</h3>
+      <p>Currently the cracker takes in values for the input (of encoded text) and a key length, which it presumes you have somehow acquired. It then splits the input text into letters that would be encoded by individual letters in the key. This split text can then have its letter frequencies analysed in comparison to standard letter frequencies of the given language.</p>
    </div>
   </div>
   
