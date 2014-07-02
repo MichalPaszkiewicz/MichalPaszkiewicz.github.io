@@ -103,7 +103,11 @@ a{
     font-size: inherit;
   }
   
-  span.date, span.issue{
+  span.newline{
+    clear:both;
+  }
+  
+  span.date, span.issue, span.item{
     float: left;
 padding: 0px 10px;
 margin: 10px;
@@ -116,6 +120,11 @@ font-size: 14px;
 span.issue{
   box-shadow: red 0 0 5px 2px;
   border-radius:0 0 5px 5px;
-  clear: both;
 margin-top: 0;
+}
+
+span.item{
+    box-shadow: rgb(95, 185, 255) 0 0 5px 2px;
+  border-radius:0 0 5px 5px;
+  margin-top: 0;
 }
