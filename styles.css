@@ -65,6 +65,9 @@ a{
     
     .panel:nth-child(2n) h2{
       font-size: 2em;
+      display:inline-block;
+      clear:both;
+      float:left;
     }
     
     .panel:nth-child(2n) p{
@@ -105,6 +108,7 @@ a{
   
   span.newline{
     clear:both;
+    float:left;
   }
   
   span.date, span.issue, span.item{
