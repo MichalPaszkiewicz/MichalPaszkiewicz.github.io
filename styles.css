@@ -28,8 +28,9 @@ a{
 .panel{
   width: 100%;
   min-height: 100px;
+  display:inline-block;
   }
-  
+
   .panel:nth-child(2n-1), .footer{
       background:black;
       color:white;
