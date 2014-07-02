@@ -103,7 +103,7 @@ a{
     font-size: inherit;
   }
   
-  span.date{
+  span.date, span.issue{
     float: left;
 padding: 0px 10px;
 margin: 10px;
@@ -112,3 +112,7 @@ border-radius: 10px;
 box-shadow: gray 0 0 5px 2px;
 font-size: 14px;
   }
+
+span.issue{
+  box-shadow: red 0 0 5px 2px;
+}
