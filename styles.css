@@ -10,6 +10,10 @@ a{
   margin-bottom: 15px;
 }
 
+h3{
+  clear:both;
+}
+
 .main-container{
   min-height: 100%;
 }
