@@ -1,0 +1,56 @@
+<head>
+<title>Michal Paszkiewicz</title>
+<meta name="description" content="A tutorial explaining how to use PeerJS to create a browser based multiplayer game">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+  
+  <div class="main-container">
+  <div id="panel1" class="panel">
+    <div class="panel-box">
+      <h1>Michal Paszkiewicz</h1>
+      <h2>Blog</h2>
+    </div>
+  </div>
+
+  <div id="panel2" class="panel">
+    <div class="panel-box">
+      <h2>How to create a multiplayer game with Peer JS</h2>
+      <p>
+        <a class="inline-link" href="http://peerjs.com/">Peer JS</a> is a cool tool for connecting two browsers using Web RTC. What does this mean?
+        This means we can easily connect two browsers without needing to handle all the date in a server in between. Sure, we still need a server to handle the IDs and connections of the browsers, but so long as you don't expect your app to have more than 50 connections, you can use the cloud based API that PeerJS provides for free. Awesome!
+      </p>
+      <p>
+        If you expect more than 50 connections, you can of course pay some money to have access to the more advanced versions of the API, but they also detail how you can easily create your own server to do what their API does! On top of all this, its all open source and we can look at it all on <a class="inline-link" href="https://github.com/peers">GitHub</a>.
+      </p>
+      <p>
+        A cool example to study before embarking on creating your game is this <a class="inline-link" href="http://cdn.peerjs.com/demo/chat.html">chat app</a>. Not bad, eh?
+      </p>
+      
+      <h3>
+          Creating the game
+        </h3>
+   </div>
+  </div>
+  
+  <div class="push"></div>
+  </div>
+<div class="footer">
+    <div class="panel-box">
+      <a href="/index.html">Main site</a>
+      <a href="/blog.html">Back to main blog page</a>
+    </div>
+</div>
+</body>
