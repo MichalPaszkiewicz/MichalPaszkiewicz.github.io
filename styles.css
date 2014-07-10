@@ -51,11 +51,11 @@ h3{
     background:white;
     color:black;
     font-family: arial;
-    text-align: justify;
   }
   
   .panel p{
         line-height: 32px;
+            text-align: justify;
   }
   
     .panel:nth-child(2n) a{
@@ -141,4 +141,9 @@ span.item{
 
 .img-container{
   overflow:auto;
+  margin-bottom: 30px;
+}
+
+.img-container img{
+    border: black 1px solid;
 }

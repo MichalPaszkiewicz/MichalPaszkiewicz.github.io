@@ -1,61 +1,182 @@
 <head>
-<title>Michal Paszkiewicz</title>
-<meta name="description" content="A tutorial explaining how to use PeerJS to create a browser based multiplayer game">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Michal Paszkiewicz</title>
+    <meta name="description" content="A tutorial explaining how to use PeerJS to create a browser based multiplayer game">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
-  ga('send', 'pageview');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
 
-</script>
+    </script>
 </head>
 <body>
-  
-  <div class="main-container">
-  <div id="panel1" class="panel">
-    <div class="panel-box">
-      <h1>Michal Paszkiewicz</h1>
-      <h2>Blog</h2>
-    </div>
-  </div>
 
-  <div id="panel2" class="panel">
-    <div class="panel-box">
-      <h2>How to create a multiplayer game with Peer JS</h2>
-      <p>
-        <a class="inline-link" href="http://peerjs.com/">Peer JS</a> is a cool tool for connecting two browsers using Web RTC. What does this mean?
-        This means we can easily connect two browsers without needing to handle all the date in a server in between. Sure, we still need a server to handle the IDs and connections of the browsers, but so long as you don't expect your app to have more than 50 connections, you can use the cloud based API that PeerJS provides for free. Awesome!
-      </p>
-      <p>
-        If you expect more than 50 connections, you can of course pay some money to have access to the more advanced versions of the API, but they also detail how you can easily create your own server to do what their API does! On top of all this, its all open source and we can look at it all on <a class="inline-link" href="https://github.com/peers">GitHub</a>.
-      </p>
-      <p>
-        A cool example to study before embarking on creating your game is this <a class="inline-link" href="http://cdn.peerjs.com/demo/chat.html">chat app</a>. Not bad, eh?
-      </p>
-      
-      <h3>
-          Creating the game
-        </h3>
-        
-        
-        
-        
-        <h3>A game of go built with PeerJS</h3><a class="link" href="http://www.michalpaszkiewicz.co.uk/go/">Link</a>
-   </div>
-  </div>
-  
-  <div class="push"></div>
-  </div>
-<div class="footer">
-    <div class="panel-box">
-      <a href="/index.html">Main site</a>
-      <a href="/blog.html">Back to main blog page</a>
+    <div class="main-container">
+        <div id="panel1" class="panel">
+            <div class="panel-box">
+                <h1>Michal Paszkiewicz</h1>
+                <h2>Blog</h2>
+            </div>
+        </div>
+
+        <div id="panel2" class="panel">
+            <div class="panel-box">
+                <h2>How to create a multiplayer game with Peer JS</h2>
+                <p>
+                    <a class="inline-link" href="http://peerjs.com/">Peer JS</a> is a cool tool for connecting two browsers using Web RTC. What does this mean?
+                    This means we can easily connect two browsers without needing to handle all the date in a server in between. Sure, we still need a server to handle the IDs and connections of the browsers, but so long as you don't expect your app to have more than 50 connections, you can use the cloud based API that PeerJS provides for free. Awesome!
+                </p>
+                <p>
+                    If you expect more than 50 connections, you can of course pay some money to have access to the more advanced versions of the API, but they also detail how you can easily create your own server to do what their API does! On top of all this, its all open source and we can look at it all on <a class="inline-link" href="https://github.com/peers">GitHub</a>.
+                </p>
+                <p>
+                    A cool example to study before embarking on creating your game is this <a class="inline-link" href="http://cdn.peerjs.com/demo/chat.html">chat app</a>. Not bad, eh?
+                </p>
+
+                <h3>
+                    Connecting through Peer JS
+                </h3>
+                <p>
+                    First of all, you will need to include Peer js!
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsLink.PNG" alt="Including peerjs in your project" />
+                </div>
+
+                <p>
+                    Next you will need to connect to the <a href="http://peerjs.com/peerserver" class="inline-link" target="_blank">peer js API</a> (for free!!), <a href="https://github.com/peers/peerjs-server" class="inline-link" target="_blank">or create your own server</a>. here we will show what it looks like when you connect to the api
+                </p>
+                <div class="img-container">
+                    <img src="images/PeerjsAPI.PNG" alt="Connecting to peerjs API" />
+                </div>
+
+                <p>
+                    Great, now we can get started coding!
+                </p>
+                <p>
+                    Generate an ID for yourself, preferably a <a href="http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript" class="inline-link" target="_blank">random number</a> and create a peer.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsPeer.PNG" alt="Create a peer js peer!" />
+                </div>
+
+                <p>
+                    Create an object to hold your connected peers.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsPeers.PNG" alt="Create object for connecting peers" />
+                </div>
+
+                <p>
+                    Select what happens on the opening event of your peer connection.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsOpen.PNG" alt="Make stuff happen on the peer 'open' event" />
+                </div>
+
+                <p>
+                    Tell your program what should happen when a peer connects.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsOnConnect.PNG" alt="Make stuff happen on peer 'connection' event" />
+                </div>
+
+                <p>
+                    Define your connection function. Here I have defined what should happen when a peer connects, when he sends you some data, and when he closes the connection.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsConnect.PNG" alt="Define your connection function" />
+                </div>
+
+                <p>
+                    Create an input textbox where you will put in your friend's id. Now, inside your $(document).ready() event, create actions, such as connecting to your friend using a button.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsDocReady.PNG" alt="Connect to a friend on document ready event" />
+                </div>
+
+                <p>
+                    Now add other functions to your $(document).ready() event. These can be anything, from sending messages so you can chat, or sending information on what your friend has clicked or pressed - this is where you can send updates on what is happening at the other player's side if you are creating a game. Here we show a quick example of how to send a quick message.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsSendMessage.PNG" alt="Send your friend a message via peer js" />
+                </div>
+
+                <p>
+                    And eachActiveConnection() is defined as follows, from divs containing IDs of connected peers:
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsEach.PNG" alt="Define the each active connection function" />
+                </div>
+
+                <p>
+                    Now you just need one more function to ensure you close your connection properly when you close your tab/window. This will ensure your friend knows you have left.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsClose.PNG" alt="On close, destroy your peer!" />
+                </div>
+
+                <script>
+
+                    $(document).ready(function () {
+
+                        // Connect to a peer
+                        $('#connect').click(function () {
+                            requestedPeer = $('.him-her').val().trim();
+                            if (!connectedPeers[requestedPeer]) {
+                                // Create 2 connections, one labelled chat and another labelled file.
+                                var c = peer.connect(requestedPeer, {
+                                    label: 'chat',
+                                    serialization: 'none',
+                                    reliable: false,
+                                    metadata: { message: 'hi i want to chat with you!' }
+                                });
+                                c.on('open', function () {
+                                    connect(c);
+                                });
+                                c.on('error', function (err) { alert(err); });
+                                var f = peer.connect(requestedPeer, { label: 'file' });
+                                f.on('open', function () {
+                                    connect(f);
+                                });
+                                f.on('error', function (err) { alert(err); });
+                            }
+                            connectedPeers[requestedPeer] = 1;
+                        });
+
+                    });
+
+                </script>
+
+
+                <h3>A game of go built with PeerJS</h3><a class="link" href="http://www.michalpaszkiewicz.co.uk/go/">Link</a>
+            </div>
+        </div>
+
+        <div class="push"></div>
     </div>
-</div>
+    <div class="footer">
+        <div class="panel-box">
+            <a href="/index.html">Main site</a>
+            <a href="/blog.html">Back to main blog page</a>
+        </div>
+    </div>
 </body>
