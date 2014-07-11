@@ -134,40 +134,62 @@
                     <img src="images/PeerjsClose.PNG" alt="On close, destroy your peer!" />
                 </div>
 
-                <script>
-
-                    $(document).ready(function () {
-
-                        // Connect to a peer
-                        $('#connect').click(function () {
-                            requestedPeer = $('.him-her').val().trim();
-                            if (!connectedPeers[requestedPeer]) {
-                                // Create 2 connections, one labelled chat and another labelled file.
-                                var c = peer.connect(requestedPeer, {
-                                    label: 'chat',
-                                    serialization: 'none',
-                                    reliable: false,
-                                    metadata: { message: 'hi i want to chat with you!' }
-                                });
-                                c.on('open', function () {
-                                    connect(c);
-                                });
-                                c.on('error', function (err) { alert(err); });
-                                var f = peer.connect(requestedPeer, { label: 'file' });
-                                f.on('open', function () {
-                                    connect(f);
-                                });
-                                f.on('error', function (err) { alert(err); });
-                            }
-                            connectedPeers[requestedPeer] = 1;
-                        });
-
-                    });
-
-                </script>
-
-
                 <h3>A game of go built with PeerJS</h3><a class="link" href="http://www.michalpaszkiewicz.co.uk/go/">Link</a>
+
+                <p>
+                    So now, some details on how to create a basic game. I won't go too far into it, as you could keep working on this forever. If you would like to see my source code for my own project, it is <a class="inline-link">here</a>.
+                </p>
+
+                <p>
+                    So, now that we have a working chat app, we now need to create a game. For a basic board game like noughts-and-crosses (tic-tac-toe) or go, we can start by creating a table in your html file.
+                    I have done this by just creating a table element, then I populate it with rows and cells via script, so I can later easily change the size of the table.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsTable.PNG" alt="A function for creating a table/ changing table size" />
+                </div>
+
+                <p>
+                    Once you have created your table, you will want to style it with css. In this example, I have added different images to the sides and corners, so when the table size is changed, the css will still create a beautiful board.
+                </p>
+
+                <div class="img-container" style="max-height:300px; background: #1E1E1E">
+                    <img src="images/PeerjsTableStyle.PNG" />
+                </div>
+
+                <p>
+                    Now all that you need to do is make things happen when you do something to the board. 
+                </p>
+
+                <p>
+                    Inside the document ready event, I have created an onClick event, that will send data when you click a td, and add a class to that particular td, that in this case will show up a white circle on the board.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsClick.PNG" />
+                </div>
+
+                <p>
+                    You can see here I am sending the td's id preceded by 'goMove='. To make something happen on the other player's table we now just need to add a function inside their connect function in the 'on data' event.
+                </p>
+
+                <div class="img-container">
+                    <img src="images/PeerjsOnData.PNG" />
+                </div>
+
+                <p>
+                    This will read the id and add the relevant class to the correct cell. Now you can add similar functions for other moves to allow all the options in the game, so you can play it!
+                </p>
+
+                <p>
+                    The last things you might want to consider are whether you want to implement some rules in the program, to ensure noone does illegal moves and possibly some sort of security system whereby you ensure noone cheats by changing the code.
+
+                </p>
+
+                <p>
+                    Good luck!
+                </p>
+
             </div>
         </div>
 
