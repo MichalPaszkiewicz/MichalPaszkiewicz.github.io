@@ -9,6 +9,8 @@
   -moz-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
   transform-style: preserve-3d;
+  color: red;
+  text-shadow: 0 0 10px black;
 }
 
 .fourohfour{
