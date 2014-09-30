@@ -8,6 +8,11 @@
   /* -webkit-transform: rotateY( 180deg ); */
   -moz-transform: rotateY( 180deg );
   -o-transform: rotateY( 180deg );
+  transform-style: preserve-3d;
+}
+
+.fourohfour{
+  perspective: 300px;
 }
 
 #panel2 .panel-box h2{
