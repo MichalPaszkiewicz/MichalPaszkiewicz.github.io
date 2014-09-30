@@ -13,3 +13,16 @@
 #panel2 .panel-box h2{
   float: none;
 }
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotateY(0deg);
+    }
+    to{
+        -webkit-transform: rotateY(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+}
