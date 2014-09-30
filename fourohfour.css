@@ -3,14 +3,15 @@
   position: absolute;
   margin: 0;
   backface-visibility: hidden;
-  width: 320px;
+  width: 330px;
   font-size: 12em;
   color: red;
   text-shadow: 0 0 10px black;
 }
 
 .fourohfour{
-  width: 320px;
+  width: 330px;
+  height: 250px;
   perspective: 300px;
   position: relative;
 }
