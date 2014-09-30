@@ -4,10 +4,6 @@
   margin: auto;
   width: 300px;
   font-size: 12em;
-  /* transform: rotateY(180deg); */
-  /* -webkit-transform: rotateY( 180deg ); */
-  -moz-transform: rotateY( 180deg );
-  -o-transform: rotateY( 180deg );
   transform-style: preserve-3d;
   color: red;
   text-shadow: 0 0 10px black;
@@ -21,12 +17,25 @@
   float: none;
 }
 
+.rotate{
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+}
+
 @-webkit-keyframes rotating {
     from{
+        transform: rotateY(0deg);
         -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY( 0deg );
+        -o-transform: rotateY( 0deg );
     }
     to{
+        transform: rotateY(360deg);
         -webkit-transform: rotateY(360deg);
+        -moz-transform: rotateY( 360deg );
+        -o-transform: rotateY( 360deg );
     }
 }
 
