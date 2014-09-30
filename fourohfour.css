@@ -8,3 +8,6 @@
   -o-transform: rotateY( 180deg );
 }
 
+#panel2 .panel-box h2{
+  float: none;
+}
