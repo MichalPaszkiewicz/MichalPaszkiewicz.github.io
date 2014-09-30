@@ -14,6 +14,7 @@
   height: 250px;
   perspective: 300px;
   position: relative;
+  margin: auto;
 }
 
 #panel2 .panel-box h2{
