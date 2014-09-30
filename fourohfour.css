@@ -1,6 +1,8 @@
 .fourohfour h1{
-  display: inline-block;
+  display: block;
   clear: both;
+  margin: auto;
+  width: 300px;
   font-size: 12em;
   /* transform: rotateY(180deg); */
   /* -webkit-transform: rotateY( 180deg ); */
