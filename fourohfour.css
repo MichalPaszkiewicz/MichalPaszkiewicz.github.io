@@ -3,7 +3,7 @@
   position: absolute;
   margin: 0;
   backface-visibility: hidden;
-  width: 320px
+  width: 320px;
   font-size: 12em;
   color: red;
   text-shadow: 0 0 10px black;
