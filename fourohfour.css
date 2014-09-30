@@ -1,16 +1,17 @@
-.fourohfour h1{
+.fourohfour h1.text404{
   display: block;
-  clear: both;
-  margin: auto;
-  width: 300px;
+  position: absolute;
+  backface-visibility: hidden;
+  width: 320px
   font-size: 12em;
-  transform-style: preserve-3d;
   color: red;
   text-shadow: 0 0 10px black;
 }
 
 .fourohfour{
+  width: 320px;
   perspective: 300px;
+  position: relative;
 }
 
 #panel2 .panel-box h2{
@@ -41,4 +42,5 @@
 
 .rotating {
     -webkit-animation: rotating 2s linear infinite;
+      transform-style: preserve-3d;
 }
