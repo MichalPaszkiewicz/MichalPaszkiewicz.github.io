@@ -329,6 +329,6 @@ a.side-bar-item, div.side-bar-item{
 #phone-emulator #phone iframe{
   height: 100%;
   width: 100%;
-  background: black;
+  background: white;
   border-radius: 20px;
 }
