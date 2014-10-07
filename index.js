@@ -104,3 +104,7 @@ $('#search-bar').on( 'keydown', function( e ) {
 $(".show-sub").click(function(){
 	$(this).parent().find(".sub-contents").fadeToggle();
 });
+
+$(".close-sub").click(function(){
+	$(this).parent().slideUp();
+});
