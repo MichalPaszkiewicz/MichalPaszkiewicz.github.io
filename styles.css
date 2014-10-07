@@ -148,6 +148,18 @@ span.item{
   border: black 1px solid;
 }
 
+.science-and-tech, .arts{
+  clear: both;
+}
+
 div.project-container{
-  
+  display: inline-block;
+  max-width: 280px;
+  min-height: 180px;
+  vertical-align: top;
+  padding: 20px;
+  background: rgb(217, 237, 255);
+  margin: 5px;
+  box-shadow: 0 0 5px 0px rgb(68, 118, 134);
+  border-radius: 10px;
 }
