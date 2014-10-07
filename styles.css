@@ -335,6 +335,6 @@ a.side-bar-item, div.side-bar-item{
 
 .ad-container{
   max-width: 900px;
-  margin: 20px;
   margin: auto;
+  margin-top: 20px;
 }
