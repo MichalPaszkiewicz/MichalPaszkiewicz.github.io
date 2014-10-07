@@ -40,7 +40,16 @@ function getRelevantOptions(words)
 
 function fullOptionString( relevantOptions )
 {
-    return relevantOptions;
+    var htmlString = "";
+    
+    for(var i = 0; i < relevantOptions.length; i++)
+    {
+    	var relevantOption = relevantOptions[i];
+    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a").attr("href") + '" class="search-result">'
+    		+ $(relevantOption).find("a").text() + '</a>';
+    }
+    
+    return htmlString;
 }
 
 function getOptions(e)
