@@ -196,3 +196,13 @@ div.project-container{
 .search-result.selected, .search-result:hover{
   background: rgb(89, 109, 131);
 }
+
+.show-sub{
+  position: absolute;
+  bottom: 0px;
+  left: 30px;
+  font-size: 14px;
+  text-decoration: underline;
+  color: rgb(121, 121, 121);
+  cursor: pointer;
+}
