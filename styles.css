@@ -261,4 +261,5 @@ sub-contents-container{
   left: 0;
   color: black;
   border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 5px 2px rgb(51, 19, 19);
 }
