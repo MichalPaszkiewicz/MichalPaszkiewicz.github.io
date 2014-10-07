@@ -214,11 +214,12 @@ div.project-container{
   background: black;
   border-radius: 10px;
   color: white;
+  height: 100%;
 }
 
 .sub-contents .project-container{
   min-height: 30px;
-  padding: 5px;
+  padding: 0;
   box-shadow: none;
   background: black;
   color: white;
@@ -229,6 +230,7 @@ div.project-container{
   width: 100%;
   font-size: 18px;
   color: white;
+  margin: 0;
 }
 
 .sub-contents .project-container span{
