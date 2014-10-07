@@ -145,5 +145,9 @@ span.item{
 }
 
 .img-container img{
-    border: black 1px solid;
+  border: black 1px solid;
+}
+
+div.project-container{
+  
 }
