@@ -35,7 +35,10 @@ function getRelevantOptions(words)
     
     var relevantOptions = $(searchString);
     
-	return relevantOptions;
+    selectedOption = 0;
+    numberOfOptions = searchString.length;
+    
+    return relevantOptions;
 }
 
 function fullOptionString( relevantOptions )
@@ -45,7 +48,7 @@ function fullOptionString( relevantOptions )
     for(var i = 0; i < relevantOptions.length; i++)
     {
     	var relevantOption = relevantOptions[i];
-    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a").attr("href") + '" class="search-result">'
+    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a").attr("href") + '" class="search-result" + id="sr' + i + '">'
     		+ $(relevantOption).find("a").text() + '</a>';
     }
     
