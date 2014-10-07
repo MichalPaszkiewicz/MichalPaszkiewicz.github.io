@@ -36,7 +36,7 @@ function getRelevantOptions(words)
     var relevantOptions = $(searchString);
     
     selectedOption = 0;
-    numberOfOptions = searchString.length;
+    numberOfOptions = relevantOptions.length;
     
     return relevantOptions;
 }
