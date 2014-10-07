@@ -276,6 +276,7 @@ div.project-container{
   text-align: center;
   box-shadow: 0 0 5px 5px rgb(57, 109, 109);
   opacity: 0.95;
+  z-index: 1000;
 }
 
 #side-bar{
