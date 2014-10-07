@@ -29,7 +29,7 @@ function getRelevantOptions(words)
     
     for(var i = 0; i < words.length; i++)
     {
-        searchString = searchString + ".project-container:containsIns(" + words[i] + ") ";
+        searchString = searchString + ".project-container:containsIns(" + words[i].trim() + ") ";
     }
     
     var relevantOptions = $(searchString);
