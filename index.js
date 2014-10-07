@@ -72,11 +72,15 @@ function getOptions(e)
 }
 
 $('#search-bar').on( 'keydown', function( e ) {
-    if( e.which == 9 || e.which == 13) {
+    if( e.which == 13) {
     	e.preventDefault();
     	
-        // Do Something on enter and tab
-        
+    	var href = $(".search-result.selected").attr("href");
+    	
+    	if(href != null && href != undefined)
+    	{
+    		window.location.href = href;
+    	}
     }
 } )
 .keyup(function(e) {
