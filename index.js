@@ -44,11 +44,13 @@ function getRelevantOptions(words)
 function fullOptionString( relevantOptions )
 {
     var htmlString = "";
+    var classText = "";
     
     for(var i = 0; i < relevantOptions.length; i++)
     {
+    	if(i == 0){ classText = " selected"; } else{ classText = ""; }
     	var relevantOption = relevantOptions[i];
-    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a").attr("href") + '" class="search-result" + id="sr' + i + '">'
+    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a").attr("href") + '" class="search-result' + classText + '" id="sr' + i + '">'
     		+ $(relevantOption).find("a").text() + '</a>';
     }
     
