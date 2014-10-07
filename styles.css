@@ -276,4 +276,5 @@ div.project-container{
 
 .side-bar-item{
   display: block;
+  cursor: pointer;
 }
