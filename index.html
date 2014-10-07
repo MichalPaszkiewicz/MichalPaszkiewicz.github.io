@@ -166,6 +166,12 @@
     <a href="./MusicSite/index.html" class="side-bar-item" alt="Michal Paszkiewicz's music site">Music</a>
   </nav>
   
+  <div id="right-bar" class="hidden">
+    <div class="side-bar-item">One</div>
+    <div class="side-bar-item">Two</div>
+    <div class="side-bar-item">Three</div>
+  </div>
+  
     <div class="push"></div>
   </div>
 <div class="footer">
@@ -181,17 +187,17 @@
   
     if($(window).width() > 1700)
     {
-      $("#side-bar").removeClass("hidden");
+      $("#side-bar, #right-bar").removeClass("hidden");
     }
     
     $( window ).resize(function() { 
       
       if($(window).width() > 1700)
       {
-        $("#side-bar").show();
+        $("#side-bar, #right-bar").show();
       }
       else{
-        $("#side-bar").hide();
+        $("#side-bar, #right-bar").hide();
       }
     });
   </script>
