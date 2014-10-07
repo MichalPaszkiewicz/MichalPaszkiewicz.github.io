@@ -206,3 +206,25 @@ div.project-container{
   color: rgb(121, 121, 121);
   cursor: pointer;
 }
+
+.sub-contents{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sub-contents .project-container{
+  min-height: 30px;
+  padding: 5px;
+  box-shadow: none;
+}
+
+.sub-contents .project-container a{
+  display: block;
+  width: 100%;
+  font-size: 18px;
+}
+
+.sub-contents .project-container span{
+  font-size: 17px;
+}
