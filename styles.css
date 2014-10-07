@@ -222,11 +222,10 @@ div.project-container{
   height: 100%;
   padding: 5px 10px;
   box-sizing: border-box;
-  overflow: auto;
 }
 
 sub-contents-container{
-  
+  overflow: auto;
 }
 
 .sub-contents .project-container{
@@ -250,4 +249,8 @@ sub-contents-container{
   color: white;
   width: 270px;
   display: block;
+}
+
+.close-sub{
+  
 }
