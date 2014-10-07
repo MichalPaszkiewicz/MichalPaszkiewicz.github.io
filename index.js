@@ -99,3 +99,8 @@ $('#search-bar').on( 'keydown', function( e ) {
     }
     return false;
 });
+
+
+$(".show-sub").click(function(){
+	$(this).closest(".sub-contents").removeClass("hidden");
+});
