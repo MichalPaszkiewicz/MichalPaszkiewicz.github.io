@@ -175,6 +175,17 @@
     {
       $("#side-bar").removeClass("hidden");
     }
+    
+    $( window ).resize(function() { 
+      
+      if($(window).width() > 1700)
+      {
+        $("#side-bar").show();
+      }
+      else{
+        $("#side-bar").hide();
+      }
+    });
   </script>
 
   <script src="cursormanager.js"></script>
