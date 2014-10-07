@@ -237,6 +237,8 @@ div.project-container{
 }
 
 .sub-contents .project-container span{
-  font-size: 17px;
+  font-size: 16px;
   color: white;
+  width: 270px;
+  display: block;
 }
