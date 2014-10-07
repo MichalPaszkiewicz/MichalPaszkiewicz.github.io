@@ -166,6 +166,7 @@ div.project-container{
   margin: 5px;
   box-shadow: 0 0 5px 0px rgb(68, 118, 134);
   border-radius: 10px;
+  position: relative;
 }
 
 #search-bar{
