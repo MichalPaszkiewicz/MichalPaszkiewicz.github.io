@@ -286,7 +286,7 @@ div.project-container{
   right: 50px;
 }
 
-a.side-bar-item{
+a.side-bar-item, div.side-bar-item{
   display: block;
   cursor: pointer;
   padding: 20px;
