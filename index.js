@@ -50,8 +50,8 @@ function fullOptionString( relevantOptions )
     {
     	if(i == 0){ classText = " selected"; } else{ classText = ""; }
     	var relevantOption = relevantOptions[i];
-    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a").attr("href") + '" class="search-result' + classText + '" id="sr' + i + '">'
-    		+ $(relevantOption).find("a").text() + '</a>';
+    	htmlString = htmlString + '<a href="' + $(relevantOption).find("a:first").attr("href") + '" class="search-result' + classText + '" id="sr' + i + '">'
+    		+ $(relevantOption).find("a:first").text() + '</a>';
     }
     
     return htmlString;
