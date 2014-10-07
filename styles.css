@@ -271,7 +271,6 @@ div.project-container{
   background: rgb(58, 64, 71);
   color: white;
   top: 50px;
-  left: 50px;
   width: 250px;
   margin: 0;
   text-align: center;
@@ -279,9 +278,12 @@ div.project-container{
   opacity: 0.95;
 }
 
+#side-bar{
+  left: 50px;
+}
+
 #right-bar{
   right: 50px;
-
 }
 
 a.side-bar-item{
