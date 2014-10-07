@@ -267,11 +267,15 @@ div.project-container{
 }
 
 #side-bar{
-  position: absolute;
-  background: black;
+  position: fixed;
+  background: rgb(58, 64, 71);
   color: white;
-  top: 240px;
-  left: 0;
+  top: 50px;
+  left: 50px;
+  width: 250px;
+  margin: 0;
+  text-align: center;
+  box-shadow: 0 0 5px 5px rgb(57, 109, 109);
 }
 
 .side-bar-item{
