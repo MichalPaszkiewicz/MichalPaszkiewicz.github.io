@@ -265,3 +265,15 @@ div.project-container{
   border-radius: 0 0 10px 10px;
   cursor:pointer;
 }
+
+#side-bar{
+  position: absolute;
+  background: black;
+  color: white;
+  top: 240px;
+  left: 0;
+}
+
+.side-bar-item{
+  display: block;
+}
