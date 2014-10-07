@@ -155,7 +155,7 @@ span.item{
 div.project-container{
   display: inline-block;
   max-width: 280px;
-  min-height: 180px;
+  min-height: 140px;
   vertical-align: top;
   padding: 20px;
   background: rgb(236, 242, 248);
@@ -170,4 +170,8 @@ div.project-container{
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 0 5px 5px rgb(210, 241, 255);
+}
+
+.project-container .panel p{
+  line-height: 20px;
 }
