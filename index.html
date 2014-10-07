@@ -185,9 +185,13 @@
 </div>
 
   <script>
+    var emulatorOpened = false;
   
     $(".phone-emulator-button").click(function(){
-      $("#phone-emulator #phone").html('<iframe src="http://www.michalpaszkiewicz.co.uk/"></iframe>');
+      if(!emulatorOpened){
+        $("#phone-emulator #phone").html('<iframe src="http://www.michalpaszkiewicz.co.uk/"></iframe>');
+        emulatorOpened = true;
+      }
       $("#phone-emulator-background, #phone-emulator").fadeToggle();
     });
   
