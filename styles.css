@@ -183,8 +183,11 @@ div.project-container{
 .search-result{
   box-shadow: 0 0 4px 2px;
   display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  min-width: 200px;
 }
 
-.search-result.selected{
-  background: green;
+.search-result.selected, .search-result:hover{
+  background: rgb(89, 109, 131);
 }
