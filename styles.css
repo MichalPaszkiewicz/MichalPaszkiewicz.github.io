@@ -266,7 +266,7 @@ div.project-container{
   cursor:pointer;
 }
 
-#side-bar{
+#side-bar, #right-bar{
   position: fixed;
   background: rgb(58, 64, 71);
   color: white;
@@ -277,6 +277,11 @@ div.project-container{
   text-align: center;
   box-shadow: 0 0 5px 5px rgb(57, 109, 109);
   opacity: 0.95;
+}
+
+#right-bar{
+  right: 50px;
+
 }
 
 a.side-bar-item{
