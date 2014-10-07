@@ -200,11 +200,16 @@ div.project-container{
 .show-sub{
   position: absolute;
   bottom: 0px;
-  left: 30px;
   font-size: 14px;
-  text-decoration: underline;
-  color: rgb(121, 121, 121);
   cursor: pointer;
+  color: white;
+  background: black;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  border-radius: 0 0 10px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .sub-contents{
