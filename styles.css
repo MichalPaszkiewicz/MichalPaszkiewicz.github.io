@@ -183,3 +183,7 @@ div.project-container{
 .search-result{
   box-shadow: 0 0 4px 2px;
 }
+
+.search-result.selected{
+  background: green;
+}
