@@ -279,7 +279,7 @@ div.project-container{
   opacity: 0.95;
 }
 
-.side-bar-item{
+a.side-bar-item{
   display: block;
   cursor: pointer;
   padding: 20px;
@@ -288,6 +288,8 @@ div.project-container{
   font-size: 25px;
   text-transform: uppercase;
   font-family: arial;
+  color: white;
+  text-decoration: none;
 }
 
 .side-bar-item:hover{
