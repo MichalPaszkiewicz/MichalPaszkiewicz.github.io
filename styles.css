@@ -304,16 +304,18 @@ a.side-bar-item, div.side-bar-item{
 }
 
 #phone-emulator-background{
-  position:absolute;
+  position:fixed;
   height: 100%;
   width: 100%;
   background: black;
   opacity: 0.6;
+  left: 0;
+  top: 0;
 }
 
 #phone-emulator #phone{
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
