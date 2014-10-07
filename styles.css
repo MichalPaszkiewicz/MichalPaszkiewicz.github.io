@@ -227,6 +227,7 @@ div.project-container{
 
 sub-contents-container{
   overflow: auto;
+  max-height: 155px;
 }
 
 .sub-contents .project-container{
