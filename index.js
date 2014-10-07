@@ -102,5 +102,5 @@ $('#search-bar').on( 'keydown', function( e ) {
 
 
 $(".show-sub").click(function(){
-	$(this).closest(".sub-contents").removeClass("hidden");
+	$(this).parent().find(".sub-contents").removeClass("hidden");
 });
