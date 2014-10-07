@@ -159,9 +159,11 @@
   </div>
   
   <nav id="side-bar" class="hidden">
-    <a class="side-bar-item">One</a>
-    <a class="side-bar-item">Two</a>
-    <a class="side-bar-item">Three</a>
+    <a class="side-bar-item" onclick="scrollToWord('Science')" alt="Science and technology projects">Science and technology</a>
+    <a class="side-bar-item" onclick="scrollToWord('Arts')" alt="Arts projects">Arts</a>
+    <a href="./go/" class="side-bar-item" alt="Play Go online">Go</a>
+    <a href="/blog.html" class="side-bar-item" alt="The official blog of Michal Paszkiewicz">Blog</a>
+    <a href="./MusicSite/index.html" class="side-bar-item" alt="Michal Paszkiewicz's music site">Music</a>
   </nav>
   
     <div class="push"></div>
@@ -171,6 +173,12 @@
 </div>
 
   <script>
+    function scrollToWord(word){
+        $('html,body').animate({
+        scrollTop: $("h2:contains(" + word + ")").offset().top},
+        'slow');
+    }
+  
     if($(window).width() > 1700)
     {
       $("#side-bar").removeClass("hidden");
