@@ -163,3 +163,11 @@ div.project-container{
   box-shadow: 0 0 5px 0px rgb(68, 118, 134);
   border-radius: 10px;
 }
+
+#search-bar{
+  background: aliceblue;
+  color: black;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 5px rgb(210, 241, 255);
+}
