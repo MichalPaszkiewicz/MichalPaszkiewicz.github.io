@@ -187,17 +187,17 @@
   
     if($(window).width() > 1700)
     {
-      $("#side-bar, #right-bar").removeClass("hidden");
+      $("#side-bar, #right-bar").slideDown();
     }
     
     $( window ).resize(function() { 
       
       if($(window).width() > 1700)
       {
-        $("#side-bar, #right-bar").show();
+        $("#side-bar, #right-bar").slideDown();
       }
       else{
-        $("#side-bar, #right-bar").hide();
+        $("#side-bar, #right-bar").slideUp();
       }
     });
   </script>
