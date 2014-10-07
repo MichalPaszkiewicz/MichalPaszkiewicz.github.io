@@ -211,20 +211,27 @@ div.project-container{
   position: absolute;
   top: 0;
   left: 0;
+  background: black;
+  border-radius: 10px;
+  color: white;
 }
 
 .sub-contents .project-container{
   min-height: 30px;
   padding: 5px;
   box-shadow: none;
+  background: black;
+  color: white;
 }
 
 .sub-contents .project-container a{
   display: block;
   width: 100%;
   font-size: 18px;
+  color: white;
 }
 
 .sub-contents .project-container span{
   font-size: 17px;
+  color: white;
 }
