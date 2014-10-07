@@ -262,4 +262,5 @@ sub-contents-container{
   left: 0;
   color: black;
   border-radius: 0 0 10px 10px;
+  cursor:pointer;
 }
