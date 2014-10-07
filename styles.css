@@ -225,7 +225,7 @@ div.project-container{
   box-shadow: 0 0 5px 2px rgb(51, 19, 19);
 }
 
-sub-contents-container{
+.sub-contents-container{
   overflow: auto;
   max-height: 155px;
 }
