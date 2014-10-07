@@ -172,6 +172,6 @@ div.project-container{
   box-shadow: 0 0 5px 5px rgb(210, 241, 255);
 }
 
-.project-container .panel p{
+ .panel .project-container p{
   line-height: 20px;
 }
