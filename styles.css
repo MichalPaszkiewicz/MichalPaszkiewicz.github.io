@@ -337,4 +337,5 @@ a.side-bar-item, div.side-bar-item{
   max-width: 900px;
   margin: auto;
   margin-top: 20px;
+  overflow: auto;
 }
