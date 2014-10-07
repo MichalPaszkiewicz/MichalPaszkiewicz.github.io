@@ -302,3 +302,28 @@ a.side-bar-item, div.side-bar-item{
 .side-bar-item:hover{
   background: rgb(89, 109, 131);
 }
+
+#phone-emulator-background{
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.6;
+}
+
+#phone-emulator #phone{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 500px;
+  height: 500px;
+}
+
+#phone-emulator #phone iframe{
+  height: 100%;
+  width: 100%;
+}
