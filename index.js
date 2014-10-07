@@ -1,4 +1,4 @@
-var mark = 'Watermark',
+var mark = 'Search here',
     edited = false;
 
 $('[contenteditable]').focus(function() {
