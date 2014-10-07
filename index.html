@@ -167,9 +167,13 @@
   </nav>
   
   <div id="right-bar" class="hidden">
-    <div class="side-bar-item">One</div>
+    <div class="side-bar-item phone-emulator-button">Phone emulator</div>
     <div class="side-bar-item">Two</div>
     <div class="side-bar-item">Three</div>
+  </div>
+  
+  <div id="phone-emulator" class="hidden">
+
   </div>
   
     <div class="push"></div>
@@ -179,6 +183,12 @@
 </div>
 
   <script>
+  
+    $(".phone-emulator-button").click(function(){
+      $("#phone-emulator").html('<iframe src="www.michalpaszkiewicz.co.uk/"></iframe>');
+      $("#phone-emulator").fadeToggle();
+    });
+  
     function scrollToWord(word){
         $('html,body').animate({
         scrollTop: $("h2:contains(" + word + ")").offset().top},
