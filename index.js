@@ -102,7 +102,7 @@ $('#search-bar').on( 'keydown', function( e ) {
 
 
 $(".show-sub").click(function(){
-	$(this).parent().find(".sub-contents").fadeToggle();
+	$(this).parent().find(".sub-contents").slideDown();
 });
 
 $(".close-sub").click(function(){
