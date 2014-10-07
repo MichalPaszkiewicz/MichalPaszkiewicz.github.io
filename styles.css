@@ -281,4 +281,14 @@ div.project-container{
 .side-bar-item{
   display: block;
   cursor: pointer;
+  padding: 20px;
+  margin: 0;
+  box-shadow: 0 1px 1px rgb(83, 112, 104);
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: arial;
+}
+
+.side-bar-item:hover{
+  background: rgb(89, 109, 131);
 }
