@@ -172,7 +172,9 @@
     <div class="side-bar-item">Three</div>
   </div>
   
+  <div id="phone-emulator-background" class="hidden"></div>
   <div id="phone-emulator" class="hidden">
+    <div id="phone"></div>
 
   </div>
   
@@ -185,8 +187,8 @@
   <script>
   
     $(".phone-emulator-button").click(function(){
-      $("#phone-emulator").html('<iframe src="http://www.michalpaszkiewicz.co.uk/"></iframe>');
-      $("#phone-emulator").fadeToggle();
+      $("#phone-emulator #phone").html('<iframe src="http://www.michalpaszkiewicz.co.uk/"></iframe>');
+      $("#phone-emulator-background, #phone-emulator").fadeToggle();
     });
   
     function scrollToWord(word){
