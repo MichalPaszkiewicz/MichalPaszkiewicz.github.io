@@ -175,3 +175,11 @@ div.project-container{
  .panel .project-container p{
   line-height: 20px;
 }
+
+#search-results{
+  margin-top: 15px;
+}
+
+.search-result{
+  box-shadow: 0 0 4px 2px;
+}
