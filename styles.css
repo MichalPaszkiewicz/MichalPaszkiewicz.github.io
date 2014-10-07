@@ -4,6 +4,10 @@ body, html{
   width: 100%;
 }
 
+.hidden{
+  display: none;
+}
+
 a{
   margin-right: 100px;
   display: inline-block;
