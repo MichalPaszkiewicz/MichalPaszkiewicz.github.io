@@ -328,7 +328,7 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
 }
 
 #phone-emulator #phone{
-  display: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
