@@ -328,7 +328,11 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
 }
 
 #phone-emulator #phone{
-  display: block;
+  display: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: auto;
   width: 360px;
   height: 500px;
