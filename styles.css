@@ -314,13 +314,21 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
   top: 0;
 }
 
-#phone-emulator #phone{
-  display: block;
+#phone-emulator{
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  margin: auto;
+  width:400px;
+  height:550px;
+  background:black;
+}
+
+#phone-emulator #phone{
+  display: block;
   margin: auto;
   width: 360px;
   height: 500px;
