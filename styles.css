@@ -287,7 +287,7 @@ div.project-container{
   right: 50px;
 }
 
-a.side-bar-item, div.side-bar-item{
+a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
   display: block;
   cursor: pointer;
   padding: 20px;
@@ -365,7 +365,5 @@ a.side-bar-item, div.side-bar-item{
 }
 
 .phone-menu-item{
-  box-shadow: 0 1px 1px rgb(83, 112, 104);
-  font-size: 25px;
-  text-transform: uppercase;
+
 }
