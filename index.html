@@ -217,6 +217,10 @@
     $("#phone-menu-switch").click(function(){
       $("#phone-menu").toggleClass("hidden");
     });
+    
+    $("#phone-menu").click(function(){
+      $(this).hide();
+    });
   
     function scrollToWord(word){
         $('html,body').animate({
@@ -240,6 +244,7 @@
         $("#side-bar, #right-bar").slideDown();
         
         $("#phone-menu-switch").hide();
+        $("#phone-menu").hide();
       }
       else{
         $("#side-bar, #right-bar").slideUp();
