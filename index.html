@@ -180,7 +180,11 @@
   
   <div id="phone-menu-switch" class="hidden"></div>
   <div id="phone-menu" class="hidden">
-    
+    <a class="phone-menu-item" onclick="scrollToWord('Science')" alt="Science and technology projects">Science and technology</a>
+    <a class="phone-menu-item" onclick="scrollToWord('Arts')" alt="Arts projects">Arts</a>
+    <a href="./go/" class="phone-menu-item" alt="Play Go online">Go</a>
+    <a href="/blog.html" class="phone-menu-item" alt="The official blog of Michal Paszkiewicz">Blog</a>
+    <a href="./MusicSite/index.html" class="phone-menu-item" alt="Michal Paszkiewicz's music site">Music</a>
   </div>
   
     <div class="push"></div>
@@ -209,6 +213,10 @@
       }
       $("#phone-emulator-background, #phone-emulator").fadeToggle();
     });
+    
+    $("#phone-menu-switch").click(function(){
+      $("#phone-menu").toggleClass("hidden");
+    });
   
     function scrollToWord(word){
         $('html,body').animate({
@@ -220,15 +228,23 @@
     {
       $("#side-bar, #right-bar").slideDown();
     }
+    else
+    {
+      $("#phone-menu-switch").show();
+    }
     
     $( window ).resize(function() { 
       
       if($(window).width() > 1700)
       {
         $("#side-bar, #right-bar").slideDown();
+        
+        $("#phone-menu-switch").hide();
       }
       else{
         $("#side-bar, #right-bar").slideUp();
+        
+        $("#phone-menu-switch").show();
       }
     });
   </script>
