@@ -300,7 +300,7 @@ a.side-bar-item, div.side-bar-item{
   text-decoration: none;
 }
 
-.side-bar-item:hover{
+.side-bar-item:hover, .phone-menu-item:hover{
   background: rgb(89, 109, 131);
 }
 
@@ -355,8 +355,17 @@ a.side-bar-item, div.side-bar-item{
   position: fixed;
   top:0;
   max-width:400px;
+  background: rgb(58, 64, 71);
+  box-shadow: 0 1px 1px rgb(83, 112, 104);
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: arial;
+  color: white;
+  text-decoration: none;
 }
 
 .phone-menu-item{
-  
+  box-shadow: 0 1px 1px rgb(83, 112, 104);
+  font-size: 25px;
+  text-transform: uppercase;
 }
