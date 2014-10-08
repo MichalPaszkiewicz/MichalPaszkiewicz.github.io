@@ -349,6 +349,8 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
   background: green;
   border-radius: 0 0 0 30px;
   cursor: pointer;
+  
+  z-index: 2010;
 }
 
 #phone-menu{
@@ -362,6 +364,8 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
   font-family: arial;
   color: white;
   text-decoration: none;
+  
+  z-index: 2000;
 }
 
 .phone-menu-item{
