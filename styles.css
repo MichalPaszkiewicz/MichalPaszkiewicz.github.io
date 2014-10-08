@@ -348,6 +348,7 @@ a.side-bar-item, div.side-bar-item{
   height: 30px;
   background: green;
   border-radius: 0 0 0 30px;
+  cursor: pointer;
 }
 
 #phone-menu{
