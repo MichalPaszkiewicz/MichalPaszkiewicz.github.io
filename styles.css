@@ -300,6 +300,11 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
   text-decoration: none;
 }
 
+a.side-bar-img, div.side-bar-img{
+  padding: 0;
+  min-height: 180px;
+}
+
 .side-bar-item:hover, .phone-menu-item:hover{
   background: rgb(89, 109, 131);
 }
