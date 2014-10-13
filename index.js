@@ -65,9 +65,17 @@ function getOptions(e)
 		
 		var typedText = $("#search-bar").text();
 		
-		var relevantWords =  typedText.split(' ');
+		var relevantOptions = getRelevantOptions(typedText);
+		if(relevantOptions.length < 1){
+			var relevantWords =  typedText.split(' ');
+			var htmlString = fullOptionString( relevantOptions );
+			var relevantOptions = getRelevantOptions(relevantWords);
+		}
 		
-		$("#search-results").html( fullOptionString( getRelevantOptions(relevantWords) ));
+		var htmlString = fullOptionString( relevantOptions );
+		
+		
+		$("#search-results").html( htmlString );
 	}
 }
 
