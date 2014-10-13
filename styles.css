@@ -249,7 +249,7 @@ div.project-container{
 .sub-contents .project-container span{
   font-size: 16px;
   color: white;
-  width: 270px;
+  max-width: 270px;
   display: block;
 }
 
