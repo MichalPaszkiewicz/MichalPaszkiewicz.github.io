@@ -65,7 +65,11 @@ function getOptions(e)
 		
 		var typedText = $("#search-bar").text();
 		
-		var relevantOptions = getRelevantOptions(typedText);
+		var testList = [];
+		
+		testList.push(typedText);
+		
+		var relevantOptions = getRelevantOptions(testList);
 		if(relevantOptions.length < 1){
 			var relevantWords =  typedText.split(' ');
 			var htmlString = fullOptionString( relevantOptions );
