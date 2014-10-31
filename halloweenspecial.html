@@ -14,6 +14,7 @@
 </script>
 </head>
 <body id="lol" style="margin: 0; padding: 0;">
+<canvas width=1920 height=1000 id="canvas"></canvas>
 <img id="background" width=1920 src="http://img2.goodfon.su/wallpaper/big/a/ea/peyzazh-priroda-nebo-oblaka-948.jpg" style="position: fixed; opacity: 0.4; left: 0; top: 0; height: 100%; width: 100%; z-index: 10">
 <pre class="skele" style="margin: auto; width: 500px; z-index: 20; position: absolute; left: 0; right: 0;">
                              ,..oooooooooob..                         
@@ -105,15 +106,12 @@ var meh = setInterval(function(){
 <script>
 var image = document.getElementById('background');
     var engine = new RainyDay({
-    image: image,         // Image element
-                            // This value is required
-    parentElement: document.getElementById("lol"), // Element to be used as a parent for the canvas
-                            // If not provided assuming the 'body' element
-    blur: 10,               // Defines blur due to rain effect
-                            // Assuming 10 if not provided
-                            // Use 0 value to disable the blur
-    opacity: 1              // Opacity of rain drops
-                            // Assuming 1 if not provided
+    canvasid: "canvas",
+    sourceid: "image",
+    width: "100%",
+    height: "100%",
+    opacity: 1,
+    blur: 10
 });
 engine.rain(
     [
