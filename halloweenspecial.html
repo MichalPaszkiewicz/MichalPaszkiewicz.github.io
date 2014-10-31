@@ -12,6 +12,12 @@
   ga('send', 'pageview');
 
 </script>
+<style>
+    .reverse{
+        background: black;
+        color: white;
+    }
+</style>
 </head>
 <body id="lol" style="margin: 0; padding: 0;">
 <pre class="skele" style="margin: auto; width: 500px; z-index: 20; position: absolute; left: 0; right: 0;">
@@ -97,6 +103,18 @@ var meh = setInterval(function(){
        clearInterval(meh)
     } 
 }, 3);
+
+var switch = false;
+
+var flash = setInterval(function(){
+    if(switch){
+        $("body").toggleClass("reverse");
+    }
+}, 200);
+
+var switcher = setInterval(function(){
+    switch = !switch;
+}, 2000);
 </script>
 </body>
 </html>
