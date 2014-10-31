@@ -87,6 +87,9 @@ YO:::;Y::Ob ,8888888888888888;::       :;88888888888888888  :88::::::8
 var x = 0;
 var meh = setInterval(function(){ 
     x++; 
+    while(blah[x] == " "){
+        x++;
+    }
     var z = blah.substring(0, x);
         $(".skele").text(z); 
     if(z == blah.length){
