@@ -14,7 +14,8 @@
 </script>
 </head>
 <body>
-<pre class="skele" style="margin: auto; width: 500px;">
+<img id="background" src="http://img2.goodfon.su/wallpaper/big/a/ea/peyzazh-priroda-nebo-oblaka-948.jpg" style="height: 100%; width: 100%; z-index: 10">
+<pre class="skele" style="margin: auto; width: 500px; z-index: 20">
                              ,..oooooooooob..                         
                        ,.dodOOOO"""""":"ooPO88bo..                     
                      .o8O""" '            "'"""PO8b.                   
@@ -102,6 +103,7 @@ var meh = setInterval(function(){
 <script src="http://maroslaw.github.io/rainyday.js/dist/rainyday.0.1.1.min.js"></script>
 
 <script>
+var image = document.getElementById('background');
     var engine = new RainyDay({
     image: element,         // Image element
                             // This value is required
