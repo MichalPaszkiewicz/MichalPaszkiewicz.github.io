@@ -13,7 +13,7 @@
 
 </script>
 </head>
-<body style="margin: 0; padding: 0;">
+<body id="lol" style="margin: 0; padding: 0;">
 <img id="background" src="http://img2.goodfon.su/wallpaper/big/a/ea/peyzazh-priroda-nebo-oblaka-948.jpg" style="position: fixed; opacity: 0.4; left: 0; top: 0; height: 100%; width: 100%; z-index: 10">
 <pre class="skele" style="margin: auto; width: 500px; z-index: 20; position: absolute; left: 0; right: 0;">
                              ,..oooooooooob..                         
@@ -107,7 +107,7 @@ var image = document.getElementById('background');
     var engine = new RainyDay({
     image: image,         // Image element
                             // This value is required
-    parentElement: $("body"), // Element to be used as a parent for the canvas
+    parentElement: document.getElementById("lol"), // Element to be used as a parent for the canvas
                             // If not provided assuming the 'body' element
     crop: [0, 0, 50, 60],   // Coordinates if only a part of the image should be used
                             // If not provided entire image will be used
