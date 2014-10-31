@@ -105,14 +105,14 @@ var meh = setInterval(function(){
 
 <script>
 var image = document.getElementById('background');
-    var engine = new RainyDay({
-    canvasid: "canvas",
-    sourceid: "image",
-    width: "100%",
-    height: "100%",
-    opacity: 1,
-    blur: 10
-});
+    var engine = new RainyDay(
+    "canvas",
+    "image",
+    "100%",
+    "100%",
+    1,
+    10
+);
 engine.rain(
     [
         [1, 0, 20],         // add 20 drops of size 1...
