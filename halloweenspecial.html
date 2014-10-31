@@ -89,10 +89,11 @@ var meh = setInterval(function(){
     x++; 
     while(blah[x] == " "){
         x++;
+        if(x == blah.length){break;}
     }
     var z = blah.substring(0, x);
         $(".skele").text(z); 
-    if(z == blah.length){
+    if(x == blah.length){
        clearInterval(meh)
     } 
 }, 10);
