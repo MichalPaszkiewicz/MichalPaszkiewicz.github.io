@@ -70,6 +70,8 @@ h3{
       margin: 5px;
       clear: both;
       float: left;
+      position: relative;
+      z-index: 20;
     }
     
     .panel:nth-child(2n) h2{
@@ -403,4 +405,5 @@ a.side-bar-img, div.side-bar-img{
   background-size: 500px 200px;
   opacity: 0.05;
   transform: rotateZ(40deg);
+  z-index: 10;
 }
