@@ -25,10 +25,51 @@
 
   <div id="panel2" class="panel">
     <div class="panel-box">
-      <h2>Regin trojan </h2><a class="link" alt="Summary of Regin trojan malware" href="http://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/regin-analysis.pdf">Symantec summary </a>
+      <h2>Regin trojan </h2>
+      <br />
+      <a class="link" alt="Summary of Regin trojan malware" href="http://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/regin-analysis.pdf">Symantec summary </a>
+      <h3>TLDR:</h3>
       <p>
-        
+        This malware is crazy. Version 1.0 has been going since 2008. Version 2.0 has been in use from at least 2013, although little is still known about this version, as it has not yet been fully analysed. Symantec's report is based on analysis on version 1.0.
       </p>
+      
+      <h3>Who has been targeted?</h3>
+      <p>
+        Symantec states that the creators of Regin have been able to gain data from:
+        <ul>
+          <li>Government organisations</li>
+          <li>Infrastructure operators</li>
+          <li>Businesses</li>
+          <li>Academics</li>
+          <li>Private individuals</li>
+        </ul>
+      </p>
+      
+      <h3>Why is it so dangerous?</h3>
+      <p>
+        Regin is modular and allows whoever is behind it to easily deploy new modules. What this means is that they can continuously add new software to change what the malware will actually do in your computer.
+      </p>
+      <p>
+        Whoever is behind Regin have a lot of specialist knowledge. Symantec has said that 'some of Regin’s custom payloads point to a 
+high level of specialist knowledge in particular sectors, such as telecoms infrastructure software, on the part of 
+the developers'. Most cases of the malware have been found to have been customised for individual cases, meaning the program has been customised to optimise data gathering from each infiltration. The software has been created to cover up what it is they are stealing. Security agencies have not been able to find what information has been stolen in some cases.
+      </p>
+      <p>
+        What is known, is what kinds of information have been stolen. The software has managed to do the following:
+        <ul>
+          <li>Access remote features - take screenshots and take control of mouse functions</li>
+          <li>Steal passwords</li>
+          <li>Monitor network traffic</li>
+          <li>Gather information on processes and memory utilisation</li>
+          <li>Scan for deleted files and retrieve them</li>
+          <li>Monitor traffic to IIS web servers</li>
+          <li>Parsing mail from exchange databases</li>
+        </ul>
+      </p>
+      
+      <h3>Who is behind this?</h3>
+      <p>Initial reports suggest that this malware must have originated in the West, since western countries do not largely feature amongst the targets.</p>
+      <p>Saudi Arabia and Russia are among the most prominent targets, taking up 24 and 28% respectively of the targets.</p>
 
     </div>
   </div>
