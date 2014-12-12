@@ -54,5 +54,6 @@
 
 .rotating {
     -webkit-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
       transform-style: preserve-3d;
 }
