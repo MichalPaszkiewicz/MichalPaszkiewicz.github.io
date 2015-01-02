@@ -18,7 +18,7 @@ $('[contenteditable]').focus(function() {
 
 $.expr[":"].containsIns = $.expr.createPseudo(function(arg) {
     return function( elem ) {
-        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+        return $(elem).html().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
     };
 });
 
