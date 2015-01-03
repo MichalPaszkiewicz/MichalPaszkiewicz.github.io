@@ -8,63 +8,91 @@
 
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/blog.html</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/the-moon-and-jupiter.html</loc>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/astrophotography.html</loc>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/music-software.html</loc>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/regin.html</loc>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/halloweenspecial.html</loc>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/peerjs-game.html</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/quintus-and-bing-code-search.html</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/cracking-codes.html</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/first-post.html</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/maths/</loc>
-  <lastmod>2014-10-09T13:20:16+00:00</lastmod>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.michalpaszkiewicz.co.uk/maths/bignumber/</loc>
-  <lastmod>2014-10-09T13:20:16+00:00</lastmod>
+  <loc>http://www.michalpaszkiewicz.co.uk/maths/game-theory/</loc>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/maths/getfib/</loc>
-  <lastmod>2014-10-09T13:20:16+00:00</lastmod>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/maths/series/</loc>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/maths/bignumber/</loc>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/go/</loc>
-  <lastmod>2014-08-19T13:21:58+00:00</lastmod>
+  <lastmod>2014-11-11T10:26:02+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/localfile/</loc>
-  <lastmod>2014-08-29T14:32:09+00:00</lastmod>
+  <lastmod>2014-11-11T10:28:04+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/natural-selection/</loc>
-  <lastmod>2014-07-15T19:48:36+00:00</lastmod>
+  <lastmod>2014-11-11T10:33:12+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/Cryptosaurus/</loc>
-  <lastmod>2014-08-07T13:31:39+00:00</lastmod>
+  <lastmod>2014-10-23T13:49:38+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/Cryptosaurus/vigenere.html</loc>
-  <lastmod>2014-08-07T13:31:39+00:00</lastmod>
+  <lastmod>2014-10-23T13:49:38+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/Cryptosaurus/vigenere-cracker.html</loc>
-  <lastmod>2014-08-07T13:31:39+00:00</lastmod>
+  <lastmod>2014-10-23T13:49:38+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/platformer/</loc>
@@ -72,46 +100,74 @@
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/footsies/</loc>
-  <lastmod>2014-08-07T13:32:02+00:00</lastmod>
+  <lastmod>2014-11-11T10:34:37+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/UKsecurity/</loc>
-  <lastmod>2014-09-16T15:37:01+00:00</lastmod>
+  <lastmod>2014-10-23T15:04:48+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/towerdefencegame/</loc>
-  <lastmod>2014-09-16T17:43:19+00:00</lastmod>
+  <lastmod>2014-10-19T17:35:52+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/MusicSite/</loc>
-  <lastmod>2014-10-02T13:50:33+00:00</lastmod>
+  <lastmod>2014-11-11T10:29:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/MusicSite/index.html</loc>
-  <lastmod>2014-10-02T13:50:33+00:00</lastmod>
+  <lastmod>2014-11-11T10:29:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/MusicSite/About.html</loc>
-  <lastmod>2014-10-02T13:50:33+00:00</lastmod>
+  <lastmod>2014-11-11T10:29:05+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/musicscoretrainer/</loc>
-  <lastmod>2014-10-01T08:26:21+00:00</lastmod>
+  <lastmod>2014-11-11T10:24:08+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/inknote/</loc>
+  <lastmod>2014-12-19T10:33:33+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/inknote/composer/</loc>
+  <lastmod>2014-12-19T10:33:33+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/inknote/developer/</loc>
+  <lastmod>2014-12-19T10:33:33+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/bezier-curve-extractor/</loc>
+  <lastmod>2014-12-06T10:16:24+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/index.html</loc>
-  <lastmod>2014-10-13T13:35:24+00:00</lastmod>
+  <lastmod>2015-01-02T18:55:05+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/maths/game-theory/number-sum-game.html</loc>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/maths/getfib/contains.html</loc>
-  <lastmod>2014-10-09T13:20:16+00:00</lastmod>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/maths/getfib/ends.html</loc>
-  <lastmod>2014-10-09T13:20:16+00:00</lastmod>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/maths/series/powers-of-two.html</loc>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.michalpaszkiewicz.co.uk/maths/game-theory/index.html</loc>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.michalpaszkiewicz.co.uk/maths/getfib/index.html</loc>
-  <lastmod>2014-10-09T13:20:16+00:00</lastmod>
+  <lastmod>2015-01-02T16:54:31+00:00</lastmod>
 </url>
 </urlset>
