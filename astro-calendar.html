@@ -70,7 +70,9 @@
 	<script>
 		var astroModule = angular.module('app', []).
 		controller("calendarControl", function calendarControl($scope){
-		
+			
+			$scope.LOLOL = true;
+			
 			function daysInMonth(month,year) {
 			    return new Date(year, month, 0).getDate();
 			}
