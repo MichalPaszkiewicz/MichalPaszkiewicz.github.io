@@ -32,7 +32,7 @@
 			</div>	
 			<div class="week" ng-repeat="week in weeks">
 				<div ng-repeat="day in week.days" style="display: inline-block; vertical-align:top; height:186px">
-					<div ng-style="{'background-image':'url(images/small-' + {{day.img}} + ')'}" style="height: 150px; width: 150px;">{{day.date}}</div>
+					<div ng-style="{'background-image':'url(images/small-' + {{day.img}} + ')'}" class="one-day">{{day.date}}</div>
 					<div style="text-align: center;">{{date.date}}</div>
 					<div style="text-align: center;" ng-show="date.post!=undefined"><a style="color:darkred" target="_blank" href="{{date.post}}">Go to post</a></div>
 				</div>
@@ -60,6 +60,7 @@
 		
 		.week{}
 		.day{min-width: 150px; display: inline-block; text-align: center;}
+		.one-day{text-align: center; line-height: 150px; height: 150px; width: 150px;}
 	</style>
 	
 	<script>
