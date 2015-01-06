@@ -14,7 +14,7 @@
 </head>
 <body style="background:black; color: darkred;">
 	<div id="main-container">
-		<h1 style="text-align: center; font-family: monospace; text-transform: lowercase; font-size: 50px; text-shadow: 0.5px 0.5px white;" ng-click="LOLOL = !LOLOL;">Astrophotography calendar</h1>
+		<span style="font-size: 50px padding: 0 10px" ng-click="previousMonth()"><<</span><h1 style="text-align: center; font-family: monospace; text-transform: lowercase; font-size: 50px; text-shadow: 0.5px 0.5px white;" ng-click="LOLOL = !LOLOL;">Astrophotography calendar</h1><span style="font-size: 50px padding: 0 10px" ng-click="nextMonth()">>></span>
 		<div id="years" ng-show="false">
 			<div ng-repeat="year in years">{{year.year}}</div>
 		</div>
@@ -79,6 +79,8 @@
 			
 			$scope.LOLOL = true;
 			
+			$scope.currentDate = new Date();
+			
 			function daysInMonth(month,year) {
 			    return new Date(year, month, 0).getDate();
 			}
@@ -87,12 +89,12 @@
 			    return new Date(year, month, 0).getDay();
 			}
 			
-			$scope.setWeeks = function(){
+			$scope.setWeeks = function(nowDate){
 				$scope.weeks = [];
 				
-				var nowTime = new Date();
-				var lastTime = new Date();
-				lastTime.setMonth(new Date().getMonth() - 1)
+				var nowTime = nowDate;
+				var lastTime = nowDate;
+				lastTime.setMonth(nowDate.getMonth() - 1)
 				var nowYear = nowTime.getUTCFullYear();
 				var nowMonth = nowTime.getMonth();
 				var lastMonth = lastTime.getMonth();
@@ -141,6 +143,14 @@
 					}
 				}
 			}
+			
+			$scope.nextMonth = function(){
+				$scope.setWeeks($scope.currentDate.setMonth($scope.currentDate.getMonth() + 1));
+			}
+			
+			$scope.previousMonth = function(){
+				$scope.setWeeks($scope.currentDate.setMonth($scope.currentDate.getMonth() - 1));
+			}
 		
 			$scope.showBigIMG = false;
 			$scope.BigIMG = "images/first-ever-moon.JPG";
@@ -167,7 +177,7 @@
 			{img:"first-ever-moon.JPG", date:"December 30th 2014", posted:{day: 30, month: 12, year: 2014}, post:"the-moon-and-jupiter.html"},
 			{img:"Moon-epiphany.png", date:"January 3rd 2015", posted:{day: 3, month: 1, year: 2015}}];
 		
-						$scope.setWeeks();
+			$scope.setWeeks(new Date());
 		
 		});
 	</script>
