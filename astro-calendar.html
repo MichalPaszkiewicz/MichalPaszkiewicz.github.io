@@ -92,15 +92,15 @@
 				var counter = 0;
 				
 				while(finished == false){
-					if($scope.weeks.length == 0 || $scope.weeks[$scope.weeks.length].days.length == 7){
+					if($scope.weeks.length == 0 || $scope.weeks[$scope.weeks.length - 1].days.length == 7){
 						$scope.weeks.push({days: []});
 					}
 					
 					if(counter < firstDay){
-						$scope.weeks[$scope.weeks.length].days.push({date: lastAmountOfDays + counter + 1 - firstDay});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 1 - firstDay});
 					}
 					else if(counter < firstDay + nowAmountOfDays){
-						$scope.weeks[$scope.weeks.length].days.push({date: counter - firstDay});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: counter - firstDay});
 					}
 					
 					if(counter > nowAmountOfDays + firstDay){
