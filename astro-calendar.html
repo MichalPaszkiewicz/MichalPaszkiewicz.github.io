@@ -134,6 +134,10 @@
 				var nowAmountOfDays = daysInMonth(nowMonth, nowYear);
 				var lastAmountOfDays = daysInMonth(lastMonth, lastYear);
 				
+				var realTime = new Date();
+				var realYear = realTime.getUTCFullYear();
+				var realMonth = realTime.getMonth();
+				
 				var firstDay = (firstDayNumber(nowMonth, nowYear) + 1) % 7;
 				
 				var finished = false;
@@ -167,9 +171,9 @@
 							}
 						}
 						
-						if($scope.weeks[i].days[j].date == nowTime.getDate() && 
-						$scope.weeks[i].days[j].month == nowMonth + 1 &&
-						$scope.weeks[i].days[j].year == nowYear){
+						if($scope.weeks[i].days[j].date == realTime.getDate() && 
+						$scope.weeks[i].days[j].month == realMonth + 1 &&
+						$scope.weeks[i].days[j].year == realYear){
 							$scope.weeks[i].days[j].today = true;
 						}
 					}
