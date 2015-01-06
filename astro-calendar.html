@@ -25,6 +25,20 @@
 			<div style="text-align: center;">{{date.date}}</div>
 			<div style="text-align: center;" ng-show="date.post!=undefined"><a style="color:darkred" target="_blank" href="{{date.post}}">Go to post</a></div>
 		</div>
+		
+		<div>
+			<div class="week names">
+			    <span class="day">Sun</span>
+			    <span class="day">Mon</span>
+			    <span class="day">Tue</span>
+			    <span class="day">Wed</span>
+			    <span class="day">Thu</span>
+			    <span class="day">Fri</span>
+			    <span class="day">Sat</span>
+			</div>	
+			<div class="week"></div>
+		</div>
+		
 		<div style="position: fixed; top:0; left:0; width: 100%; height: 100%; overflow-y: auto; display:inline-block; background:black;" ng-click="showBigIMG = !showBigIMG" ng-show="showBigIMG">
 			<div ng-style="{'background-image':'url(images/' + BigIMG + ')'}" style="width: 100%; padding-bottom: 100%; background-size: cover;"></div>
 		</div>
