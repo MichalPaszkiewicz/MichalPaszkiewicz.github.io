@@ -67,30 +67,74 @@
 		var astroModule = angular.module('app', []).
 		controller("calendarControl", function calendarControl($scope){
 		
-		$scope.showBigIMG = false;
-		$scope.BigIMG = "images/first-ever-moon.JPG";
+			function daysInMonth(month,year) {
+			    return new Date(year, month, 0).getDate();
+			}
+			
+			function firstDayNumber(month,year) {
+			    return new Date(year, month, 0).getDay();
+			}
+			
+			$scope.setWeeks = function(){
+				$scope.weeks = [];
+				
+				var nowTime = new Date();
+				var lastTime = new Date();
+				lastTime.setMonth(new Date().getMonth() - 1)
+				var nowYear = nowTime.getUTCFullYear();
+				var nowMonth = nowTime.getMonth();
+				var nowAmountOfDays = daysInMonth(nowMonth, nowYear);
+				var lastAmountOfDays = daysInMonth(lastTime.getMonth(), lastTime.getUTCFullYear());
+				
+				var firstDay = (firstDayNumber(nowMonth, nowYear) + 1) % 7;
+				
+				var finished = false;
+				var counter = 0;
+				
+				while(finished == false){
+					if($scope.weeks.length == 0 || $scope.weeks[$scope.weeks.length].days.length == 7){
+						$scope.weeks.push({days: []});
+					}
+					
+					if(counter < firstDay){
+						$scope.weeks[$scope.weeks.length].days.push({date: lastAmountOfDays + counter + 1 - firstDay});
+					}
+					else if(counter < firstDay + nowAmountOfDays){
+						$scope.weeks[$scope.weeks.length].days.push({date: counter - firstDay});
+					}
+					
+					if(counter > nowAmountOfDays + firstDay){
+						finished = true; 
+					}
+					counter++;
+				}
+			}
 		
-		$scope.setBigIMG = function(date){
-			$scope.BigIMG=date.img;
-			$scope.showBigIMG = !$scope.showBigIMG; 
-
-		}
-		
-		$scope.weeks = [{
-			name: "One",
-			days: [{date: 28}, {date: 29}, {date: 30}, {date: 31}, {date: 1}, {date: 2}, {date: 3}]
-		}];
-		
-		$scope.years = [{year:2014},{year:2015}];
-		
-		/*$scope.months = function(){
-		
-		}*/
-		
-		$scope.dates = [
-		{img:"SavedMeteor.jpg", date:"December 15th 2014", post:"astrophotography.html"},
-		{img:"first-ever-moon.JPG", date:"December 30th 2014", post:"the-moon-and-jupiter.html"},
-		{img:"Moon-epiphany.png", date:"January 3rd 2015"}];
+			$scope.showBigIMG = false;
+			$scope.BigIMG = "images/first-ever-moon.JPG";
+			
+			$scope.setBigIMG = function(date){
+				$scope.BigIMG=date.img;
+				$scope.showBigIMG = !$scope.showBigIMG; 
+	
+			}
+			
+			$scope.weeks = [{
+				days: [{date: 28}, {date: 29}, {date: 30}, {date: 31}, {date: 1}, {date: 2}, {date: 3}]
+			}];
+			
+			$scope.setWeeks();
+			
+			$scope.years = [{year:2014},{year:2015}];
+			
+			/*$scope.months = function(){
+			
+			}*/
+			
+			$scope.dates = [
+			{img:"SavedMeteor.jpg", date:"December 15th 2014", posted:{day: 15, month: 12, year: 2014}, post:"astrophotography.html"},
+			{img:"first-ever-moon.JPG", date:"December 30th 2014", posted:{day: 30, month: 12, year: 2014}, post:"the-moon-and-jupiter.html"},
+			{img:"Moon-epiphany.png", date:"January 3rd 2015", posted:{day: 3, month: 1, year: 2015}}];
 		
 		
 		
