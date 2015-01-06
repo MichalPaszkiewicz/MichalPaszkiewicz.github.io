@@ -93,7 +93,7 @@
 				var realDate = new Date();
 				
 				var realMonth = realDate.getMonth();
-				var currentMonth = (realMonth + $scope.currentMonth) % 12;
+				var currentMonth = (realMonth + $scope.currentMonth + 12) % 12;
 				
 				if(currentMonth == 0)return "January";
 				if(currentMonth == 1)return "February";
