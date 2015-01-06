@@ -179,13 +179,13 @@
 			$scope.nextMonth = function(){
 				$scope.currentMonth++;
 				$scope.setWeeks();
-				$scope.setCurrentMonthText();
+				$scope.currentMonthText = $scope.setCurrentMonthText();
 			}
 			
 			$scope.previousMonth = function(){
 				$scope.currentMonth--;
 				$scope.setWeeks();
-				$scope.setCurrentMonthText();
+				$scope.currentMonthText = $scope.setCurrentMonthText();
 			}
 		
 			$scope.showBigIMG = false;
