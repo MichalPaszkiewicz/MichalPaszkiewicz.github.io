@@ -95,18 +95,22 @@
 				var realMonth = realDate.getMonth();
 				var currentMonth = (realMonth + $scope.currentMonth + 12) % 12;
 				
-				if(currentMonth == 0)return "January";
-				if(currentMonth == 1)return "February";
-				if(currentMonth == 2)return "March";
-				if(currentMonth == 3)return "April";
-				if(currentMonth == 4)return "May";
-				if(currentMonth == 5)return "June";
-				if(currentMonth == 6)return "July";
-				if(currentMonth == 7)return "August";
-				if(currentMonth == 8)return "September";
-				if(currentMonth == 9)return "October";
-				if(currentMonth == 10)return "November";
-				if(currentMonth == 11)return "December";
+				var yearDate = new Date();
+				yearDate.setMonth(yearDate.getMonth() + $scope.currentMonth);
+				var realYear = yearDate.getUTCFullYear();
+				
+				if(currentMonth == 0)return "January " + realYear;
+				if(currentMonth == 1)return "February "  + realYear;
+				if(currentMonth == 2)return "March " + realYear;
+				if(currentMonth == 3)return "April " + realYear;
+				if(currentMonth == 4)return "May " + realYear;
+				if(currentMonth == 5)return "June " + realYear;
+				if(currentMonth == 6)return "July " + realYear;
+				if(currentMonth == 7)return "August " + realYear;
+				if(currentMonth == 8)return "September " + realYear;
+				if(currentMonth == 9)return "October " + realYear;
+				if(currentMonth == 10)return "November " + realYear;
+				if(currentMonth == 11)return "December " + realYear;
 			}
 			
 			$scope.currentMonthText = $scope.setCurrentMonthText();
