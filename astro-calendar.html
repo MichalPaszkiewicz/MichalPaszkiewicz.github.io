@@ -32,7 +32,7 @@
 			</div>	
 			<div class="week" ng-repeat="week in weeks">
 				<div ng-repeat="day in week.days" style="display: inline-block; vertical-align:top; height:170px" ng-class="{today: day.today}" class="date-box">
-					<div ng-click="setBigIMG(day.info)" ng-style="{'background-image':'url(images/small-' + '{{day.info.img}}' + ')'}" class="one-day" ng-class="last: day.last">{{day.date}}</div>
+					<div ng-click="setBigIMG(day.info)" ng-style="{'background-image':'url(images/small-' + '{{day.info.img}}' + ')'}" class="one-day" ng-class="{last: day.last}">{{day.date}}</div>
 					<div style="text-align: center;" ng-show="day.info!=undefined && day.info.post!=undefined"><a style="color:darkred" target="_blank" href="{{day.info.post}}">Go to post</a></div>
 				</div>
 			</div>
