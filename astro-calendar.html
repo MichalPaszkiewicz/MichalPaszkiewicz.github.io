@@ -97,10 +97,10 @@
 					}
 					
 					if(counter < firstDay){
-						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 1 - firstDay});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 2 - firstDay});
 					}
 					else if(counter < firstDay + nowAmountOfDays){
-						$scope.weeks[$scope.weeks.length - 1].days.push({date: counter - firstDay});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: counter + 1 - firstDay});
 					}
 					
 					if(counter > nowAmountOfDays + firstDay){
