@@ -14,13 +14,15 @@
 </head>
 <body style="background:black; color: darkred;">
 	<div id="main-container">
-		<span style="font-size: 50px padding: 0 10px" ng-click="previousMonth()"><<</span><h1 style="text-align: center; font-family: monospace; text-transform: lowercase; font-size: 50px; text-shadow: 0.5px 0.5px white;" ng-click="LOLOL = !LOLOL;">Astrophotography calendar</h1><span style="font-size: 50px padding: 0 10px" ng-click="nextMonth()">>></span>
+		<h1 style="text-align: center; font-family: monospace; text-transform: lowercase; font-size: 50px; text-shadow: 0.5px 0.5px white;" ng-click="LOLOL = !LOLOL;">Astrophotography calendar</h1>
 		<div id="years" ng-show="false">
 			<div ng-repeat="year in years">{{year.year}}</div>
 		</div>
 		<div id="months">
 			
 		</div>
+		
+		<div><span style="font-size: 50px; float:left; font-weight: bold; padding: 10px" ng-click="previousMonth()"><<</span><span style="font-size: 50px; font-weight: bold; float:right; padding: 10px" ng-click="nextMonth()">>></span></div>
 		
 		<div ng-show="LOLOL" style="margin: auto; max-width: 1052px;">
 			<div class="week names">
