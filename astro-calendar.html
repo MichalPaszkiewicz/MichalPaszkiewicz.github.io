@@ -125,14 +125,14 @@
 							}
 						}
 						
-						console.log($scope.weeks[i].days[k].date + ":" + nowTime.getDate());
-						console.log($scope.weeks[i].days[k].month + ":" + (nowMonth + 1));
-						console.log($scope.weeks[i].days[k].year + ":" + nowYear);
+						console.log($scope.weeks[i].days[j].date + ":" + nowTime.getDate());
+						console.log($scope.weeks[i].days[j].month + ":" + (nowMonth + 1));
+						console.log($scope.weeks[i].days[j].year + ":" + nowYear);
 						
-						if($scope.weeks[i].days[k].date == nowTime.getDate() && 
-						$scope.weeks[i].days[k].month == nowMonth + 1 &&
-						$scope.weeks[i].days[k].year == nowYear){
-							$scope.weeks[i].days[k].today = true;
+						if($scope.weeks[i].days[j].date == nowTime.getDate() && 
+						$scope.weeks[i].days[j].month == nowMonth + 1 &&
+						$scope.weeks[i].days[j].year == nowYear){
+							$scope.weeks[i].days[j].today = true;
 						}
 					}
 				}
