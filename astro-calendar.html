@@ -22,7 +22,10 @@
 			
 		</div>
 		
-		<div style="max-width: 1052px; margin: auto;"><span style="font-size: 50px; float:left; font-weight: bold; padding: 10px" ng-click="previousMonth()"><<</span><span style="font-size: 50px; font-weight: bold; float:right; padding: 10px" ng-click="nextMonth()">>></span>
+		<div style="max-width: 1052px; margin: auto; ">
+			<span class="month-changer" style="float:left;" ng-click="previousMonth()"><<</span>
+			<span style="margin:auto; max-width: 200px; text-align:center">{{currentMonthText()}}</span>
+			<span class="month-changer" style="float:right;" ng-click="nextMonth()">>></span>
 			<div style="clear:both"></div>
 		</div>
 		
@@ -71,6 +74,7 @@
 			background: rgb(24, 24, 24);
 		}
 		.today{width: 150px; border: darkred 1px dashed; background: rgb(35, 34, 34); box-sizing: border-box;}
+		.month-changer{cursor: pointer; font-size: 50px; float:left; font-weight: bold; padding: 10px;}
 		
 		.week{}
 		.day{min-width: 150px; display: inline-block; text-align: center; text-shadow: 0.5px 0.5px 1px white; font-weight: bold; font-size: 40px;}
@@ -84,6 +88,26 @@
 			$scope.LOLOL = true;
 			
 			$scope.currentMonth = 0;
+			
+			$scope.currentMonthText = function(){
+				var realDate = new Date();
+				
+				var realMonth = realDate.getMonth();
+				var currentMonth = realMonth % 12;
+				
+				if(currentMonth == 0)return "January";
+				if(currentMonth == 1)return "February";
+				if(currentMonth == 2)return "March";
+				if(currentMonth == 3)return "April";
+				if(currentMonth == 4)return "May";
+				if(currentMonth == 5)return "June";
+				if(currentMonth == 6)return "July";
+				if(currentMonth == 7)return "August";
+				if(currentMonth == 8)return "September";
+				if(currentMonth == 9)return "October";
+				if(currentMonth == 10)return "November";
+				if(currentMonth == 11)return "December";
+			}
 			
 			function daysInMonth(month,year) {
 			    return new Date(year, month, 0).getDate();
