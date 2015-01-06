@@ -22,9 +22,9 @@
 			
 		</div>
 		
-		<div style="max-width: 1052px; margin: auto; ">
+		<div style="max-width: 1052px; margin: auto; position:relative;">
 			<span class="month-changer" style="float:left;" ng-click="previousMonth()"><<</span>
-			<span style="margin:auto; max-width: 200px; text-align:center">{{currentMonthText()}}</span>
+			<span style="margin:auto; max-width: 200px; text-align:center position: absolute; text-shadow: 0.5px 0.5px 1px white; font-weight: bold; font-size: 40px; right: 0; left: 0; margin: auto;">{{currentMonthText}}</span>
 			<span class="month-changer" style="float:right;" ng-click="nextMonth()">>></span>
 			<div style="clear:both"></div>
 		</div>
@@ -89,7 +89,7 @@
 			
 			$scope.currentMonth = 0;
 			
-			$scope.currentMonthText = function(){
+			$scope.setCurrentMonthText = function(){
 				var realDate = new Date();
 				
 				var realMonth = realDate.getMonth();
@@ -108,6 +108,8 @@
 				if(currentMonth == 10)return "November";
 				if(currentMonth == 11)return "December";
 			}
+			
+			$scope.currentMonthText = $scope.setCurrentMonthText();
 			
 			function daysInMonth(month,year) {
 			    return new Date(year, month, 0).getDate();
@@ -177,11 +179,13 @@
 			$scope.nextMonth = function(){
 				$scope.currentMonth++;
 				$scope.setWeeks();
+				$scope.setCurrentMonthText();
 			}
 			
 			$scope.previousMonth = function(){
 				$scope.currentMonth--;
 				$scope.setWeeks();
+				$scope.setCurrentMonthText();
 			}
 		
 			$scope.showBigIMG = false;
