@@ -32,7 +32,7 @@
 			</div>	
 			<div class="week" ng-repeat="week in weeks">
 				<div ng-repeat="day in week.days" style="display: inline-block; vertical-align:top; height:186px" ng-class="{last: day.last}" class="date-box">
-					<div ng-style="{'background-image':'url(images/small-' + {{day.img}} + ')'}" class="one-day">{{day.date}}</div>
+					<div ng-style="{'background-image':'url(images/small-' + {{day.info.img}} + ')'}" class="one-day">{{day.date}}</div>
 					<div style="text-align: center;">{{date.date}}</div>
 					<div style="text-align: center;" ng-show="date.post!=undefined"><a style="color:darkred" target="_blank" href="{{date.post}}">Go to post</a></div>
 				</div>
@@ -110,6 +110,16 @@
 						finished = true; 
 					}
 					counter++;
+				}
+				
+				for(var i = 0; i < $scope.weeks.length; i++){
+					for(var j = 0; j < $scope.weeks[i].days.length; j++){
+						for(var k = 0; k < $scope.dates.length; k++){
+							if($scope.weeks[i].days[j].date == $scope.dates[k].posted.day){
+								$scope.weeks[i].days[j].info = $scope.dates[k];
+							}
+						}
+					}
 				}
 			}
 		
