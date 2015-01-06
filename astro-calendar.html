@@ -31,7 +31,7 @@
 			    Fri</span><span class="day">Sat</span>
 			</div>	
 			<div class="week" ng-repeat="week in weeks">
-				<div ng-repeat="day in week.days" style="display: inline-block; vertical-align:top; height:186px" ng-class="{last: day.last}" class="date-box">
+				<div ng-repeat="day in week.days" style="display: inline-block; vertical-align:top; height:186px" ng-class="{last: day.last, today: day.today}" class="date-box">
 					<div ng-click="setBigIMG(day.info)" ng-style="{'background-image':'url(images/small-' + '{{day.info.img}}' + ')'}" class="one-day">{{day.date}}</div>
 					<div style="text-align: center;" ng-show="day.info!=undefined">{{day.info.date}}</div>
 					<div style="text-align: center;" ng-show="day.info!=undefined && day.info.post!=undefined"><a style="color:darkred" target="_blank" href="{{day.info.post}}">Go to post</a></div>
@@ -60,6 +60,7 @@
 		
 		.last{background: rgb(50,50,50);}
 		.date-box{cursor: pointer;}
+		.today{border: darkred 1px solid; box-sizing: border-box;}
 		
 		.week{}
 		.day{min-width: 150px; display: inline-block; text-align: center; text-shadow: 0.5px 0.5px 1px white; font-weight: bold; font-size: 40px;}
@@ -86,8 +87,10 @@
 				lastTime.setMonth(new Date().getMonth() - 1)
 				var nowYear = nowTime.getUTCFullYear();
 				var nowMonth = nowTime.getMonth();
+				var lastMonth = lastTime.getMonth();
+				var lastYear = lastTime.getUTCFullYear();
 				var nowAmountOfDays = daysInMonth(nowMonth, nowYear);
-				var lastAmountOfDays = daysInMonth(lastTime.getMonth(), lastTime.getUTCFullYear());
+				var lastAmountOfDays = daysInMonth(lastMonth, lastYear);
 				
 				var firstDay = (firstDayNumber(nowMonth, nowYear) + 1) % 7;
 				
@@ -100,10 +103,10 @@
 					}
 					
 					if(counter < firstDay){
-						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 2 - firstDay, last:true});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 2 - firstDay, last:true, month: lastMonth + 1, year: lastYear});
 					}
 					else if(counter < firstDay + nowAmountOfDays){
-						$scope.weeks[$scope.weeks.length - 1].days.push({date: counter + 1 - firstDay, last:false});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: counter + 1 - firstDay, last:false, month: nowMonth + 1, year: nowYear});
 					}
 					
 					if(counter > nowAmountOfDays + firstDay){
@@ -115,9 +118,16 @@
 				for(var i = 0; i < $scope.weeks.length; i++){
 					for(var j = 0; j < $scope.weeks[i].days.length; j++){
 						for(var k = 0; k < $scope.dates.length; k++){
-							if($scope.weeks[i].days[j].date == $scope.dates[k].posted.day){
+							if($scope.weeks[i].days[j].date == $scope.dates[k].posted.day && 
+							$scope.weeks[i].days[j].month == $scope.dates[k].posted.month &&
+							$scope.weeks[i].days[j].year == $scope.dates[k].posted.year){
 								$scope.weeks[i].days[j].info = $scope.dates[k];
 							}
+						}
+						if($scope.weeks[i].days[k].date == nowTime.getDate() && 
+						$scope.weeks[i].days[k].month == nowMonth + 1 &&
+						$scope.weeks[i].days[k].year == nowYear){
+							$scope.weeks[i].days[k].today = true;
 						}
 					}
 				}
