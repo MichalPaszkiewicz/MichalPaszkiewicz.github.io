@@ -409,12 +409,12 @@ a.side-bar-img, div.side-bar-img{
   z-index: 10;
 }
 
-.astro-proj, .astro-proj a{
+.dark-proj, .dark-proj a{
   background: rgb(30, 28, 28) !important;
   color: white !important;
 }
 
-.astro-proj .astro-pic{
+.dark-proj .astro-pic{
   background: url(http://www.michalpaszkiewicz.co.uk/images/small-Moon-epiphany.png);
   height: 150px;
   width: 150px;
