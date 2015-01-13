@@ -410,7 +410,7 @@ a.side-bar-img, div.side-bar-img{
 }
 
 .astro-proj, .astro-proj a{
-  background: black !important;
+  background: rgb(30, 28, 28) !important;
   color: white !important;
 }
 
@@ -423,7 +423,7 @@ a.side-bar-img, div.side-bar-img{
   position: absolute;
   left: 200px;
   top: 103px;
-  opacity: 1.4;
+  opacity: 0.5;
 }
 
 .section-title{
