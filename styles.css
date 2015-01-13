@@ -8,7 +8,7 @@ body, html{
   display: none;
 }
 
-a{
+a{ 
   margin-right: 100px;
   display: inline-block;
   margin-bottom: 15px;
