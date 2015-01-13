@@ -410,8 +410,8 @@ a.side-bar-img, div.side-bar-img{
 }
 
 .astro-proj, .astro-proj a{
-  background: black;
-  color: white;
+  background: black !important;
+  color: white !important;
 }
 
 .astro-proj .astro-pic{
