@@ -431,4 +431,5 @@ background-image: linear-gradient(to top, #FFFFFF -50%, #EFE6C2 100%);
 text-align: center;
 width: 100%;
 border-radius: 10px 10px 0 0;
+box-shadow: gray 0 -2px 1px 0px;
 }
