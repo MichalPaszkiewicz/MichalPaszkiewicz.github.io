@@ -134,8 +134,8 @@
 				lastTime.setMonth(lastTime.getMonth() + $scope.currentMonth)
 				lastTime.setMonth(nowTime.getMonth() - 1)
 				var nowYear = nowTime.getUTCFullYear();
-				var nowMonth = nowTime.getMonth();
-				var lastMonth = lastTime.getMonth();
+				var nowMonth = nowTime.getMonth() + 1;
+				var lastMonth = lastTime.getMonth() + 1;
 				var lastYear = lastTime.getUTCFullYear();
 				var nowAmountOfDays = daysInMonth(nowMonth, nowYear);
 				var lastAmountOfDays = daysInMonth(lastMonth, lastYear);
