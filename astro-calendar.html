@@ -155,7 +155,7 @@
 					}
 					
 					if(counter < firstDay){
-						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 2 - firstDay, last:true, month: lastMonth + 1, year: lastYear});
+						$scope.weeks[$scope.weeks.length - 1].days.push({date: lastAmountOfDays + counter + 1 - firstDay, last:true, month: lastMonth + 1, year: lastYear});
 					}
 					else if(counter < firstDay + nowAmountOfDays){
 						$scope.weeks[$scope.weeks.length - 1].days.push({date: counter + 1 - firstDay, last:false, month: nowMonth + 1, year: nowYear});
