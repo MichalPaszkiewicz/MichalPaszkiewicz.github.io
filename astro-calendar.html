@@ -188,12 +188,14 @@
 			
 			$scope.nextMonth = function(){
 				$scope.currentMonth++;
+				$scope.$apply($scope.currentMonth);
 				$scope.setWeeks();
 				$scope.currentMonthText = $scope.setCurrentMonthText();
 			}
 			
 			$scope.previousMonth = function(){
 				$scope.currentMonth--;
+				$scope.$apply($scope.currentMonth);
 				$scope.setWeeks();
 				$scope.currentMonthText = $scope.setCurrentMonthText();
 			}
