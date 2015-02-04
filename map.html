@@ -31,10 +31,10 @@
 				}
 				var map = new google.maps.Map(mapCanvas, mapOptions);
 				
-				google.maps.event.addListener(map, "click", function (e) {
+				/*google.maps.event.addListener(map, "click", function (e) {
 					//lat and lng is available in e object
 					latLongs.push(e.latLng);
-				});
+				});*/
 				
 				var drawingManager = new google.maps.drawing.DrawingManager({
 					drawingMode: google.maps.drawing.OverlayType.MARKER,
@@ -62,7 +62,7 @@
 				
 				google.maps.event.addListener(drawingManager, 'polylinecomplete', function(e) {
 					//lat and lng is available in e object
-					latLongs.push(e.latLng);
+					latLongs = e.getPath().j;
 				});
 			}
 		
