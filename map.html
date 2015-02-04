@@ -60,7 +60,7 @@
 				});
 				drawingManager.setMap(map);
 				
-				google.maps.event.addListener(drawingManager, 'overlaycomplete', function(e) {
+				google.maps.event.addListener(drawingManager, 'polylinecomplete', function(e) {
 					//lat and lng is available in e object
 					latLongs.push(e.latLng);
 				});
