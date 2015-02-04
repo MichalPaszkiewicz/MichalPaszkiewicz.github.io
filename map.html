@@ -20,7 +20,6 @@
 		
 		<script>
 			var latLongs = [];
-			var map;
 		
 			function initialize() {
 				var mapCanvas = document.getElementById('map-canvas');
@@ -29,7 +28,7 @@
 					zoom: 10,
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 				}
-				map = new google.maps.Map(mapCanvas, mapOptions);
+				var map = new google.maps.Map(mapCanvas, mapOptions);
 				
 				var drawingManager = new google.maps.drawing.DrawingManager({
 					drawingMode: google.maps.drawing.OverlayType.MARKER,
@@ -56,7 +55,7 @@
 				drawingManager.setMap(map);
 			}
 			
-			google.maps.event.addListener(map, "click", function (e) {
+			google.maps.event.addListener(window, "click", function (e) {
 			
 			    //lat and lng is available in e object
 			    latLongs.push(e.latLng);
