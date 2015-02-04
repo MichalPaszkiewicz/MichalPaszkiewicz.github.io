@@ -19,6 +19,8 @@
 		</style>
 		
 		<script>
+			var latLongs = [];
+		
 			function initialize() {
 				var mapCanvas = document.getElementById('map-canvas');
 				var mapOptions = {
@@ -52,6 +54,13 @@
 				});
 				drawingManager.setMap(map);
 			}
+			
+			google.maps.event.addListener(map, "click", function (e) {
+			
+			    //lat and lng is available in e object
+			    latLongs.push(e.latLng);
+			
+			});
 		
 			google.maps.event.addDomListener(window, 'load', initialize);
 			
