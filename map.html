@@ -30,6 +30,11 @@
 				}
 				var map = new google.maps.Map(mapCanvas, mapOptions);
 				
+				google.maps.event.addListener(map, "click", function (e) {
+					//lat and lng is available in e object
+					latLongs.push(e.latLng);
+				});
+				
 				var drawingManager = new google.maps.drawing.DrawingManager({
 					drawingMode: google.maps.drawing.OverlayType.MARKER,
 					drawingControl: true,
@@ -54,13 +59,6 @@
 				});
 				drawingManager.setMap(map);
 			}
-			
-			google.maps.event.addListener(window, "click", function (e) {
-			
-			    //lat and lng is available in e object
-			    latLongs.push(e.latLng);
-			
-			});
 		
 			google.maps.event.addDomListener(window, 'load', initialize);
 			
