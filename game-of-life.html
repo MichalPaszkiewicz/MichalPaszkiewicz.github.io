@@ -50,7 +50,7 @@
         	The interesting thing about these rules, is that they usually result in some stable states that either do not change, or repeat over a set period of time. This is interesting, as it is possible to characterise the stable constructions in the game and study them in terms of interactions with each other. The standard version can be looked at <a class="inline-link" href="http://james-johnstone.me/ai/gameoflife" target="_blank" alt="James Johnstone angular js game of life">here</a>.
         </p>
         
-        <h2>My "war" variation</h2>
+        <h2>My "war" variation</h2><a target="_blank" href="./game-of-life/">Link here</a>
         <p>
         	Having looked at James' implementation I was impressed by how much choice you had - with changing the size, speed and population density. But I couldn't help but wander what would happen if you changed more.
         </p>
@@ -63,12 +63,52 @@
 	</ul>
         
         <p>
-        	So now I have the Game of life with various cell races that can fight each other. 
+        	So now I have the Game of life with various cell races that can fight each other. Something I pretty soon discovered is this: in the normal game of life, setting different values results in quite boring formations. However, when there are 2 or more races, changing the various values for the behaviour of the cells of the different races can result in very interesting consequences.
         </p>
         
+        <p>
+        	While using my "war" variation, the following settings will make a race behave with the normal game of life principals:
+        	
+        	<ul>
+        		<li>Underpopulation: 2</li>
+        		<li>Reproduction: 3</li>
+        		<li>Overpopulation: 4</li>
+        		<li>Strength: 0</li>
+        		<li>Colour: ANYTHING_YOU_WANT (please note, 'ANYTHING_YOU_WANT' won't work, so please try to use a real colour)</li>
+        	</ul>
+        	
+        	If you have multiple races with the above settings, you will have multiple races playing the standard rules of the game of life and will treat other races in the same way that they treat walls.
+        </p>
+        <p>
+        	As soon as a strength is turned on, the race with the greater strength will in general start consuming cells of a lower strength (unless outnumbered by cells with a lower, but bigger than 0 strength).
+        	
+        </p>
+        <p>
+        	The more interesting results, however, stem from changing multiple values. One of my favourite settings is the following.
+        </p>
+        <p>
+        	Set one race to: 
+        </p>
+        	<ul>
+        		<li>Underpopulation: 1</li>
+        		<li>Reproduction: 3</li>
+        		<li>Overpopulation: 7</li>
+        		<li>Strength: 3</li>
+        		<li>Colour:  lightblue</li>
+        	</ul>
+        <p>
+        	And set a second race to:
+        </p>
+                <ul>
+        		<li>Underpopulation: 2</li>
+        		<li>Reproduction: 3</li>
+        		<li>Overpopulation: 4</li>
+        		<li>Strength: 5</li>
+        		<li>Colour:  grey</li>
+        	</ul>
+        <p>Now click reset a few times till you start seeing interesting things happen.</p>
+        <p>What is happening here, is that the lighblue race is not dying as much due to under and overpopulation as the greys are. This means it grows a lot faster due to population. However, the grey race is strong, so will consume cells of the lighblue race. What usually now results is that the lightblues grow very fast and get eaten by the greys. The greys then settle into their stable states, which have a low population density, meaning there is more space for the lightblues to expand into and so the cycle goes on.</p>
         
-        
-        <a class="inline-link" target="_blank" href="./game-of-life/"></a>
 		
 	</div>
 	  </div>
