@@ -380,7 +380,8 @@ a.side-bar-img, div.side-bar-img{
 #phone-menu{
   position: fixed;
   top:0;
-  max-width:400px;
+  width: 100%;
+  text-align: center;
   background: rgb(58, 64, 71);
   box-shadow: 0 1px 1px rgb(83, 112, 104);
   font-size: 25px;
