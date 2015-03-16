@@ -102,12 +102,29 @@
 				<li><b>~~[4,2] === 0</b></li>
 				<li><b>~~4.2 === 4</b></li>
 				<li><b>~~0.42 === 0</b></li>
-				<li><b>~~-4.2 === 4</b></li>
+				<li><b>~~-4.2 === -4</b></li>
 				<li><b>~~-0.42 === 0</b></li>			
 				<li><b>~~(42e+42) === 0</b></li>
 			</ol>
 			
-			What can be seen here is that 
+			What can be seen here is that this operation has useful features that can be exploited as a dirty hack.
+		</p>
+		
+		<p>
+			The <b>~~</b> operator will always return a number, which is very useful when writing a project with a tiny amount of code, since this means you can use it and have functions that return numbers without going into type checking.
+			For decimals, this operator will work as Math.floor() for numbers above 0 and Math.ceil() for numbers below 0 - a function that is sometimes desired but would otherwise use 3 lines of code.
+			Strings will return numbers if they only contain a number, otherwise they will return 0.
+			Arrays and Objects always return 0.
+			True and false are neatly converted into 1 and 0.
+		</p>
+		
+		<p>
+			The unfortunate side is that a string including a letter will return 0 even if the letter is at the end of the string (so is not as good as parseInt or parseFloat) for conversion purposes.
+			Furthermore, when numbers become so big that they use exponentials, <b>~~</b> will return a 0.
+		</p>
+		
+		<p>
+			However, when working with a small amount of code where big numbers won't be involved, this has its uses.
 		</p>
 		
 		<h3>get, set</h3>
