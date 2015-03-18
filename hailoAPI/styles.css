@@ -1,0 +1,155 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+.hidden{
+	display: none;
+}
+
+.display-box{
+	width: 100%;
+	max-width: 800px;
+	height: 80%;
+	position: fixed;
+	top: 50px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background: rgba(0,0,0,0.7);
+}
+
+input{
+	display: block;
+	width: 90%;
+	border: gray 1px solid;
+	margin: 20px auto;
+	height: 40px;
+	font-size: 26px;
+	border-radius: 4px;
+}
+
+input.small{
+	margin: 5px;
+	width: 180px;
+	display: inline-block;
+}
+
+.button{
+	text-align: center;
+	width: 90%;
+	margin: 20px auto;
+	background: #FFBB00;
+	color: black;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 26px;
+	cursor: pointer;
+}
+
+.button.small{
+	max-width: 180px;
+	display: inline-block;
+	height: 40px;
+	margin: 5px;
+	font-size: 26px;
+}
+
+.button:hover{
+	background: #FACE54;
+}
+
+#header{
+	width: 100%;
+	height: 50px;
+	background: rgba(0,0,0,0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 15;
+}
+
+.menu.small.button{
+	display: none;
+}
+
+#menu-container{
+	
+}
+
+#small-search-button{
+	display: none;
+}
+
+@media (max-width: 970px) {
+	.menu.small.button{
+		display: inline-block;
+		float:right;
+	}
+	
+	#menu-container{
+		display: none;
+		float: right;
+		background: rgba(0,0,0,0.7);
+		border-radius: 0 0 0 10px;
+	}
+	
+	#menu-container.show{
+		display: block;
+		clear: right;
+		width: 200px;
+	}
+	
+	#menu-container .button.small{
+		display:block;
+		margin: 10px auto;
+		margin: 10px auto;
+		
+	}
+}
+
+@media (max-width: 580px){
+	#search-button{
+		display: none;
+	}
+	
+	#small-search-button{
+		display: inline-block;
+		width: 40px;
+	}
+	
+	.menu.small.button{
+		width: 80px;
+	}
+}
+
+#map-canvas{
+	height: 100%;
+	width: 100%;
+	background-color: #CCC;
+	transition: 2s filter ease-out;
+	-webkit-transition: 2s -webkit-filter ease-out;
+	-moz-transition: 2s -moz-filter ease-out;
+	-ms-transition: 2s -ms-filter ease-out;
+	-o-transition: 2s -o-filter ease-out;
+}
+
+#map-canvas.blurred{
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	-moz-filter: blur(3px);
+	-ms-filter: blur(3px);
+	-o-filter: blur(3px);
+}
+
+#main-container{
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
