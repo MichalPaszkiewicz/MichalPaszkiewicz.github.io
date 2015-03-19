@@ -8,13 +8,16 @@
 		<div id="header">
 			<input class="small" placeholder="Address" id="small-location">
 			<div id="search-button" class="small button" onclick="searchLocation('small-location')">Search</div>
-			<div id="small-search-button" class="small button" onclick="searchLocation('small-location')">o</div>
+			<div id="small-search-button" class="small button" onclick="searchLocation('small-location')"><div></div></div>
 			<div  class="menu small button" onclick="toggleMenu()">Menu</div>
 			<span id="menu-container">	
 				<div class="small button" onclick="goToCurrentLocation()">Find me</div>
-				<div class="small button" onclick="clickETAs()">Get ETAs</div>
 				<div class="small button" onclick="clickDrivers()">Find drivers</div>
+				<div class="small button" onclick="clickETAs()">Get ETAs</div>		
 			</span>
+			<div id="etas">
+			
+			</div>
 		</div>
 		
 		<div id="main-container">

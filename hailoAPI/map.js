@@ -91,3 +91,16 @@ Map.prototype.clearMarkers = function(position){
 	}
 	this.markers = [];
 }
+
+// Zooms the map out to fit all current markers
+Map.prototype.zoomOut = function () {
+    var bounds = new google.maps.LatLngBounds();
+
+    for (var i = 0; i < this.markers.length; i++) {
+        bounds.extend(this.markers[i].position);
+    }
+
+    this.map.fitBounds(bounds);
+
+    return this;
+}
