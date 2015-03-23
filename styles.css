@@ -1,458 +1,484 @@
-body, html{
-  margin: 0;
-  height: 100%;
-  width: 100%;
+body, html {
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
-.hidden{
-  display: none;
+.hidden {
+    display: none;
 }
 
-a{ 
-  margin-right: 100px;
-  display: inline-block;
-  margin-bottom: 15px;
+a {
+    margin-right: 100px;
+    display: inline-block;
+    margin-bottom: 15px;
 }
 
-h3{
-  clear:both;
+h3 {
+    clear: both;
 }
 
-.main-container{
-  min-height: 100%;
+.main-container {
+    min-height: 100%;
 }
 
-.footer{
-  position: relative;
-  margin-top: -140px;
-  width: 100%;
-  height: 140px;
-  background: black;
-  color: black;
-  font-size: 13px;
-  overflow: hidden;
-}
-
-.panel{
-  width: 100%;
-  min-height: 100px;
-  display:inline-block;
-  }
-
-  .panel:nth-child(2n-1), .footer{
-      background:black;
-      color:white;
-  }
-  
-  .panel:nth-child(2n-1) a, .footer a{
-    color: white;
-  font-size: 20px;
-  font-weight: 800;
-    
-  }
-  
-  .panel:nth-child(2n){
-    background:white;
-    color:black;
-    font-family: arial;
-  }
-  
-  .panel p{
-        line-height: 32px;
-            text-align: justify;
-  }
-  
-    .panel:nth-child(2n) a{
-      color: black;
-      font-size: 22px;
-      font-weight: bold;
-      
-      margin: 5px;
-      clear: both;
-      float: left;
-      position: relative;
-      z-index: 20;
-    }
-    
-    .panel:nth-child(2n) h2{
-      font-size: 2em;
-      display:inline-block;
-      clear:both;
-      float:left;
-    }
-    
-    .panel:nth-child(2n) p{
-      margin-top: 5px;
-      clear: both;
-    }
-  
-  .push{
+.footer {
+    position: relative;
+    margin-top: -140px;
+    width: 100%;
     height: 140px;
-    clear:both;
+    background: black;
+    color: black;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.panel {
+    width: 100%;
+    min-height: 100px;
+    display: inline-block;
+}
+
+    .panel:nth-child(2n-1), .footer {
+        background: black;
+        color: white;
+    }
+
+        .panel:nth-child(2n-1) a, .footer a {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+    .panel:nth-child(2n) {
+        background: white;
+        color: black;
+        font-family: arial;
+    }
+
+    .panel p {
+        line-height: 32px;
+        text-align: justify;
+    }
+
+    .panel:nth-child(2n) a {
+        color: black;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 5px;
+        clear: both;
+        float: left;
+        position: relative;
+        z-index: 20;
+    }
+
+    .panel:nth-child(2n) h2 {
+        font-size: 2em;
+        display: inline-block;
+        clear: both;
+        float: left;
+    }
+
+    .panel:nth-child(2n) p {
+        margin-top: 5px;
+        clear: both;
+    }
+
+.push {
+    height: 140px;
+    clear: both;
     margin-top: 40px;
-  }
-  
-  .panel-box{
-  margin:auto;
-  max-width: 1000px;
-  padding: 20px;
-  }
-  
-  h3, .panel:nth-child(2n) a.link{
+}
+
+.panel-box {
+    margin: auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+h3, .panel:nth-child(2n) a.link {
     display: inline-block;
     float: left;
     font-size: 18px;
     margin: 18px;
     margin-left: 0;
-  }
-  
-  .panel:nth-child(2n) a.link{
+}
+
+.panel:nth-child(2n) a.link {
     clear: none;
     color: red;
     text-transform: none;
-  }
-  
-  .panel:nth-child(2n) a.inline-link{
+}
+
+.panel:nth-child(2n) a.inline-link {
     margin: 0;
     float: none;
     font-size: inherit;
-  }
-  
-  span.newline{
-    clear:both;
-    float:left;
-  }
-  
-  span.date, span.issue, span.item{
+}
+
+span.newline {
+    clear: both;
     float: left;
-padding: 0px 10px;
-margin: 10px;
-color: gray;
-border-radius: 10px;
-box-shadow: gray 0 0 5px 2px;
-font-size: 14px;
-  }
-
-span.issue{
-  box-shadow: red 0 0 5px 2px;
-  border-radius:0 0 5px 5px;
-margin-top: 0;
 }
 
-span.item{
+span.date, span.issue, span.item {
+    float: left;
+    padding: 0px 10px;
+    margin: 10px;
+    color: gray;
+    border-radius: 10px;
+    box-shadow: gray 0 0 5px 2px;
+    font-size: 14px;
+}
+
+span.issue {
+    box-shadow: red 0 0 5px 2px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 0;
+}
+
+span.item {
     box-shadow: rgb(95, 185, 255) 0 0 5px 2px;
-  border-radius:0 0 5px 5px;
-  margin-top: 0;
+    border-radius: 0 0 5px 5px;
+    margin-top: 0;
 }
 
-.img-container{
-  overflow:auto;
-  margin-bottom: 30px;
+.img-container {
+    overflow: auto;
+    margin-bottom: 30px;
 }
 
-.img-container img{
-  border: black 1px solid;
+    .img-container img {
+        border: black 1px solid;
+    }
+
+.science-and-tech, .arts, .games {
+    clear: both;
+    padding-bottom: 70px;
 }
 
-.science-and-tech, .arts, .games{
-  clear: both;
+div.project-container {
+    display: inline-block;
+    max-width: 320px;
+    min-height: 140px;
+    vertical-align: top;
+    padding: 20px;
+    background: rgb(236, 242, 248);
+    margin: 5px;
+    box-shadow: 0 0 5px 0px rgb(68, 118, 134);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
-div.project-container{
-  display: inline-block;
-  max-width: 280px;
-  min-height: 140px;
-  vertical-align: top;
-  padding: 20px;
-  background: rgb(236, 242, 248);
-  margin: 5px;
-  box-shadow: 0 0 5px 0px rgb(68, 118, 134);
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
+div.main.project-container {
+    padding: 0;
 }
 
-#search-bar{
-  background: aliceblue;
-  color: black;
-  padding: 10px;
-  border-radius: 3px;
-  box-shadow: 0 0 5px 5px rgb(210, 241, 255);
+    div.main.project-container a:not(.inline-link) {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        text-decoration: none;
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: center;
+        color: black;
+        background-image: -ms-linear-gradient(top left, #FFFFFF 0%, #0A4966 100%);
+        background-image: -moz-linear-gradient(top left, #FFFFFF 0%, #0A4966 100%);
+        background-image: -o-linear-gradient(top left, #FFFFFF 0%, #0A4966 100%);
+        background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #0A4966));
+        background-image: -webkit-linear-gradient(top left, #FFFFFF 0%, #0A4966 100%);
+        background-image: linear-gradient(to bottom right, #FFFFFF 0%, #0A4966 100%);
+    }
+
+    div.main.project-container p {
+        padding: 20px;
+    }
+
+    div.main.project-container a:not(.inline-link):hover {
+        background: rgb(141, 166, 181);
+    }
+
+    div.main.project-container .project-container a:not(.inline-link) {
+        background-image: -ms-linear-gradient(top left, rgb(49, 12, 12) 0%, rgb(193, 61, 61) 100%);
+        background-image: -moz-linear-gradient(top left, rgb(49, 12, 12) 0%, rgb(193, 61, 61)6 100%);
+        background-image: -o-linear-gradient(top left, rgb(49, 12, 12) 0%, rgb(193, 61, 61) 100%);
+        background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgb(49, 12, 12)), color-stop(1, rgb(193, 61, 61)));
+        background-image: -webkit-linear-gradient(top left, rgb(49, 12, 12) 0%, rgb(193, 61, 61) 100%);
+        background-image: linear-gradient(to bottom right, rgb(49, 12, 12) 0%, rgb(193, 61, 61) 100%);
+        color: white;
+    }
+
+        div.main.project-container .project-container a:not(.inline-link):hover {
+            background: rgb(150, 49, 49);
+            color: white;
+        }
+
+#search-bar {
+    background: aliceblue;
+    color: black;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 5px rgb(210, 241, 255);
 }
 
- .panel .project-container p{
-  line-height: 20px;
+.panel .project-container p {
+    line-height: 20px;
 }
 
-#search-results{
-  margin-top: 15px;
+#search-results {
+    margin-top: 15px;
 }
 
-.search-result{
-  box-shadow: 0 0 4px 2px;
-  display: inline-block;
-  padding: 5px;
-  margin: 5px;
-  min-width: 200px;
+.search-result {
+    box-shadow: 0 0 4px 2px;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    min-width: 200px;
 }
 
-.search-result.selected, .search-result:hover{
-  background: rgb(89, 109, 131);
+    .search-result.selected, .search-result:hover {
+        background: rgb(89, 109, 131);
+    }
+
+.show-sub {
+    position: absolute;
+    bottom: 0px;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    background: rgb(166, 191, 206);
+    width: 100%;
+    text-align: center;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-.show-sub{
-  position: absolute;
-  bottom: 0px;
-  font-size: 14px;
-  cursor: pointer;
-  color: white;
-  background: rgb(166, 191, 206);
-  width: 100%;
-  text-align: center;
-  left: 0;
-  border-radius: 0 0 10px 10px;
-  text-transform: uppercase;
-  font-weight: bold;
+.sub-contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    border-radius: 10px;
+    color: white;
+    height: 100%;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 2px rgb(51, 19, 19);
+    z-index: 30;
 }
 
-.sub-contents{
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: black;
-  border-radius: 10px;
-  color: white;
-  height: 100%;
-  padding: 5px 10px;
-  box-sizing: border-box;
-  box-shadow: 0 0 5px 2px rgb(51, 19, 19);
-  z-index: 30;
+.sub-contents-container {
+    overflow: auto;
+    max-height: 155px;
 }
 
-.sub-contents-container{
-  overflow: auto;
-  max-height: 155px;
+.sub-contents .project-container {
+    min-height: 30px;
+    padding: 0;
+    box-shadow: none;
+    background: black;
+    color: white;
 }
 
-.sub-contents .project-container{
-  min-height: 30px;
-  padding: 0;
-  box-shadow: none;
-  background: black;
-  color: white;
+    .sub-contents .project-container a {
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        color: white;
+        margin: 0;
+    }
+
+    .sub-contents .project-container span {
+        font-size: 16px;
+        color: white;
+        max-width: 270px;
+        display: block;
+    }
+
+.close-sub {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    background: rgb(150, 49, 49);
+    left: 0;
+    color: black;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
 }
 
-.sub-contents .project-container a{
-  display: block;
-  width: 100%;
-  font-size: 18px;
-  color: white;
-  margin: 0;
+#side-bar, #right-bar {
+    position: fixed;
+    background: rgb(58, 64, 71);
+    color: white;
+    top: 50px;
+    width: 250px;
+    margin: 0;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgb(57, 109, 109);
+    opacity: 0.95;
+    z-index: 1000;
 }
 
-.sub-contents .project-container span{
-  font-size: 16px;
-  color: white;
-  max-width: 270px;
-  display: block;
+#side-bar {
+    left: 50px;
 }
 
-.close-sub{
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  font-weight: bold;
-  background: rgb(150, 49, 49);
-  left: 0;
-  color: black;
-  border-radius: 0 0 10px 10px;
-  cursor:pointer;
+#right-bar {
+    right: 50px;
 }
 
-#side-bar, #right-bar{
-  position: fixed;
-  background: rgb(58, 64, 71);
-  color: white;
-  top: 50px;
-  width: 250px;
-  margin: 0;
-  text-align: center;
-  box-shadow: 0 0 5px 5px rgb(57, 109, 109);
-  opacity: 0.95;
-  z-index: 1000;
+a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item {
+    display: block;
+    cursor: pointer;
+    padding: 20px;
+    margin: 0;
+    box-shadow: 0 1px 1px rgb(83, 112, 104);
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: arial;
+    color: white;
+    text-decoration: none;
 }
 
-#side-bar{
-  left: 50px;
+a.side-bar-img, div.side-bar-img {
+    padding: 0;
+    min-height: 180px;
 }
 
-#right-bar{
-  right: 50px;
+.side-bar-item:hover, .phone-menu-item:hover {
+    background: rgb(89, 109, 131);
 }
 
-a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item{
-  display: block;
-  cursor: pointer;
-  padding: 20px;
-  margin: 0;
-  box-shadow: 0 1px 1px rgb(83, 112, 104);
-  font-size: 25px;
-  text-transform: uppercase;
-  font-family: arial;
-  color: white;
-  text-decoration: none;
+#phone-emulator-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
 }
 
-a.side-bar-img, div.side-bar-img{
-  padding: 0;
-  min-height: 180px;
+#phone-emulator {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    background: black;
+    border-radius: 30px;
+    box-shadow: 0 0 40px 5px rgb(114, 177, 192);
 }
 
-.side-bar-item:hover, .phone-menu-item:hover{
-  background: rgb(89, 109, 131);
+    #phone-emulator #phone {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 50px;
+        margin: auto;
+        width: 360px;
+        height: 500px;
+    }
+
+        #phone-emulator #phone iframe {
+            height: 100%;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+        }
+
+.ad-container {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 20px;
+    overflow: auto;
 }
 
-#phone-emulator-background{
-  position:fixed;
-  height: 100%;
-  width: 100%;
-  background: black;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
+#phone-menu-switch {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: rgb(83, 112, 104);
+    box-shadow: 0px 0px 5px 2px rgb(140, 192, 178);
+    border-radius: 0 0 0 50px;
+    cursor: pointer;
+    z-index: 2010;
 }
 
-#phone-emulator{
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width:400px;
-  height:600px;
-  background:black;
-  border-radius: 30px;
-  box-shadow: 0 0 40px 5px rgb(114, 177, 192);
+#phone-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background: rgb(58, 64, 71);
+    box-shadow: 0 1px 1px rgb(83, 112, 104);
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: arial;
+    color: white;
+    text-decoration: none;
+    z-index: 2000;
 }
 
-#phone-emulator #phone{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 50px;
-  margin: auto;
-  width: 360px;
-  height: 500px;
+.phone-menu-item {
 }
 
-#phone-emulator #phone iframe{
-  height: 100%;
-  width: 100%;
-  background: white;
-  border-radius: 20px;
+#musicscoretrainer-pic {
+    background: url(http://www.contemporarykeyboardinstruction.com/piano.jpg);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: 500px 200px;
+    opacity: 0.05;
+    transform: rotateZ(40deg);
+    z-index: 10;
 }
 
-.ad-container{
-  max-width: 900px;
-  margin: auto;
-  margin-top: 20px;
-  overflow: auto;
+.dark-proj, .dark-proj a {
+    background: rgb(30, 28, 28) !important;
+    color: white !important;
 }
 
-#phone-menu-switch{
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  background: rgb(83, 112, 104);
-  box-shadow: 0px 0px 5px 2px rgb(140, 192, 178);
-  border-radius: 0 0 0 50px;
-  cursor: pointer;
-  
-  z-index: 2010;
-}
+    .dark-proj .show-sub {
+        background: rgb(79, 147, 201);
+        color: black;
+    }
 
-#phone-menu{
-  position: fixed;
-  top:0;
-  width: 100%;
-  text-align: center;
-  background: rgb(58, 64, 71);
-  box-shadow: 0 1px 1px rgb(83, 112, 104);
-  font-size: 25px;
-  text-transform: uppercase;
-  font-family: arial;
-  color: white;
-  text-decoration: none;
-  
-  z-index: 2000;
-}
+    .dark-proj .astro-pic {
+        background: url(http://www.michalpaszkiewicz.co.uk/images/small-Moon-epiphany.png);
+        height: 150px;
+        width: 150px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        position: absolute;
+        left: 200px;
+        top: 103px;
+        opacity: 0.5;
+    }
 
-.phone-menu-item{
-
-}
-
-#musicscoretrainer-pic{
-  background: url(http://www.contemporarykeyboardinstruction.com/piano.jpg);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-size: 500px 200px;
-  opacity: 0.05;
-  transform: rotateZ(40deg);
-  z-index: 10;
-}
-
-.dark-proj, .dark-proj a{
-  background: rgb(30, 28, 28) !important;
-  color: white !important;
-}
-
-.dark-proj .show-sub{
-  background: rgb(79, 147, 201);
-  color: black;
-}
-
-.dark-proj .astro-pic{
-  background: url(http://www.michalpaszkiewicz.co.uk/images/small-Moon-epiphany.png);
-  height: 150px;
-  width: 150px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  position: absolute;
-  left: 200px;
-  top: 103px;
-  opacity: 0.5;
-}
-
-.section-title{
-  /* IE10 Consumer Preview */ 
-background-image: -ms-linear-gradient(bottom, #FFFFFF -50%, #EFE6C2 100%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(bottom, #FFFFFF -50%, #EFE6C2 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(bottom, #FFFFFF -50%, #EFE6C2 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #EFE6C2));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(bottom, #FFFFFF -50%, #EFE6C2 100%);
-
-/* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to top, #FFFFFF -50%, #EFE6C2 100%);
-
-text-align: center;
-width: 100%;
-border-radius: 10px 10px 0 0;
-box-shadow: gray 0 -2px 1px 0px;
+.section-title {
+    background: none;
+    padding: 20px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    box-shadow: gray 0 -2px 1px 0px;
 }
