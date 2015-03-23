@@ -320,7 +320,7 @@ div.main.project-container {
     width: 250px;
     margin: 0;
     text-align: center;
-    box-shadow: 0 0 5px 5px rgb(57, 109, 109);
+    box-shadow: 0 0 5px 5px rgb(22, 82, 110);
     opacity: 0.95;
     z-index: 1000;
 }
@@ -338,7 +338,7 @@ a.side-bar-item, div.side-bar-item, a.phone-menu-item, div.phone-menu-item {
     cursor: pointer;
     padding: 20px;
     margin: 0;
-    box-shadow: 0 1px 1px rgb(83, 112, 104);
+    box-shadow: 0 1px 1px rgb(22, 82, 110);
     font-size: 25px;
     text-transform: uppercase;
     font-family: arial;
