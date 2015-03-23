@@ -499,3 +499,8 @@ a.side-bar-img, div.side-bar-img {
 .flyer-right{
 	background: url(images/flyer-right.png);
 }
+
+.div.project-container.double-up{
+	height: 410px;
+	float: left;
+}
