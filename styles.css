@@ -74,9 +74,8 @@ h3 {
 
     .panel:nth-child(2n) h2 {
         margin: 0;
-		float: left;
-		height: 100%;
-		line-height: 46px;
+	float: left;
+	line-height: 46px;
     }
 
     .panel:nth-child(2n) p {
