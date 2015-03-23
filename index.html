@@ -501,8 +501,8 @@
         console.log("%c" + "A website made by Michal Paszkiewicz", "color: aliceBlue; text-shadow: black 1px 1px 4px; font-size: 40px;")
 
         var degs = 0;
-        /*var rotate = function () {
-            $(".panel:nth-child(2n) h2").css({
+        var rotate = function () {
+            $("html").css({
                 "-webkit-filter": "hue-rotate(" + degs + "deg)",
                 filter: "hue-rotate(" + 90 + "deg)"
             });
@@ -510,6 +510,6 @@
 
             setTimeout(rotate, 100);
         }
-        rotate();*/
+        rotate();
     </script>
 </body>
