@@ -473,6 +473,7 @@ a.side-bar-img, div.side-bar-img {
 .section-title {
 	background: rgb(58, 64, 71);
 	color: white;
+	padding: 0 5px;
 }
 
 .section-header{
@@ -486,7 +487,6 @@ a.side-bar-img, div.side-bar-img {
 	height: 100%;
 	width: 10px;
 	height: 100%;
-	width: 19px;
 	background-size: cover !important;
 	display: block;
 	float: left;
