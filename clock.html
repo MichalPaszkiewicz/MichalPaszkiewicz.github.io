@@ -1,0 +1,48 @@
+<html>
+<head>
+
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	
+	<style>
+		html, body{ 
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	
+	<script>
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		
+		canvas.height = window.innerHeight
+		canvas.width = window.innerWidth
+		
+		var radius = 50;
+		var x = 100;
+		var y = 100;
+		
+		var update = function(){
+		
+			context.clearRect(0,0,canvas.width, canvas.height);
+		
+			context.beginPath();
+			context.arc(x,y,radius,0,2*Math.PI);
+			context.stroke();
+			
+			context.beginPath();
+			context.moveTo(x,y);
+			
+			var t = (new Date()).getSeconds();
+			
+			context.lineTo(x + radius * Math.cos(2 * t * Math.PI / 60 - Math.PI / 2),y + radius * Math.sin(2 * t * Math.PI / 60 - Math.PI / 2));
+			context.stroke();
+			
+			window.requestAnimationFrame(update);
+		}		
+		
+		window.onload=update();
+	</script>	
+</body>
+</html>
