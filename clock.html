@@ -31,12 +31,27 @@
 			context.arc(x,y,radius,0,2*Math.PI);
 			context.stroke();
 			
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			
+			//seconds
 			context.beginPath();
-			context.moveTo(x,y);
+			context.moveTo(x,y);			
+			context.lineTo(x + radius * Math.cos(s * Math.PI / 30 - Math.PI / 2),y + radius * Math.sin(s * Math.PI / 30 - Math.PI / 2));
+			context.stroke();
 			
-			var t = (new Date()).getSeconds();
+			//minutes
+			context.beginPath();
+			context.moveTo(x,y);			
+			context.lineTo(x + 3 * radius * Math.cos(m * Math.PI / 30 - Math.PI / 2) / 4,y + 3 * radius * Math.sin(m * Math.PI / 30 - Math.PI / 2) / 4);
+			context.stroke();
 			
-			context.lineTo(x + radius * Math.cos(2 * t * Math.PI / 60 - Math.PI / 2),y + radius * Math.sin(2 * t * Math.PI / 60 - Math.PI / 2));
+			//hours
+			context.beginPath();
+			context.moveTo(x,y);			
+			context.lineTo(x + radius * Math.cos(h * Math.PI / 6 - Math.PI / 2) / 2,y + radius * Math.sin(h * Math.PI / 6 - Math.PI / 2) / 2);
 			context.stroke();
 			
 			window.requestAnimationFrame(update);
