@@ -25,12 +25,13 @@ var clock = function(id, options){
 		radius: function(){ return Math.min(canvas.height, canvas.width) / 2 },
 		x: function(){ return canvas.width / 2 },
 		y: function(){ return canvas.height / 2 },
-		colour: "red",
+		colour:"rgba(255,0,0,0.4)",
 		lineColour: function(){ return self.options.colour; },
 		fillColour: function(){  return self.options.colour; },
-		centreCircle: 20,
+		centreCircle: true,
+		centreCircleRadius: 10,
 		centreCircleColour: "red",
-		centreCircleCutout: 5,
+		centreCircleCutout: 2,
 		date: new Date(),
 		addHours: 0,
 		addMinutes: 0,
@@ -41,17 +42,17 @@ var clock = function(id, options){
 	//hands settings
 	self.hands = {
 		secondHand:{
-			length: 1, width: 1, 
+			length: 1, width: 0.1, 
 			percentile:function(){
 				return (getValue("date", function(){return new Date()} ).getSeconds() + getValue("date").getMilliseconds() / 1000) / 60;
 			}},
 		minuteHand:{
-			length: 0.9, width: 5, 
+			length: 0.9, width: 0.4, 
 			percentile:function(){
 				return (getValue("date", function(){return new Date()} ).getMinutes() + getValue("date").getSeconds() / 60) / 60;
 			}},
 		hourHand:{
-			length: 0.5, width: 10, 
+			length: 0.5, width: 0.9, 
 			percentile:function(){
 				return (getValue("date", function(){return new Date()} ).getHours() + getValue("date").getMinutes() / 60) / 12;
 			}}
@@ -95,11 +96,20 @@ var clock = function(id, options){
 	
 	//for drawing a handleEvent
 	var drawHand = function(x, y, radius, theta, lineWidth){
-		self.context.lineWidth = (lineWidth != null) ? lineWidth : 1;
+		
+		self.context.lineWidth = 1;
 		self.context.beginPath();
-		self.context.moveTo(x,y);			
-		self.context.lineTo(x + radius * Math.cos(theta),y + radius * Math.sin(theta));
+		self.context.moveTo(x,y);
+		var offAmount = (lineWidth != null) ? lineWidth : 0.5;
+		var one = {x: x + 2 * radius / 8 * Math.cos(theta + offAmount), y: y + 2 * radius / 8 * Math.sin(theta + offAmount)};
+		var two = {x: x, y: y};
+		var one2 = {x: x + 2 * radius / 8 * Math.cos(theta - offAmount), y: y + 2 * radius / 8 * Math.sin(theta - offAmount)};
+		var finalx = x + radius * Math.cos(theta);
+		var finaly = y + radius * Math.sin(theta);
+		self.context.bezierCurveTo(one.x, one.y, two.x, two.y, finalx,finaly);
+		self.context.bezierCurveTo(two.x, two.y, one2.x, one2.y, x,y);
 		self.context.stroke();
+		self.context.fill();
 		self.context.lineWidth = 1;	
 	}
 	
@@ -146,16 +156,19 @@ var clock = function(id, options){
 		}
 			
 		//centreCircle
-		self.context.fillStyle = getValue("centreCircleColour", "colour");
-		self.context.beginPath();
-		self.context.arc(x,y,getValue("centreCircle"),0,2*Math.PI);
-		self.context.fill();
-		self.context.stroke();
-	
-		self.context.beginPath();
-		self.context.arc(x,y,getValue("centreCircleCutout"),0,2*Math.PI);
-		self.context.clip();
-		self.context.clearRect(0,0,canvas.width, canvas.height);
+		if(getValue("centreCircle")){	
+			self.context.beginPath();
+			self.context.fillStyle = getValue("centreCircleColour", "colour");
+			self.context.arc(x,y,getValue("centreCircleRadius"),0,2*Math.PI);
+			self.context.fill();
+			self.context.stroke();
+			
+			//cutout
+			self.context.beginPath();
+			self.context.arc(x,y,getValue("centreCircleCutout"),0,2*Math.PI);
+			self.context.clip();
+			self.context.clearRect(0,0,canvas.width, canvas.height);
+		}
 	
 		window.requestAnimationFrame(self.update);
 	};
