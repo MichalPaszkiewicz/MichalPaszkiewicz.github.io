@@ -27,7 +27,7 @@ var clock = function(id, options){
 		rimColour: "black",
 		x: function(){ return self.canvas.width / 2 },
 		y: function(){ return self.canvas.height / 2 },
-		colour:"rgba(255,0,0,0.4)",
+		colour:"rgba(255,0,0,0.2)",
 		lineColour: function(){ return self.options.colour; },
 		fillColour: function(){  return self.options.colour; },
 		lineWidth: 1,
