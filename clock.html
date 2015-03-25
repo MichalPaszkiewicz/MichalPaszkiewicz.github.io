@@ -9,55 +9,16 @@
 		html, body{ 
 			padding: 0;
 			margin: 0;
+			height: 100%;
+			width: 100%;
 		}
 	</style>
 	
+	<script src="clock.js"></script>
+	
 	<script>
-		var canvas = document.getElementById("canvas");
-		var context = canvas.getContext("2d");
-		
-		canvas.height = window.innerHeight
-		canvas.width = window.innerWidth
-		
-		var radius = 50;
-		var x = 100;
-		var y = 100;
-		
-		var update = function(){
-		
-			context.clearRect(0,0,canvas.width, canvas.height);
-		
-			context.beginPath();
-			context.arc(x,y,radius,0,2*Math.PI);
-			context.stroke();
-			
-			var date = new Date();
-			var h = date.getHours();
-			var m = date.getMinutes();
-			var s = date.getSeconds();
-			
-			//seconds
-			context.beginPath();
-			context.moveTo(x,y);			
-			context.lineTo(x + radius * Math.cos(s * Math.PI / 30 - Math.PI / 2),y + radius * Math.sin(s * Math.PI / 30 - Math.PI / 2));
-			context.stroke();
-			
-			//minutes
-			context.beginPath();
-			context.moveTo(x,y);			
-			context.lineTo(x + 3 * radius * Math.cos(m * Math.PI / 30 - Math.PI / 2) / 4,y + 3 * radius * Math.sin(m * Math.PI / 30 - Math.PI / 2) / 4);
-			context.stroke();
-			
-			//hours
-			context.beginPath();
-			context.moveTo(x,y);			
-			context.lineTo(x + radius * Math.cos(h * Math.PI / 6 - Math.PI / 2) / 2,y + radius * Math.sin(h * Math.PI / 6 - Math.PI / 2) / 2);
-			context.stroke();
-			
-			window.requestAnimationFrame(update);
-		}		
-		
-		window.onload=update();
+		var myClock = new clock("canvas",{colour: "red"});
+		myClock.start();
 	</script>	
 </body>
 </html>
