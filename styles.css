@@ -15,6 +15,11 @@ a {
     margin-bottom: 15px;
 }
 
+h1:hover{
+    text-shadow: 0 0 40px blue;
+    cursor: pointer;
+}
+
 h3 {
     clear: both;
 }
