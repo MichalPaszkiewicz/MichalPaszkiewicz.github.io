@@ -18,20 +18,23 @@ var clock = function(id, options){
 
 	//initialise canvas && context
 	self.canvas = document.getElementById(id);
-	self.context = canvas.getContext("2d");
+	self.context = self.canvas.getContext("2d");
 
 	//default options
 	self.options = {
-		radius: function(){ return Math.min(canvas.height, canvas.width) / 2 },
-		x: function(){ return canvas.width / 2 },
-		y: function(){ return canvas.height / 2 },
+		radius: function(){ return Math.min(self.canvas.height, self.canvas.width) / 2 },
+		rim: function(){ return getValue("radius") * 0.2; },
+		rimColour: "black",
+		x: function(){ return self.canvas.width / 2 },
+		y: function(){ return self.canvas.height / 2 },
 		colour:"rgba(255,0,0,0.4)",
 		lineColour: function(){ return self.options.colour; },
 		fillColour: function(){  return self.options.colour; },
+		lineWidth: 1,
 		centreCircle: true,
-		centreCircleRadius: 10,
-		centreCircleColour: "red",
-		centreCircleCutout: 2,
+		centreCircleRadius: function(){ return getValue("radius") * 0.03; },
+		centreCircleColour: function(){return getValue("colour");},
+		centreCircleCutout: function(){ return getValue("radius") * 0.01; },
 		date: new Date(),
 		addHours: 0,
 		addMinutes: 0,
@@ -125,22 +128,26 @@ var clock = function(id, options){
 	//updates and draws clock			
 	self.update = function(){
 		self.canvas.height = self.canvas.parentNode.offsetHeight;
-		self.canvas.width = canvas.parentNode.offsetWidth;
+		self.canvas.width = self.canvas.parentNode.offsetWidth;
 		
 		var radius = getValue("radius");
 		var x = getValue("x");
 		var y = getValue("y");
-		self.context.strokeStyle = getValue("lineColour");
-		self.context.fillStyle = getValue("fillColour");
 		
-		self.context.clearRect(0,0, canvas.width, canvas.height);
+		self.context.clearRect(0,0, self.canvas.width, self.canvas.height);
 
 		//outer circle
+		self.context.strokeStyle = getValue("rimColour");
+		self.context.lineWidth = getValue("rim");
 		self.context.beginPath();
-		self.context.arc(x,y,radius,0,2*Math.PI);
+		self.context.arc(x,y,radius - getValue("rim")/2,0,2*Math.PI);
 		self.context.stroke();
+			
+		self.context.strokeStyle = getValue("lineColour");
+		self.context.fillStyle = getValue("fillColour");
+		self.context.lineWidth = getValue("lineWidth");
 		
-		//
+		//numbers
 		
 		updateDate();
 		
@@ -167,7 +174,7 @@ var clock = function(id, options){
 			self.context.beginPath();
 			self.context.arc(x,y,getValue("centreCircleCutout"),0,2*Math.PI);
 			self.context.clip();
-			self.context.clearRect(0,0,canvas.width, canvas.height);
+			self.context.clearRect(0,0,self.canvas.width, self.canvas.height);
 		}
 	
 		window.requestAnimationFrame(self.update);

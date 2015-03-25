@@ -26,6 +26,23 @@
 	
 	  <div id="panel2" class="panel">
 	    <div class="panel-box">
+	
+		<div style="
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+">
+			<canvas id="my-canvas"></canvas>
+			<script src="clock.js"></script>
+				<script>
+					var myClock = new clock("my-canvas", {rimColour:"rgba(0,0,0,0.1)"});
+					myClock.start();
+				</script>	
+		</div>
+		
+		
 <h2>What if clocks were Australian?</h2>
 
 <p>
