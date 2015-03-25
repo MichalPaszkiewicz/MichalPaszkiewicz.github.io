@@ -1,3 +1,18 @@
+Date.prototype.addHours= function(h){
+    this.setHours(this.getHours()+h);
+    return this;
+}
+
+Date.prototype.addMinutes = function(m){
+	this.setMinutes(this.getMinutes()+m);
+	return this;
+}
+
+Date.prototype.addSeconds = function(s){
+	this.setSeconds(this.getSeconds()+s);
+	return this;
+}
+
 var clock = function(id, options){
 	var self = this;
 
@@ -16,7 +31,11 @@ var clock = function(id, options){
 		centreCircle: 20,
 		centreCircleColour: "red",
 		centreCircleCutout: 5,
-		date: new Date()
+		date: new Date(),
+		addHours: 0,
+		addMinutes: 0,
+		addSeconds: 0,
+		directionCoefficient: 1
 	};
 	
 	//hands settings
@@ -84,6 +103,15 @@ var clock = function(id, options){
 		self.context.lineWidth = 1;	
 	}
 	
+	//update the date, change time zone etc.
+	var updateDate = function(){
+		//update date;		
+		self.options.date = new Date();
+		self.options.date.addHours(getValue("addHours", function(){return 0;}));
+		self.options.date.addMinutes(getValue("addMinutes", function(){return 0;}));
+		self.options.date.addSeconds(getValue("addSeconds", function(){return 0;}));
+	}
+	
 	//updates and draws clock			
 	self.update = function(){
 		self.canvas.height = self.canvas.parentNode.offsetHeight;
@@ -102,9 +130,11 @@ var clock = function(id, options){
 		self.context.arc(x,y,radius,0,2*Math.PI);
 		self.context.stroke();
 		
-		self.options.date = new Date();
+		//
 		
-		var directionCoefficient = 1;
+		updateDate();
+		
+		var directionCoefficient = getValue("directionCoefficient", function(){return 1;});
 	
 		//draw all hands
 		for (var key in self.hands) {
