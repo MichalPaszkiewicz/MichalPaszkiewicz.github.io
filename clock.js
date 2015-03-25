@@ -13,28 +13,28 @@ var clock = function(id, options){
 		colour: "red",
 		lineColour: function(){ return self.options.colour; },
 		fillColour: function(){  return self.options.colour; },
+		centreCircle: 20,
+		centreCircleColour: "red",
+		centreCircleCutout: 5,
 		date: new Date()
 	};
 	
 	//hands settings
 	self.hands = {
 		secondHand:{
-			length: 1, 
-			width: 1, 
+			length: 1, width: 1, 
 			percentile:function(){
-				return (self.options.date.getSeconds() + self.options.date.getMilliseconds() / 1000) / 60;
+				return (getValue("date", function(){return new Date()} ).getSeconds() + getValue("date").getMilliseconds() / 1000) / 60;
 			}},
 		minuteHand:{
-			length: 0.9, 
-			width: 5, 
+			length: 0.9, width: 5, 
 			percentile:function(){
-				return (self.options.date.getMinutes() + self.options.date.getSeconds() / 60) / 60;
+				return (getValue("date", function(){return new Date()} ).getMinutes() + getValue("date").getSeconds() / 60) / 60;
 			}},
 		hourHand:{
-			length: 0.5, 
-			width: 10, 
+			length: 0.5, width: 10, 
 			percentile:function(){
-				return (self.options.date.getHours() + self.options.date.getMinutes() / 60) / 12;
+				return (getValue("date", function(){return new Date()} ).getHours() + getValue("date").getMinutes() / 60) / 12;
 			}}
 	}
 	
@@ -47,15 +47,31 @@ var clock = function(id, options){
 	
 	//get function - gets a function, otherwise value.
 	var getValue = function(name, defaultName){
-		if(name == null)
-		{
-			if(defaultName == null)
-			{
+		if(name == null){
+			if(defaultName == null){
 				throw new Error("No value set for this option.");
+			}
+			if(typeof defaultName == "function"){
+				return defaultName();
 			}
 			return (typeof self.options[defaultName] == "function") ? self.options[defaultName]() : self.options[defaultName];
 		}
-		return (typeof self.options[name] == "function") ? self.options[name]() : self.options[name];
+		if(self.options == null){
+			throw new Error("Someone has deleted the clock's options. Uh-oh!");
+		}
+		if(typeof self.options[name] == "function"){
+			var result = self.options[name]();
+			if(result != null){
+				return result;
+			}
+			if(typeof defaultName == "function"){
+				return defaultName();
+			}
+			return (typeof self.options[defaultName] == "function") ? self.options[defaultName]() : self.options[defaultName];
+		}
+		else {
+			return self.options[name];
+		}
 	}
 	
 	//for drawing a handleEvent
@@ -99,14 +115,15 @@ var clock = function(id, options){
 			}
 		}
 			
-		//centerDot
+		//centreCircle
+		self.context.fillStyle = getValue("centreCircleColour", "colour");
 		self.context.beginPath();
-		self.context.arc(x,y,20,0,2*Math.PI);
+		self.context.arc(x,y,getValue("centreCircle"),0,2*Math.PI);
 		self.context.fill();
 		self.context.stroke();
 	
 		self.context.beginPath();
-		self.context.arc(x,y,5,0,2*Math.PI);
+		self.context.arc(x,y,getValue("centreCircleCutout"),0,2*Math.PI);
 		self.context.clip();
 		self.context.clearRect(0,0,canvas.width, canvas.height);
 	
