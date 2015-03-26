@@ -5,6 +5,11 @@ body, html {
     font-family: "arial";
 }
 
+pre{
+	background:none;
+	white-space: pre-line;
+}
+
 .hidden {
     display: none;
 }
