@@ -17,7 +17,7 @@
 </head>
 <body>
   
-  <div class="main-container">
+  <div class="main-container" style="min-width:500px">
   <div id="panel1" class="panel">
     <div class="panel-box">
       <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
@@ -28,22 +28,75 @@
   <div id="panel2" class="panel">
     <div class="panel-box" style="padding: 20px">
 
-        <div class="graph-container" style="height: 400px; width: 400px">
-            <h2>PRmanager progress</h2>
+        <div class="graph-container" style="margin-bottom:40px;">
+            <h2>Followers vs hours</h2>
+            <div class="graph-box">
             <canvas id="my-scatter" />
-            <script>
-                var xyData = { values:[
-                    {x: 0, y: 56},
-                    {x: 12,y: 103},
-                    {x: 24,y: 155},
-                    {x: 36, y: 202},
-                    {x: 48, y: 233}                    
-                ], colour: "red" };
+            </div>
+        </div>
+        <div class="graph-container" style="margin-bottom:40px;">
+            <h2>Followed vs hours</h2>
+            <div class="graph-box">
+            <canvas id="my-scatter2" />
+            </div>
+        </div>
+        <div class="graph-container" style="margin-bottom:40px;">
+            <h2>Followers vs followed</h2>
+            <div class="graph-box">
+            <canvas id="my-scatter3" />
+            </div>
+        </div>
+        <script>
+                
+                var prManagerData = [
+                    {h:0, fs:56, fd:91},
+                    {h:12, fs:103, fd:4200},
+                    {h:24, fs:155, fd:6400},
+                    {h:36, fs:202, fd:9200},
+                    {h:48, fs:233, fd:11900},
+                    {h:60, fs:280, fd:15300},
+                    {h:72, fs:337, fd:17400}
+                ]
+                
+                function getLineOfBestFit(items){
+                    
+                }
+                
+                var items = prManagerData.map(function(item){return {x:item.h, y:item.fs};});
+                var xyData = { values:items, colour: "red" };
                 var scatter = new Plot.Scatter("my-scatter", xyData, {margin: 30});
                 
-            </script>
-        </div>
-
+                var items2 = prManagerData.map(function(item){return {x:item.h, y:item.fd};});
+                var xyData2 = {values:items2, colour: "blue"};
+                var scatter2 = new Plot.Scatter("my-scatter2", xyData2, {margin: 50});                
+                
+                var items3 = prManagerData.map(function(item){return {x:item.fs, y:item.fd};});
+                var xyData3 = {values:items3, colour: "green"};
+                var scatter3 = new Plot.Scatter("my-scatter3", xyData3, {margin: 50});
+        </script>
+        <style>
+            .graph-container {
+                background: rgba(173, 216, 230, 0.31);
+                padding: 40px;
+                margin: auto;
+                border-radius: 10px;
+            }
+            
+            .graph-container h2{
+                width: 100%;
+                text-align: center;
+            }
+            
+            .graph-container canvas{
+                display: block;
+                
+            }
+            
+            .graph-container .graph-box{
+                height: 400px; width: 400px;
+                margin-bottom: 30px;
+            }
+        </style>
     </div>
 
   </div>
