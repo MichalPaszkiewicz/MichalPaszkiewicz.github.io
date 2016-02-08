@@ -33,14 +33,13 @@
             <canvas id="my-scatter" />
             <script>
                 var xyData = { values:[
-                    {x: -5, y: -10},
                     {x: 0, y: 56},
                     {x: 12,y: 103},
                     {x: 24,y: 155},
                     {x: 36, y: 202},
                     {x: 48, y: 233}                    
                 ], colour: "red" };
-                var scatter = new Plot.Scatter("my-scatter", xyData, {});
+                var scatter = new Plot.Scatter("my-scatter", xyData, {margin: 30});
                 
             </script>
         </div>
