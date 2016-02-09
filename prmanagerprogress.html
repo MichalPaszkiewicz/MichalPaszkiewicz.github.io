@@ -55,24 +55,53 @@
                     {h:36, fs:202, fd:9200},
                     {h:48, fs:233, fd:11900},
                     {h:60, fs:280, fd:15300},
-                    {h:72, fs:337, fd:17400}
+                    {h:72, fs:337, fd:17400},
+                    {h:84, fs:371, fd:18800}
                 ]
                 
-                function getLineOfBestFit(items){
+                function getLineOfBestFit(list){
                     
+                    var n = list.length;
+                    
+                    var sumXY = list.reduce(function(a,b){
+                      return (a.x!=null?(a.x * a.y ):a) + b.x * b.y;
+                    });
+                    
+                    var sumX = list.reduce(function(a,b)){
+                      return (a.x!=null?a.x:a) + b.x;
+                    });
+                    
+                    var sumY = list.reduce(function(a,b)){
+                      return (a.y!=null?a.y:a) + b.y;
+                    });
+                    
+                    var sumXX = list.reduce(function(a,b){
+                      return (a.x!=null?(a.x * a.x ):a) + b.x * b.x;
+                    });
+                    
+                    var m = ( n * sumXY - sumX * sumY ) / ( n * sumXX - sumX * sumX );
+                    
+                    var c = ( sumY * sumXX - sumX * sumXY ) / ( n * sumXX - sumX * sumX );
+                    
+                    return function(x){
+                      return m * x + c;
+                    }
                 }
                 
                 var items = prManagerData.map(function(item){return {x:item.h, y:item.fs};});
                 var xyData = { values:items, colour: "red" };
                 var scatter = new Plot.Scatter("my-scatter", xyData, {margin: 30});
+                scatter.addCurve(getLineOfBestFit(items), "rgb(255,200,200)");
                 
                 var items2 = prManagerData.map(function(item){return {x:item.h, y:item.fd};});
                 var xyData2 = {values:items2, colour: "blue"};
-                var scatter2 = new Plot.Scatter("my-scatter2", xyData2, {margin: 50});                
+                var scatter2 = new Plot.Scatter("my-scatter2", xyData2, {margin: 50}); 
+                scatter2.addCurve(getLineOfBestFit(items2), "rgb(200,200,255)");
                 
-                var items3 = prManagerData.map(function(item){return {x:item.fs, y:item.fd};});
+                var items3 = prManagerData.map(function(item){return {x:item.fd, y:item.fs};});
                 var xyData3 = {values:items3, colour: "green"};
                 var scatter3 = new Plot.Scatter("my-scatter3", xyData3, {margin: 50});
+                scatter3.addCurve(getLineOfBestFit(items3), "rgb(200,255,200)");
         </script>
         <style>
             .graph-container {
