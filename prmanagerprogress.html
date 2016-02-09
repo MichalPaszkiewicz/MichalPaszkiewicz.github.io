@@ -33,18 +33,21 @@
             <div class="graph-box">
             <canvas id="my-scatter" />
             </div>
+            <p style="color:red">Run from the start of my prmanager project, this is how many people are following my github account.</p>
         </div>
         <div class="graph-container" style="margin-bottom:40px;">
             <h2>Followed vs hours</h2>
             <div class="graph-box">
             <canvas id="my-scatter2" />
             </div>
+            <p style="color:blue">How many people I followed at the specified hour from the start of the prmanager project</p>
         </div>
         <div class="graph-container" style="margin-bottom:40px;">
             <h2>Followers vs followed</h2>
             <div class="graph-box">
             <canvas id="my-scatter3" />
             </div>
+            <p style="color:green">The amount of followers compared to the amount of people followed.</p>
         </div>
         <script>
                 
@@ -123,7 +126,7 @@
             
             .graph-container .graph-box{
                 height: 400px; width: 400px;
-                margin-bottom: 30px;
+                display: inline-block;
             }
         </style>
     </div>
