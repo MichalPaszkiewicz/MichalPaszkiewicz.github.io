@@ -79,7 +79,7 @@
                 var lastDataPoint = prManagerData[prManagerData.length - 1]; 
                 var roiVal = (lastDataPoint.fs-56) / lastDataPoint.fd;
                 var roiEl = document.getElementById("roi");
-                roiEl.innerText = parseFloat(roiVal).toFixed(2);
+                roiEl.innerText = parseFloat(roiVal * 100).toFixed(2);
                 
                 function getLineOfBestFit(list, writemtoID, writectoID){
                     
