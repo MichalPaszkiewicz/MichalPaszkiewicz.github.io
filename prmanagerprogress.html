@@ -57,6 +57,8 @@
             <p style="color:green">The amount of followers compared to the amount of people followed.
             <br />line equation:<br />
             y = <span id="s3m"></span> x + <span id="s3c"></span>
+            <br />
+            Actual current return on investment: <span id="roi"></span>%
             </p>
         </div>
         <script>
@@ -72,7 +74,12 @@
                     {h:84, fs:371, fd:18800},
                     {h:96, fs:421, fd:23031},
                     {h:108, fs:436, fd: 25700}
-                ]
+                ];
+                
+                var lastDataPoint = prManagerData[prManagerData.length - 1]; 
+                var roiVal = (lastDataPoint.fs-56) / lastDataPoint.fd;
+                var roiEl = document.getElementById("roi");
+                roiEl.innerText = parseFloat(roiVal).toFixed(2);
                 
                 function getLineOfBestFit(list, writemtoID, writectoID){
                     
