@@ -138,7 +138,8 @@
                       {h:852, fs:1589, fd:76127},
                        {h:864, fs:1598, fd:72809},
                        {h:876, fs:1598, fd:71196},
-                        {h:888, fs:1604, fd:68634}
+                        {h:888, fs:1604, fd:68634},
+                         {h:900, fs:1605, fd:66882}
                 ];
                 
                 var lastDataPoint = prManagerData[prManagerData.length - 1]; 
@@ -184,7 +185,7 @@
                 
                 var items = prManagerData.map(function(item){return {x:item.h, y:item.fs};});
                 var xyData = { values:items, colour: "red" };
-                var scatter = new Plot.Scatter("my-scatter", xyData, {margin: 30});
+                var scatter = new Plot.Scatter("my-scatter", xyData, {margin: 50});
                 scatter.addCurve(getLineOfBestFit(items, "s1m", "s1c"), "rgb(255,200,200)");
                 
                 var items2 = prManagerData.map(function(item){return {x:item.h, y:item.fd};});
