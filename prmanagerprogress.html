@@ -155,7 +155,9 @@
                          {h:1056, fs:1653, fd:32419},
                           {h:1068, fs:1653, fd:30253},
                           {h:1080, fs:1653, fd:27371},
-                          {h:1092, fs:1657, fd:25361}
+                          {h:1092, fs:1657, fd:25361},
+                         {h:1104, fs:1658, fd:23189},
+                          {h:1116, fs:1659, fd:20261}
                 ];
                 
                 var lastDataPoint = prManagerData[prManagerData.length - 1]; 
@@ -207,12 +209,12 @@
                 var items2 = prManagerData.map(function(item){return {x:item.h, y:item.fd};});
                 var xyData2 = {values:items2, colour: "blue"};
                 var scatter2 = new Plot.Scatter("my-scatter2", xyData2, {margin: 50}); 
-                scatter2.addCurve(getLineOfBestFit(items2, "s2m", "s2c"), "rgb(200,200,255)");
+                //scatter2.addCurve(getLineOfBestFit(items2, "s2m", "s2c"), "rgb(200,200,255)");
                 
                 var items3 = prManagerData.map(function(item){return {x:item.fd, y:item.fs};});
                 var xyData3 = {values:items3, colour: "green"};
                 var scatter3 = new Plot.Scatter("my-scatter3", xyData3, {margin: 50});
-                scatter3.addCurve(getLineOfBestFit(items3, "s3m", "s3c"), "#9CB79C");
+                //scatter3.addCurve(getLineOfBestFit(items3, "s3m", "s3c"), "#9CB79C");
         </script>
         <style>
             .graph-container {
