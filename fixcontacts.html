@@ -1,0 +1,26 @@
+<html>
+<head></head>
+<body>
+	<textarea id="in"></textarea>
+	
+	<button onclick="fixit()">fix those contacts!</button>
+	
+	<div id = "out"></div>
+		
+	<script>
+		function fixit(){
+			var intxt = document.getElementById("in").value;
+			var outtxt = document.getElementById("out");
+			
+			var relevantLines = intxt.split("\n").filter(function(line){return line.indexOf("Full") > -1;});
+			
+			var fixedLines = relevantLines.map(function(line){ return line.replace(/ /g,"").replace("Fullname:","").replace("FullName:",""); })
+			
+			outtxt.textContent = fixedLines.join(";")
+			
+		}
+	</script>
+</body>
+</html>
+
+
