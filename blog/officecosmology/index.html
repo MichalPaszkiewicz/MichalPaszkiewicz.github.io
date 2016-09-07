@@ -1,0 +1,270 @@
+<head>
+    <title>office cosmology</title>
+    <meta name="description" content="Learn the office. Beat the system.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
+    </script>
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="black panel header">
+            <div class="panel-box">
+                <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+                <h2>office cosmology</h2>
+            </div>
+        </div>
+        <div class="white panel">
+            <div class="panel-box">
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+            
+                <div class="panel-content text">
+
+                    <script src="http://www.michalpaszkiewicz.co.uk/plotjs/plotjs.js"></script>
+<script src="http://www.michalpaszkiewicz.co.uk/clockjs/clock.js"></script>
+
+<p>
+	The office is big. Really big. You just won't believe how vastly, hugely mind-bogglingly big it is. When you send an email, people don't reply for weeks - since email travels nearly at the speed of light, we must be talking about light-weeks!
+</p>
+<p>
+	But it's alright. With this handy guide, I will help you understand how your office works and how you can make the most of it (or rather, how you can traverse it without going supernova).
+	What we will find, is that physics offers us great laws that more or less translate to various effects we see in the office.
+</p>
+
+<h3>The Laws of Thermodynamics</h3>
+
+<div style="height: 400px">
+	<canvas id="thermo"></canvas>
+	<script>
+		var data = {
+    			"  80.0%":2,
+    			"  20.0%":8
+		}
+		var options = {};
+		var pie = new Plot.Pie("thermo", data, options);
+	</script>
+</div>
+<i style="display: block;width: 100%;text-align: center;" ><a href="https://en.wikipedia.org/wiki/Pareto_principle">In a team of 10, percent of work done by employees</a></i>
+<br/>
+<h4>1: Energy can neither be created or destroyed.</h4>
+<p>
+	If you are a manager, read this carefully - you cannot get work done if there are no / not enough people working on the project.
+	Changing how your company works will not magically get your projects finished.
+	There may be an improvement, but you cannot create something out of nothing.
+</p>
+
+<h4>2: The entropy of an isolated system not in equilibrium will tend to increase over time, approaching a maximum value at equilibrium.</h4>
+<p>
+	The moment a project is started, nothing will become better - everything will only become worse. 
+	It doesn't matter if you are writing perfect code and having a small feedback loop with your client.
+	This stems from a natural fact, that if you are coding, you start with the possibility of doing anything.
+	The moment you start writing code, you are limiting what will be possible with the finished product. 
+	You CAN go back and undo things, refactor and so on, but it will only require more effort than if you had known the original final intentions beforehand.
+	You will also forget about all the things that weren't documented when you wrote the code originally.
+	Therefore projects always naturally gets worse.
+</p>
+
+<p>
+	There is also the issue of <a href="https://en.wikipedia.org/wiki/Learned_helplessness">learned helplessness</a>.
+	When people spend a large amount of time in a situation where a problem has not been solved, they eventually learn to live with the problem and will not rise to tackle it.
+	This could be seen especially in extreme situations, such as during the Holocaust or the Rwandan Genocide, where the victims would line up and do as they were told meekly, due to their feelings of helplessness.
+	Large, encompassing problems become part of the culture of companies, while the situations of projects only get worse.
+</p>
+
+<h4>3: As temperature approaches absolute zero, the entropy of a system approaches a constant minimum.</h4>
+<p>
+	You cannot achieve perfection, just like you can never achieve absolute zero.
+	One thing that we have learnt however, is that temperatures close to 0K let us have superconductors.
+	If we aim to write the best code to within reason, we can harness the effects of having code that is easier to work with, while avoiding wasting all of our energy trying to achieve absolute perfection.
+	However, any perfectionist will always have to sacrifice some abstractions and improvements one believed would make things better.
+</p>
+
+<p>To paraphrase others before me: <b> There is no free lunch, only birthday cake that you buy on your own birthday.</b> </p>
+
+<h3>Newton's laws</h3>
+
+
+<div style="height: 150px">
+	<canvas id="newton"></canvas>
+	<script>
+	var xData = [{ values: [], colour: "red" }];
+		for (var i = 0; i < 20; i++) {
+    		xData[0].values.push({ x: (i * i * 50) + 90000 });
+	}
+	var boxAndWhisker = new Plot.BoxAndWhisker("newton", xData, {});
+	</script>
+</div>
+<i style="display: block;width: 100%;text-align: center;" >Happy workforce pay distribution (&pound;)</i>
+<br/>
+
+<h4>1: Objects remain at rest or continue to move at a constant velocity unless acted upon by a net force.</h4>
+<p>
+	Unless you are willing to embrace change, things will not change in your company.
+	Of course, forces can be applied in various directions, but since having a constant velocity is just the natural state of things, the only way to get ahead of your competition is to accelerate.
+</p>
+
+<h4>2: \( F = m \cdot a \) 
+
+</h4>
+<p>
+	Or as I like to call it, \( work Force = Money \cdot Agents \).
+	You can have a tonne of workers, but if your office is a sweatshop, you will produce less than a smaller amount of workers who are satisfied with their job and do it with a passion.
+	Similarly, if you are paying more for your workers, it is likely that it is because you have better workers, so it really pays off.
+</p>
+
+<h4>3: When one body exerts a force on a second body, the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body.</h4>
+<p>
+	When you put a significant amount of effort into improving your company, expect the same amount of opposition to your ideas.
+	In fact, you will find that the better your idea and the more change it could make for the better, the more opposition it will have.
+	I'm truly sorry.
+</p>
+
+<h3>Cosmology</h3>
+
+<div style="height: 200px">
+	<canvas id="cosmology"></canvas>
+	<script>
+	var clockOptions = {
+		colour: "black",
+		rimColour:"black",
+		rim: 1,
+		directionCoefficient: -3,
+		markerType: "none"
+	}
+
+	var myClock = new clock("cosmology", clockOptions);
+	myClock.start();
+	</script>
+</div>
+<i style="display: block;width: 100%;text-align: center;" >Near a black hole, time can slow down, but during a meeting, it can even reverse!</i>
+
+<h4>The Copernican Principle</h4>
+<p>
+	Before you get any crazy ideas in your head, statistically when you join a company, you are joining it at its least interesting point.
+	Furthermore, you are most likely not unique and will not go down in history as a major event in the history of your workplace, even if everything there relies on that bit of code you wrote last week.
+</p>
+
+<h4>Expansion of the universe</h4>
+<p>
+	Offices are always expanding. You will find yourself and your team always acquiring new tasks, some of which may not be in your job description.
+	Only in the Cosmic Microwave Background (your company's mission statement?) will you see any vague trace of what the original founders of your company intended.
+</p>
+
+<h4>The energy-momentum relation</h4>
+<p>
+	The faster you go, the more energy you need to go just a little bit faster and you will never exceed the Speed of Light.
+	Similarly, <a href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month" alt="The Mythical Man Month">you cannot indefinitely increase the production speed of your team by increasing the team size.</a>
+	It is easy to notice this, by considering how you cannot impregnate 9 women in order to have a child within a month.
+	Or as often said: "Too many cooks spoil the broth".
+</p>
+
+<h4>Dark Matter</h4>
+<p>
+	Every office has its fair share of egos.
+	Finance departments have long been wondering whether it is the 
+	<a href="https://en.wikipedia.org/wiki/Massive_compact_halo_object" alt="Massive compact halo object">MACHOs</a> (bosses) who have been doing all the work, 
+	or whether it was all the quiet <a href="https://en.wikipedia.org/wiki/Weakly_interacting_massive_particles" alt="Weakly interacting massive particles">WIMPs</a> (employees)
+	who were all adding their fair shares in for the greater good of the company.
+	Either way, there is always some unaccounted work which seems to keep the company running.
+	I will leave it to you to discover who could be working the extra hours.
+</p>
+
+<h4>Dark Energy</h4>
+<p>
+	There seems to be something out there that is the cause of the expansion of your company.
+	Something that is the driving force of every being there.
+	Something that seems to be ingrained into the very fabric of work life.
+	If only we could all see a bit more of it.
+</p>
+
+<h3>Aliens</h3>
+<p>
+	Most people have probably got their own SETI (LinkedIn). 
+	You hear of space outside of your office, but it almost always turns out to be a hoax (recruiter trial and error).
+	Occasionally someone claims to be abducted (got a new job), but everyone knows it can't be true.
+	They say the planets are always greener on the other side.
+	One way or another, one must learn to face his local office space.
+</p>
+
+
+                    <p class="newline small">published: Mon Aug 29 2016</p>
+                </div>
+
+                <div class="info-panel">
+                    <img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+                    <div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London.</div>
+                    <div class="newline"></div>
+                </div>
+            
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+                
+                <!--Start Links-->
+                <div class="related-links">
+                    <div class="related-links-title black">other things</div>
+                    <div class="related-links-content">
+
+                        <a class="related-link" href="../southeasternbear/index.html">
+                            <img src="../southeasternbear/index.png" alt="south eastern bear hunt (we're going on a)">
+                            <span>south eastern bear hunt (we're going on a)</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../jsquirks/index.html">
+                            <img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+                            <span>the weird parts of js I cannot seem to learn</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../arrowgood/index.html">
+                            <img src="../arrowgood/index.png" alt="All the things I love about the TV show arrow">
+                            <span>All the things I love about the TV show arrow</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../arrow/index.html">
+                            <img src="../arrow/index.png" alt="why arrow is the most frustrating TV series ever">
+                            <span>why arrow is the most frustrating TV series ever</span>
+                            <div class="newline"></div>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Close Links -->
+
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div class="footer black">
+        <div class="panel-box">
+            
+            <a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+            <a href='../index.html' alt='blog main menu'>Blog</a>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+
+
