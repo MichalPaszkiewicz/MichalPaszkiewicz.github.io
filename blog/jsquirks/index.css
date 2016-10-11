@@ -10,7 +10,7 @@ body, html {
     font-family: "Arial";
 }
 
-h1, h2, h3, h4, a, .info-description, p.small{
+h1, h2, h3, h4, .black a, a.menu-item, a.related-link, .info-description, p.small{
     font-family: michalFont;
     word-spacing: 10px;
     letter-spacing: 2px;
@@ -23,6 +23,11 @@ p{
 
 .hidden {
     display: none;
+}
+
+.inline{
+    width: 80%;
+    margin:auto;
 }
 
 p.small{
@@ -337,4 +342,16 @@ body{
 
 .wide-img{
     width: 100%;
+}
+
+.color-red{
+    color: red;
+}
+
+.color-green{
+    color: green;
+}
+
+.color-blue{
+    color: blue;
 }

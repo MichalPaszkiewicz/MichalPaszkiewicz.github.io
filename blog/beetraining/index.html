@@ -1,6 +1,6 @@
 <head>
-    <title>js quirks that always get me</title>
-    <meta name="description" content="the weird parts of js I cannot seem to learn">
+    <title>intelligent bees</title>
+    <meta name="description" content="bees taught to pull string">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
@@ -24,7 +24,7 @@
         <div class="black panel header">
             <div class="panel-box">
                 <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
-                <h2>js quirks that always get me</h2>
+                <h2>intelligent bees</h2>
             </div>
         </div>
         <div class="white panel">
@@ -37,77 +37,29 @@
                 <div class="panel-content text">
 
                     <p>
-	Anyone who has done half a course on programming knows that javascript has its quirks. 
-	Some get very upset over them, while others lovingly collect them and spend their spare time stroking them, whispering "my precious".
-	There are some people who claim they fit in neither of these groups, but they are just living a lie.
+	In an exciting <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002564" alt="scientific paper about training bees">new study</a>,
+	<a href="http://chittkalab.sbcs.qmul.ac.uk/Sylvain.html">Sylvain Alem</a> and <a href="http://chittkalab.sbcs.qmul.ac.uk/Clint.html">Clint J. Perry</a> 
+	from the <a href="http://chittkalab.sbcs.qmul.ac.uk/index.html">Chittka Lab</a> at Queen Mary University (London) have shown that bees can be trained to pull string.
 </p>
-
 <p>
-	Before you start wondering which of the groups I fit into, I would like to make it clear that I am not going to use this article to rant about the javascript.
-	Ranting about the javascript would be like ranting about the Batman.
-	It is not the scripting language we need. It is the scripting language we deserve.
-	I am writing this article because I make mistakes and there is no better way of learning from your mistakes than by announcing to everyone you made these mistakes.
+	The bees were trained by placing a strung disc with nectar partially under a cover.
+	The bees would feed from it and the disc would subsequently be pushed a bit further under the cover.
+	The bees eventually learned that pulling the disc out helped them with their task.
+	Even though the coloured disc seemed to help to train the bees, some managed to pull strings <a href="http://journals.plos.org/plosbiology/article/asset?unique&id=info:doi/10.1371/journal.pbio.1002564.s007">not attached to a disc</a>.
 </p>
-
 <p>
-	People will laugh at you. 
-	They will bring it up in conversations about gardening.
-	They will draw pictures of you with silly speech bubbles.
-	Once you have suffered this, you will never make that mistake again.
-	I hope.
+	Not only did the bees learn to pull the string by themselves, they also taught their fellow bees how to do it.
 </p>
-
+<iframe width="854" height="480" style="max-width: 100% !important;" src="https://www.youtube.com/embed/NUdwEEnE_cM" frameborder="0" allowfullscreen></iframe>
 <p>
-	Anyway, I am doing quite well at remembering most of the normal js oddities that people bring up when they are really failing to impress their dates.
-	However, there are always mistakes that surprise me, even if I have done them a few times before.
-	Here they are!
+	This study comes at an important time for bees, who have been <a href="http://www.saveourbees.org.uk/why-are-bees-dying.html">dying out</a>.
+	The UK had over 50 native species of bees in the 1950s, but now there are only 25.
+	Bees are possibly our most useful insect, since they not only make great pollinators (and therefore increase the yield of crops), but they produce honey, wax, propolis, antibiotics and <a href="http://nordicfoodlab.org/blog/2015/9/4/bee-bread">bee bread</a> (which you can also eat).
+	Could bees be taught more tricks that could revive interest in them and therefore help us keep them alive?
 </p>
 
-<h3>Replacing dollar signs</h3>
 
-<p>
-	Now most of you will immediately laugh at me because you've all read <a href="http://stackoverflow.com/questions/9423722/string-replace-weird-behavior-when-using-dollar-sign-as-replacement" alt="stack overflow dollar sign problem thing">this</a>.
-	Or you were already aware of dollar signs being involved in "special replacement patterns". 
-	Either way, when you are working with MathJax and need to insert some beautiful Latex in an html page and for some reason you decided to do this with a string replace, please remember me and put a slight smirk on your face.
-</p>
-
-<pre class=""><code style="background: none;" class="javascript">
-"blah".replace(/blah/g, "$$");
-// output:
-// "$"
-</code></pre>
-
-<p>
-	The worst part is I keep forgetting about this issue.
-	I blame it on the fact that I'm only used to seeing &pounds disappear.
-</p>
-
-<h3>0 indexed months</h3>
-
-<p>
-	In the USA, they write 8/16/2016. 
-	In England, we call that an abomination and write 16/8/2016.
-	Considering we've had clocks for longer, it makes sense that we have the better convention for writing dates.
-	In javascript, you would write 16/7/2016.
-	I'm not going to argue that this is silly or wrong, because we all know the British have had clocks for longer than javascript has, so there is nothing to prove.
-</p>
-
-<p>
-	Either way, here is a beautiful example of the way javascript works:
-</p>
-
-<pre class=""><code style="background: none;" class="javascript">
-new Date(2000,1,1);
-// output:
-// Tue Feb 01 2000 00:00:00 GMT+0000 (GMT Standard Time)
-</code></pre>
-
-<p>
-	No matter how many times I write some code with dates, I always forget about this and turn up a month late to meetings.
-	In all honesty, the best reason to learn javascript is that it provides plenty of excuses as to why something has gone wrong.
-</p>
-
-                    <p class="newline small">published: Wed Aug 31 2016</p>
+                    <p class="newline small">published: Fri Oct 07 2016</p>
                 </div>
 
                 <div class="info-panel">
@@ -126,27 +78,27 @@ new Date(2000,1,1);
                     <div class="related-links-title black">other things</div>
                     <div class="related-links-content">
 
-                        <a class="related-link" href="../officecosmology/index.html">
-                            <img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
-                            <span>Learn the office. Beat the system.</span>
+                        <a class="related-link" href="../montyhallexplained/index.html">
+                            <img src="../montyhallexplained/index.png" alt="explaining the Monty Hall problem to the disbelievers">
+                            <span>explaining the Monty Hall problem to the disbelievers</span>
                             <div class="newline"></div>
                         </a>
 
-                        <a class="related-link" href="../beetraining/index.html">
-                            <img src="../beetraining/index.png" alt="bees taught to pull string">
-                            <span>bees taught to pull string</span>
+                        <a class="related-link" href="../southeasternbear/index.html">
+                            <img src="../southeasternbear/index.png" alt="south eastern bear hunt (we're going on a)">
+                            <span>south eastern bear hunt (we're going on a)</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../arrowgood/index.html">
+                            <img src="../arrowgood/index.png" alt="All the things I love about the TV show arrow">
+                            <span>All the things I love about the TV show arrow</span>
                             <div class="newline"></div>
                         </a>
 
                         <a class="related-link" href="../arrow/index.html">
                             <img src="../arrow/index.png" alt="why arrow is the most frustrating TV series ever">
                             <span>why arrow is the most frustrating TV series ever</span>
-                            <div class="newline"></div>
-                        </a>
-
-                        <a class="related-link" href="../montyhallexplained/index.html">
-                            <img src="../montyhallexplained/index.png" alt="explaining the Monty Hall problem to the disbelievers">
-                            <span>explaining the Monty Hall problem to the disbelievers</span>
                             <div class="newline"></div>
                         </a>
 

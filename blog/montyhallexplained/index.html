@@ -1,0 +1,416 @@
+<head>
+    <title>Monty Hall explained</title>
+    <meta name="description" content="explaining the Monty Hall problem to the disbelievers">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
+    </script>
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="black panel header">
+            <div class="panel-box">
+                <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+                <h2>Monty Hall explained</h2>
+            </div>
+        </div>
+        <div class="white panel">
+            <div class="panel-box">
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+            
+                <div class="panel-content text">
+
+                    <script src="http://www.michalpaszkiewicz.co.uk/montyhallr/index.js"></script>
+
+<h3>How to explain the Monty Hall problem to a disbeliever</h3>
+<p>		
+	The Monty Hall problem is an excellent example of a problem where mathematics seem to disagree with common sense.
+	It was first presented as a probability puzzle in a <a href="http://www.jstor.org/stable/2683689?seq=1#page_scan_tab_contents">letter by Steve Selvin</a> to the <i>American Statistician</i> in 1975.
+	The problem was an alteration of the TV show <a href="https://en.wikipedia.org/wiki/Let%27s_Make_a_Deal">"Let's Make a Deal"</a> (hosted by <a href="https://en.wikipedia.org/wiki/Monty_Hall">Monty Hall</a>), 
+	which was a game that involved an offer of an item of a certain value and the possibility of exchanging it for something better, albeit at a risk of getting a "zonk" (item of little value) instead.
+</p>
+<p>
+	This altered game involved a three boxes labeled A, B and C. 
+</p>
+<img class="mh-box" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">A</span>
+<img class="mh-box" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">B</span>
+<img class="mh-box" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">C</span>
+<p>
+	One of the three contained keys to a 1975 Lincoln Continental (car).
+	The other two were empty (no goats were involved, contrary to popular belief - these were introduced by <a href="http://marilynvossavant.com/game-show-problem/">Marilyn vos Savant</a>).
+	The contestant would pick one of the three boxes.
+</p>
+<img class="mh-box chosen" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">A</span>
+<img class="mh-box" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">B</span>
+<img class="mh-box" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">C</span>
+<p>
+	The host (knowing which box has the keys) would then reveal one of the other two boxes was empty.
+</p>
+<img class="mh-box chosen" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">A</span>
+<img class="mh-box" src="montyhallexplained-openbox.png" />
+<span class="mh-label">B</span>
+<img class="mh-box" src="montyhallexplained-closedbox.png" />
+<span class="mh-label">C</span>
+<p>
+	The host would then give the contestant a choice to either stick to the box he originally chose, or to switch to other, unrevealed box.
+</p>
+<p>
+	The odd thing with this problem is that <b>switching is the optimal choice.</b>
+</p>
+<img class="mh-box chosen" src="montyhallexplained-openbox.png" />
+<span class="mh-label">A</span>
+<img class="mh-box" src="montyhallexplained-openbox.png" />
+<span class="mh-label">B</span>
+<img class="mh-box" src="montyhallexplained-keys.png" />
+<span class="mh-label">C</span>
+<p>
+	People struggle to see this at first, because the reasoning behind this is quite subtle.
+	Most people notice that there are two boxes left, so they believe that the chance of either of the boxes holding the key is \( \frac{1}{2} \).
+	However, mathematics shows that if you always switch, you will win \( \frac{2}{3} \) of the time!
+</p>
+<p>
+	I will now present various ways of arriving at this result with the hope that anyone reading this will be able to find a way to get around the mental barrier that is stopping them from seeing the truth.
+</p>
+
+<h3>Options</h3>
+<p>
+	One of the ways we can analyse the probability of a certain result from a certain action is to analyse what the possible outcomes are.
+	People who think that the chances are even (50%) in the Monty Hall problem already know about analysing options.
+	They think that there are only two options, one where the chosen box has the keys, the other being that the other box has the keys.
+	This would be entirely true if there were always two boxes, one of which contained the keys.
+	However, if we analyse the whole Monty Hall problem, we get the following table:
+</p>
+
+<div class="table-container" style="width:100%;overflow-y:scroll">
+<table style="min-width:500px;">	
+	<tr>
+		<th>Keys are in box</th>
+		<th>Contestant chose box</th>
+		<th>Host opens box</th>
+		<th>Contestant switches</th>
+		<th>Result</th>
+	</tr>
+	<tr class="color-red">
+		<td>A</td>
+		<td>A</td>
+		<td>B or C</td>
+		<td>A for B or C</td>
+		<td>loses</td>
+	</tr>	
+	<tr class="color-green">
+		<td>A</td>
+		<td>B</td>
+		<td>C</td>
+		<td>B for A</td>
+		<td>wins</td>
+	</tr>
+	<tr class="color-green">
+		<td>A</td>
+		<td>C</td>
+		<td>B</td>
+		<td>C for A</td>
+		<td>wins</td>
+	</tr>
+	<tr class="color-green">
+		<td>B</td>
+		<td>A</td>
+		<td>C</td>
+		<td>A for B</td>
+		<td>wins</td>
+	</tr>
+	<tr class="color-red">
+		<td>B</td>
+		<td>B</td>
+		<td>A or C</td>
+		<td>B for A or C</td>
+		<td>loses</td>
+	</tr>
+	<tr class="color-green">
+		<td>B</td>
+		<td>C</td>
+		<td>A</td>
+		<td>C for B</td>
+		<td>wins</td>
+	</tr>
+	<tr class="color-green">
+		<td>C</td>
+		<td>A</td>
+		<td>B</td>
+		<td>A for C</td>
+		<td>wins</td>
+	</tr>
+	<tr class="color-green">
+		<td>C</td>
+		<td>B</td>
+		<td>A</td>
+		<td>B for C</td>
+		<td>wins</td>
+	</tr>
+	<tr class="color-red">
+		<td>C</td>
+		<td>C</td>
+		<td>A or B</td>
+		<td>C for A or B</td>
+		<td>loses</td>
+	</tr>
+</table>
+</div>
+
+<style>
+	.mh-box{
+		width: 100px;
+		padding-bottom: 10px
+	}
+	.mh-box.chosen{
+		box-sizing: border-box;
+		border: 1px dotted black;
+	}
+	.mh-label{
+		margin-left: -55px;
+    		margin-right: 40px;
+		bottom: 10px;
+    		position: relative;
+	}
+	th, td{
+		max-width: 120px;
+		padding: 5px;
+    		text-align: center;
+	}
+</style>
+
+<p>
+	We can see from this table that there are 9 total possible results.
+	If you always switch, there are 3 possible results where you would lose and 6 possible results where you would win.
+	So therefore, by switching you would win \( \frac{6}{9} \) of the time, which is \( \frac{2}{3} \) of the time.
+</p>
+<h3>Probability</h3>
+<p>
+	We can also evaluate the probability of where the box is as the game progresses.
+	When we pick the original box, we know that the probability that the keys will be in there is \( \frac{1}{3} \).
+	The probability that the keys will not be in the box you originally chose is \( 1 - \frac{1}{3} = \frac{2}{3} \).
+	Just from this knowledge alone, you could decide that you will always switch, since the probability that the <b>other boxes</b> have the keys is \( \frac{2}{3} \).
+</p>	
+<img style="width:100%; max-width:300px" src="montyhallexplained-statistics.png" />
+<p>
+	The fact that one of the other boxes (that is empty) is revealed doesn't really make a difference.
+	It is in fact equivalent to the host saying that for the option of switching, if one of the other two boxes has the keys, he will always pick that one as your "switched" box.
+	And it is also the same as if you revealed the contents of both of the other boxes when switching.
+	The revealing of the box does not actually change the probability of your original box having a chance of \( \frac{1}{3} \) of being the box with the keys.
+</p>
+<h3>Contradiction</h3>
+<p>
+	One of the ways you can persuade yourself that the outcome <b>is not \( \frac{1}{2} \)</b> is by arriving at the following contradiction:
+</p>
+<p>
+	If you have a belief that you have a 50% chance of opening the correct box if you stick to it, then it makes no difference if you make your mind up after one of the boxes is revealed to be empty, or before the game entirely.
+	Since you know the process of the game will always result in two boxes being left unrevealed, one of which is yours, you are saying that the probability that the keys are in the box you originally chose is always \( \frac{1}{2} \).
+	This would mean that at the start of the game, each of the three boxes has a probability of \( \frac{1}{2} \) of containing the keys, 
+	since whichever one you will chose will be the box that eventually has probability \( \frac{1}{2} \) of being the one with the keys, 
+	once an empty box has been revealed.
+	We know this cannot be the case, since if there are 3 cards, the chance of picking the right box has to be \( \frac{1}{3} \). 
+	We have arrived at a contradiction.
+</p>
+<p>
+	Even if this is the case, then we have three boxes with probability \( \frac{1}{2} \) of containing the keys.
+	So in total, the probability of the keys being in one of the boxes is
+	$$P(keys \ are \ in \ a \ box) = 3\times \frac{1}{2} = \frac{3}{2} = 1.5$$
+	Anyone who has completed even the most basic maths course knows that probabilities always have to add up to 1. 
+	A probability of 1.5 has no meaning and shows you have made a big mistake.
+</p>
+<h3>Try it out</h3>
+<p>
+	Below I have set up an equivalent game involving three cards.
+	One of the cards is a PacMan card.
+	The other two are ghost cards.
+	You get to chose a card, after which one of the two cards out of the ones you didn't pick is revealed to contain a ghost.
+	You then get a chance to stay with the card you originally chose, or to switch to the other one.
+</p>
+<p>
+	If you play just a few games, you may not notice how switching is the side that wins more times by far.
+	I therefore recommend you play this game at least a few dozen times.
+	After playing a few games, some statistics will appear below the game to help you see how you're doing.
+	You should (most likely) see that the more games you play, the closer the percentage of games that would have been won by switching will be to 66.6%.
+</p>
+
+<div id="monty-hall-standard"></div>
+<div class="inline">
+	<div id="results"></div>
+	<div id="chosen"></div>
+	<div id="switched"></div>
+	<div id="percent-won"></div>
+</div>
+
+<h3>Scaling up</h3>
+<p>
+	One of the ways that you can try and make it more obvious to yourself how this effect works is by scaling up the game.
+	Below is the same game, but with 20 cards.
+	After selecting one card, 18 of the 19 other cards will be revealed to show a ghost on the other side.	
+</p>
+
+<p>
+	With the increased number of cards, the chance that you will win if you switch has increased a lot.
+	After playing this game a few dozen times, you should see the percentage of games that would have been won by a person that always switches should tend to 95%.
+</p>
+
+<div id="monty-hall-big"></div>
+<div class="inline">
+	<div id="results-big"></div>
+	<div id="chosen-big"></div>
+	<div id="switched-big"></div>
+	<div id="percent-won-big"></div>
+</div>
+
+<h3>Paradox</h3>
+<p>
+	We still have a paradox.
+	The problem is that even with 20 cards, 
+	if someone (who did not know which card you originally chose) were to show up just after you had chosen a card and 18 others had been turned over,
+	the chance of them picking the PacMan card is still \( \frac{1}{2} \). How is that possible?
+</p>
+
+<p>
+	What you can see is that there is a difference between this new person and you.
+	You knew which card you originally chose, while they do not.
+	It is the fact that you have additional knowledge that means that you have the upper hand and have a better chance of guessing where the card is.
+</p>
+
+<p>
+	You know that there is a 5% chance that the card will be the one you originally chose, and 95% chance that it will be the other.
+	The newcomer, if he doesn't know the rules of the game and has no idea why some of the cards are upturned, 
+	will be unaffected by the upturned cards and will therefore just be picking which of the two cards he thinks is PacMan.
+	But even if the newcomer knows the rules of the game, it doesn't help him if he doesn't know which card you originally chose.
+	This is because there are two options. 
+	Either you picked card A and therefore P(A) = 5% and P(B) = 95% or you picked card B before the cards were flipped and therefore P(B) = 5% and P(A) = 95%.
+	He now only has 50% chance of guessing which card you picked originally. The probabilities for each card being the Pacman card are now:
+	$$
+		P(A) = 50\% \times 5\% + 50\% \times 95\% = 50\%\\
+		P(B) = 50\% \times 95\% + 50\% \times 5\% = 50\%
+	$$
+</p>
+
+<script>
+	function writeTo(id, text){
+		var box = document.getElementById(id);
+		box.innerHTML = text;
+	}
+	
+	var chosen = 0;
+	var switched = 0;
+	var chosenBig = 0;
+	var switchedBig = 0;
+
+	function writeStandardScore(type, num1, num2){
+		writeTo("results" + type,"<h3>Results</h3>");
+		writeTo("chosen" + type,"Number of times PacMan card was the originally chosen card: " + num1);
+		writeTo("switched" + type, "Number of times PacMan card was the alternative card: " + num2);
+		writeTo("percent-won" + type, "Percentage of games that would have been won by switching: " + (100 * num2/ (num1 + num2)) + "%");
+	}
+
+	MontyHall.play("monty-hall-standard", 3, (card) => {
+		if((card.isCorrect && card.isChosen) || (!card.isCorrect && !card.isChosen)){
+			chosen++;
+		}
+		else{
+			switched++;
+		}
+		writeStandardScore("", chosen, switched);
+	});
+	MontyHall.play("monty-hall-big", 20, (card) => {
+		if((card.isCorrect && card.isChosen) || (!card.isCorrect && !card.isChosen)){
+			chosenBig++;
+		}
+		else{
+			switchedBig++;
+		}
+		writeStandardScore("-big", chosenBig, switchedBig);
+	});
+</script>
+
+                    <p class="newline small">published: Wed Oct 05 2016</p>
+                </div>
+
+                <div class="info-panel">
+                    <img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+                    <div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London.</div>
+                    <div class="newline"></div>
+                </div>
+            
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+                
+                <!--Start Links-->
+                <div class="related-links">
+                    <div class="related-links-title black">other things</div>
+                    <div class="related-links-content">
+
+                        <a class="related-link" href="../arrowgood/index.html">
+                            <img src="../arrowgood/index.png" alt="All the things I love about the TV show arrow">
+                            <span>All the things I love about the TV show arrow</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../arrow/index.html">
+                            <img src="../arrow/index.png" alt="why arrow is the most frustrating TV series ever">
+                            <span>why arrow is the most frustrating TV series ever</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../jsquirks/index.html">
+                            <img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+                            <span>the weird parts of js I cannot seem to learn</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../officecosmology/index.html">
+                            <img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+                            <span>Learn the office. Beat the system.</span>
+                            <div class="newline"></div>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Close Links -->
+
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div class="footer black">
+        <div class="panel-box">
+            
+            <a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+            <a href='../index.html' alt='blog main menu'>Blog</a>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+
+
