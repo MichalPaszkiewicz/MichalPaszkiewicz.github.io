@@ -1,0 +1,219 @@
+<head>
+    <title>the firefly strategy report</title>
+    <meta name="description" content="How to play the firefly board game better">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
+    </script>
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="black panel header">
+            <div class="panel-box">
+                <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+                <h2>the firefly strategy report</h2>
+            </div>
+        </div>
+        <div class="white panel">
+            <div class="panel-box">
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+            
+                <div class="panel-content text">
+
+                    <script src="http://www.michalpaszkiewicz.co.uk/plotjs/plotjs.js"></script>        
+
+<h1>Firefly (the board game) Strategy</h1>
+
+        <p>
+            Since being introduced to Firefly: The Board Game by David and Miriam from <a href="https://tametheboardgame.com/2014/06/03/the-uk-games-expo/">Tame The Board Game</a>,
+            I have had hours of fun playing this game with various combinations of people.
+            The game is essentially <a href="https://en.wikipedia.org/wiki/Freelancer_(video_game)">Freelancer</a> on a board.
+            You collect crew, gear and you complete jobs for money, while trying to finish the main task, which is presented in the form of a story. 
+        </p>
+
+        <p>
+            I have decided to present a short report that may help you choose which strategy to play with in the game and how to optimise your strategy once you have chosen it.
+            Please be aware that the rest of this article expects the reader to have played firefly at least once before. 
+            If you have not, you will most likely just be seeing pretty graphs and not understanding what I'm writing about.
+        </p>
+
+        <h2>
+            Existing material
+        </h2>
+        <p>
+            Before we get started, I would like to point out that there is already some great material out there that you can use to analyse what is available in the shop decks.
+            First of all, there is a great article presented by <a href="http://mattersofinterest.info/fireflythegametotals/">Matters of Interest</a>, 
+            which has some great graphs detailing what things you can buy where.
+            There is also a great open source project by <a href="http://rhialtothemarvellous.github.io/firefly-cards/">RhialtoTheMarvellous</a> which will allow you to search what you can find in which deck with a lot of detail.
+            It is also hosted on github, so you can download the <a href="https://github.com/RhialtoTheMarvellous/firefly-cards ">source code</a>.
+        </p>
+
+        <h2>Total cards in deck</h2>
+        <div style="min-width: 400px; min-height: 400px; max-width: 1000px">
+            <canvas id="countBar"></canvas>
+        </div>
+
+        <h2>Card cost distributions</h2>
+        <div style="min-width: 400px; min-height: 400px; max-width: 1000px">
+            <canvas id="costDistributions"></canvas>
+        </div>
+
+        <p>
+            From the box and whisker diagram, we can see that silverhold has far more cheap cards than any of the other decks. 
+            Osiris on average has the most expensive cards and it also contains the most expensive cards.
+            It could be wise to try to shop from the cheaper shops in the game, so Silverhold might be a good starting option, with Osiris visited only later in the game.
+        </p>
+
+        <div id="deckresults">
+
+        </div>
+
+        <p>
+            Osiris has got the most ship upgrades (if you include drive cores).
+            This explains why the cards there are more expensive.
+            Silverhold has the most crew, which is usually the cheapest, but always remember that you will have to pay your crew's wages if you don't want to disgruntle them.
+            Space Bazaar and Silverhold have the joint most amount of gear.
+            Gear is usually more expensive than crew, but you don't pay it a wage, so it usually pays off to have some. 
+            In addition, you will definitely want some of the keywords that are featured on gear - they let you through some of the misbehave cards without a test.
+        </p>
+
+        <div id="navresults">
+
+        </div>
+
+        <i>
+            Please not that not all the nav cards details have yet been uploaded (I don't yet own Blue Sun). Some Rim Space cards are therefore missing.
+        </i>
+
+        <p>
+            A solid rep with Harken gets you through 4 Nav cards without incident. Meanwhile Patience and Niska solid reps are only useful for 1 card each.
+            You might want to consider getting solid with Harken at the start of the game, while his pay is at least partly worth it.
+        </p>
+
+        <div id="navcardbreakdown">
+
+        </div>
+
+        <p>
+            These three above sets of results show a breakdown of possible options featured in the nav cards.
+            The need for Fight, Tech and Negotiate skills is more or less evenly distributed in Alliance and Rim space. 
+            However, Tech skills dominate in Border space - 9 cards need a Tech test there!
+            The pie charts showing the professions needed for various nav cards show that a Pilot is by far the most useful.
+            However, you will also want a Mechanic, since a Pilot-Mechanic combination will let you get away from Reaver Cutters!
+            I have also shown drawn some pie charts showing the distribution of breakdowns and salvage ops in the nav cards.
+            It is surprising that Alliance space is the only space where there are more breakdowns than salvage ops.
+            There are a whopping 9 salvage op cards in Border space, but flying through there you also have a greater chance of breaking down, with the 5 breakdown cards.
+            If you get bonuses from salvage ops, it may be worthwhile considering trying to keep to border space to make use of the extra salvage op cards.
+        </p>
+
+        <div id="misbehaveresults">
+
+        </div>
+
+        <p>
+            From a breakdown of the things you need to get through the aim to misbehave cards, we can see that Companion is the most useful profession.
+            Fight and Negotiate skills dominate over tech skills, while Transport and Hacking Rig are the keywords that together will get you through 15 misbehave cards!
+            Out of the cases where specific cards are needed, Wash and River Tam are needed the most, although only twice.
+        </p>
+
+        <p>
+            So that's it for now, I hope you have found this report useful. Please follow me on twitter for updates on when I post more random things!
+        </p>
+
+        <style>
+            .graph-box{
+                max-width: 250px;  
+                display: inline-block;
+                text-align: center;  
+                background: #e3dff9;
+                margin: 5px;
+                padding: 10px;            
+            }
+            .graph-container{
+                height: 250px;
+            }
+        </style>
+
+        <script src="http://www.michalpaszkiewicz.co.uk/firefly/bundle.js"></script>
+
+                    <p class="newline small">published: Sun Jan 01 2017</p>
+                </div>
+
+                <div class="info-panel">
+                    <img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+                    <div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London.</div>
+                    <div class="newline"></div>
+                </div>
+            
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+                
+                <!--Start Links-->
+                <div class="related-links">
+                    <div class="related-links-title black">other things</div>
+                    <div class="related-links-content">
+
+                        <a class="related-link" href="../busfactor/index.html">
+                            <img src="../busfactor/index.png" alt="how to deal with the bus factor (from a transport worker)">
+                            <span>how to deal with the bus factor (from a transport worker)</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../beetraining/index.html">
+                            <img src="../beetraining/index.png" alt="bees taught to pull string">
+                            <span>bees taught to pull string</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../arrow/index.html">
+                            <img src="../arrow/index.png" alt="why arrow is the most frustrating TV series ever">
+                            <span>why arrow is the most frustrating TV series ever</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../jsquirks/index.html">
+                            <img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+                            <span>the weird parts of js I cannot seem to learn</span>
+                            <div class="newline"></div>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Close Links -->
+
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div class="footer black">
+        <div class="panel-box">
+            
+            <a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+            <a href='../index.html' alt='blog main menu'>Blog</a>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+
+
