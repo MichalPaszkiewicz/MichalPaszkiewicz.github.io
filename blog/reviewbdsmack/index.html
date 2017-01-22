@@ -1,0 +1,165 @@
+<head>
+    <title>review: Big Data SMACK</title>
+    <meta name="description" content="A book review of Big Data SMACK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
+    </script>
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="black panel header">
+            <div class="panel-box">
+                <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+                <h2>review: Big Data SMACK</h2>
+            </div>
+        </div>
+        <div class="white panel">
+            <div class="panel-box">
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+            
+                <div class="panel-content text">
+
+                    <img src="index.png" style="max-width:100%;margin:auto;display:block;">
+<p>
+	I was hooked onto this book from the first pages. 
+	The authors outlined the problems that major organisations face and proposed that this stack of technologies can solve them.
+	My attention was drawn to the section describing <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">ETL (extract, transform, load)</a>:
+</p>
+<i>
+	[ETL]... is a very painful process. The design and maintenance of an ETL process is risky and difficult.
+	Contrary to what many enterprises believe, they serve the ETL and the ETL doesn't serve anyone.
+	It is not a requirement; it is a set of unnecessary steps.
+	Each step in ETL has its own risk and introduces errors [...]
+	When a process requires ETL, the consultants know that the process will be complex,
+	because ETL rarely adds value to a business's "line of sight" and requires multiple actors, steps and conditions [...]
+	ETL is the opposite of high availability, resiliency and distribution.
+	As a rule of thumb, if you write a lot of intermediary files, you suffer ETL.	
+</i>
+<p>
+	This is a scenario that often occurs when one team in a company has to produce a particular file as an output, 
+	while another has to take the same file as input and do something with it.
+	Eventually the process becomes automated and the two services end up using this file as an interface between them.
+	Some time afterwards, the company sees that this connection between services has worked for many years and decides that it should be adopted as a standard.
+	I can see this being a potential problem anywhere that has a large amount of legacy software and I grip onto the book waiting to see what solution the book will provide.
+</p>
+<p>
+	Estrada and Ruiz are not only solving these singular problems.
+	They are moving away from the tradition of hoarding data before pushing it through processes and presenting a method of achieving <a href="https://www.entrepreneur.com/article/273561">Fast Data</a> - an approach to Big Data that should make managing data simpler and less strenuous.
+	Each of the tools presented in the book (Spark, Mesos, Akka, Cassandra and Kafka) have their own function within a system that allows live processing of data without the need for bulky batch loading.
+</p>
+<p>
+	Once the authors are finished with the broad overview presented in Part I of the book, they immediately immerse the reader in a Scala tutorial. 
+	It is concise, spanning just 22 pages and providing broad knowledge of the most important parts of the Scala language.
+	I wasn't entirely convinced that this was essential for the aims of the book (knowledge of Scala could have been a pre-requisite, or avoided entirely), 
+	but I can see the value as well - most of these tools are written with scala and it is possibly the easiest language for operating with them.
+	Scala also makes multi-threading easy (due to being a functional language) and therefore is a wise choice of language for a distributed system, making it a useful language for anyone interested in the SMACK stack.
+</p>
+<p>
+	After this, the book finally starts to touch on the SMACK stack. 
+	The book starts with Akka, then proceeds to discuss Cassandra, Spark, Mesos and Kafka, explaining what each of the tools does and where it fits in the SMACK stack (I love saying [and writing] "SMACK stack").
+	Each chapter contains multiple diagrams that help the reader understand what the text is saying, as well as helpful examples illustrating how to use the tool in question.
+	Overall, these chapters are easy to follow and give the reader a much more comprehensive understanding of the subject matter than most articles found online, but they  lack a bit of depth if, for example, the reader wants to know more about how each of the tools works under the hood.
+</p>
+<p>
+	The book then finishes with two chapters - "Fast Data Patterns" and "Data Pipelines".
+	The former is a summary of theoretical knowledge one needs for working with distributed systems (such as ACID properties and the CAP theorem) and a practical explanation of how anyone can achieve Fast Data.
+	"Data Pipelines" then provides some suggestions and examples of how you can use parts of the SMACK stack to solve some common problems.
+	These two chapters complete the book and leave the reader sure that this is the technology they want to adopt.
+</p>
+<h2>Conclusion</h2>
+<p>
+	The book had great content, but felt like an incomplete piece of work. 
+	The multitude of typos and grammatical errors may not match the amount in the <a href="https://www.goodreads.com/review/show/1822200519?book_show_action=true&from_review_page=1">Packt books I've read recently</a>, but it is rather embarrassing that Apress did not bother to properly proof-read the book before publishing it. 
+	There are multiple tables throughout the book that seem slightly out of place, as if there was a plan to further annotate them and multiple chapters of the book felt as if they were about to expand on a very interesting point, but the authors had decided to move on instead.
+	I would have been interested to learn a bit more about how the internal mechanics of each of the tools worked (especially Akka and Kafka), but I imagine readers interested in other topics (such as disaster recovery scenarios) may also find that this book falls short of a full explanation.
+	It almost seems to me that this already very decent (and as far as I could see, the best book on Foyles' shelves for this subject) could have been a masterpiece, if the authors had just kept writing a bit longer.
+</p>
+<p>
+	I must say that I DO recommend this book to anyone working with distributed systems, but I also hope that Apress will release newer editions with fewer errors and possibly a bit more input from the authors.
+</p>
+<h2 style="text-align: center;">
+	***
+</h2>
+
+                    <p class="newline small">published: Sun Jan 22 2017</p>
+                </div>
+
+                <div class="info-panel">
+                    <img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+                    <div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London.</div>
+                    <div class="newline"></div>
+                </div>
+            
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+                
+                <!--Start Links-->
+                <div class="related-links">
+                    <div class="related-links-title black">other things</div>
+                    <div class="related-links-content">
+
+                        <a class="related-link" href="../beetraining/index.html">
+                            <img src="../beetraining/index.png" alt="bees taught to pull string">
+                            <span>bees taught to pull string</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../officecosmology/index.html">
+                            <img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+                            <span>Learn the office. Beat the system.</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../busfactor/index.html">
+                            <img src="../busfactor/index.png" alt="how to deal with the bus factor (from a transport worker)">
+                            <span>how to deal with the bus factor (from a transport worker)</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../jsquirks/index.html">
+                            <img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+                            <span>the weird parts of js I cannot seem to learn</span>
+                            <div class="newline"></div>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Close Links -->
+
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div class="footer black">
+        <div class="panel-box">
+            
+            <a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+            <a href='../index.html' alt='blog main menu'>Blog</a>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+
+
