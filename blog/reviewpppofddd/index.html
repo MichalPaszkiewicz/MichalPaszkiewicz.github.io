@@ -1,0 +1,150 @@
+<head>
+    <title>review: Patterns, Principles, and Practices of Domain-Driven Design</title>
+    <meta name="description" content="A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
+    </script>
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="black panel header">
+            <div class="panel-box">
+                <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+                <h2>review: Patterns, Principles, and Practices of Domain-Driven Design</h2>
+            </div>
+        </div>
+        <div class="white panel">
+            <div class="panel-box">
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+            
+                <div class="panel-content text">
+
+                    <img src="index.png" style="max-width:100%;margin:auto;display:block;">
+<p>
+	When, for the 5th time in a row I couldn't find either Knuth's Art of Programming: Volume 2 or Eric Evans' Domain Driven Design in Foyles,
+	I decided to give this book a try.
+	Patterns, Principles, and Practices of Domain-Driven Design (PPPoDDD) has proved to be an excellent practical guide for applying DDD principles to real life.
+</p>
+<p>
+	Since I havn't read Eric Evans' DDD yet, I will not compare this book to it, even though I have a pretty good idea of what EE's book entails.
+	The book I HAVE read on DDD is Vernon's Implementing Domain-Driven Design (IDDD).
+	Judging by the titles, 
+	one would think that Vernon's book would prove to be the book out of the two (PPPoDDD && IDDD) that has the practical guide of how to implement DDD.
+	However, I remember Implementing Domain-Driven Design being mostly a theory book that backs up Eric Evans' previous work, along with good arguments to use on non-technical managers to ensure that they embrace DDD. 
+	There were then some good examples and Vernon's book definitely DOES teach you how to use DDD in your team.	
+</p>
+<p>
+	PPPoDDD is built on examples. 
+	Every point that is made in the book has adjoining code and diagrams.
+	The vast multitude of patterns are explained precisely and the reader is told when to, and when not to use them.
+	I thought this particularly useful, since many critics of DDD argue against the straw man - that you have to implement CQRS and Event Sourcing to do DDD.
+	The authors are very clear about this not being the case, while still laying out an excellent model of how to do CQRS with Event Sourcing via Greg Young's Event Store.
+</p>
+<p>
+	Although this book took me a good few weeks to read, I was never actually bored - the writing was high quality and fascinating from front to back cover.
+	Already being an Avid practitioner of DDD, not much of this book was new to me - although it put names to a lot of patterns I have already been using.
+	One concept that this book definitely reinforced for me was the fact that you don't have to follow all the patterns for everything - you should always focus on the core - the sacrosanctum of your domain. 
+	I think this will help me make future decisions on project work - all too often I feel that I have given too much time to sub-domains that weren't particularly that important for a project, but I thought that spending a lot of time and making it perfect would be the way to follow DDD.
+	I was wrong - not because it is bad to try to make everything as well as possible, but because the time could have been invested to better the core domain, which has a far greater value.
+</p>
+<p>
+	The book starts with some general principles, covering the general ideas of DDD - splitting bounded contexts, using an ubiquitous language, focusing on the bits that matter, refactoring and how to deal with a legacy big ball of mud.
+	It then quickly moves on to some strategic patterns that cover methods of communication between bounded contexts - simple integrations, messaging and HTTP via REST.
+	The authors follow this up with over 300 pages of tactical patterns that cover Value Objects, Entities, Domain Services, Domain Events, Aggregates, Factories, Repositories and Event Sourcing.
+	I was impressed with the way this was done.
+	Every pattern was introduced without a dependency on the later patterns (while mentioning them briefly in passing).
+	This was great to see, since I have only worked on projects with most of these patterns applied at the same time.	
+	Seeing them in isolation has helped me to understand the reasoning behind each of these patterns and it has filled me with confidence that I would definitely know now when and how to implement each one separately.
+	Finally, the book covers user interfaces and CQRS and once again, it doesn't disappoint.
+</p>
+<p>
+	Out of the big books of patterns that I have read, this has probably been one of the most enjoyable so far. 
+	The content was very well presented and I applaud the authors for this great piece of work.
+	I cannot deny this book any less than:
+</p>
+<h2 style="text-align:center;">
+	*****
+</h2>
+
+                    <p class="newline small">published: Mon Feb 27 2017</p>
+                </div>
+
+                <div class="info-panel">
+                    <img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+                    <div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London.</div>
+                    <div class="newline"></div>
+                </div>
+            
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+                
+                <!--Start Links-->
+                <div class="related-links">
+                    <div class="related-links-title black">other things</div>
+                    <div class="related-links-content">
+
+                        <a class="related-link" href="../fireflygame/index.html">
+                            <img src="../fireflygame/index.png" alt="How to play the firefly board game better">
+                            <span>How to play the firefly board game better</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../officecosmology/index.html">
+                            <img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+                            <span>Learn the office. Beat the system.</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../jsquirks/index.html">
+                            <img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+                            <span>the weird parts of js I cannot seem to learn</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../southeasternbear/index.html">
+                            <img src="../southeasternbear/index.png" alt="south eastern bear hunt (we're going on a)">
+                            <span>south eastern bear hunt (we're going on a)</span>
+                            <div class="newline"></div>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Close Links -->
+
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div class="footer black">
+        <div class="panel-box">
+            
+            <a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+            <a href='../index.html' alt='blog main menu'>Blog</a>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+
+
