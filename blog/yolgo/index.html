@@ -1,0 +1,160 @@
+<head>
+    <title>#3 year of languages - go</title>
+    <meta name="description" content="This time I'm going with go">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+        ga('send', 'pageview');
+    </script>
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="black panel header">
+            <div class="panel-box">
+                <h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+                <h2>#3 year of languages - go</h2>
+            </div>
+        </div>
+        <div class="white panel">
+            <div class="panel-box">
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+            
+                <div class="panel-content text">
+
+                    <p>
+	So, I decided to try go - a cool programming language developed by google.
+</p>
+<p>
+	This language has been on my mind ever since some silly recruiter tried to recruit me for a golang job after looking through my github repositories and stumbling on the <a href="https://github.com/MichalPaszkiewicz/go">"go" project</a>.
+	He clearly hadn't looked very carefully, because:
+</p>
+<ol>
+	<li>It wasn't written with golang - it was an implementation of the game "go"</li>
+	<li>A large part of the functionality has been broken since before then, due to the PeerJS maintainers discontinuing their service and the fact I have been to lazy to fix it up</li>
+</ol>
+<p>
+	I've decided to confuse matters a little more - I've written a <a href="https://github.com/MichalPaszkiewicz/yol-go">crude console app for playing the game "go" in golang</a>. 
+</p>
+<img src="yolgo1.png" class="wide-img">
+<p>
+	I followed the following tutorials:
+	<ol>
+		<li><a href="https://golang.org/doc/code.html">How to write go code</a></li>
+		<li><a href="https://tour.golang.org/basics/1">A tour of go</a></li>
+		<li><a href="http://golangtutorials.blogspot.co.uk/2011/06/structs-in-go-instead-of-classes-in.html">Structs in go instead of classes</a></li>
+	</ol>
+</p>
+<h2>What I like about go</h2>
+<p>
+	I really like being able to easily return multiple values from a single function.
+	It feels very neat.
+<pre>
+	<code class="go hljs">
+package main
+
+import "fmt"
+		
+func getSomeNumbers() (int, int, int){
+	return 6, 9, 42
+}		
+
+func main(){
+	a, b, c := getSomeNumbers()
+	fmt.Println(a, b, c)
+}
+	</code>
+</pre>
+
+</p>
+<p>
+	I also like <a href="https://davidnix.io/post/error-handling-in-go/">the way errors are handled in go</a>.
+	Developing in go felt like I was forced to think about what I should do if an error occurs - I wasn't allowed to leave it till later (and obviously forget about it).
+	They have clearly thought this aspect out and I look forward to seeing other languages eventually adopt this approach.
+</p>
+<p>
+	Furthermore, I enjoyed the tooling available in Visual Studio Code for go.
+	It was ridiculously annoying at first, popping up at the top with suggestions for things I should download and not understanding that when I closed these suggestions, I wanted them to stay closed.
+	However, I eventually succumbed to the pressure and downloaded all these extra things.
+	They instantly improved my productivity and I can say they changed development in go from an interesting project to a whole load of fun.
+</p>
+
+                    <p class="newline small">published: Mon Feb 06 2017</p>
+                </div>
+
+                <div class="info-panel">
+                    <img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+                    <div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London.</div>
+                    <div class="newline"></div>
+                </div>
+            
+                <div class="link-box">
+                    <a href="https://twitter.com/MichalYouDoing" class="twitter-follow-button" data-show-count="false">Follow @MichalYouDoing</a>
+                    <a class="github-button" href="https://github.com/MichalPaszkiewicz" data-count-href="/MichalPaszkiewicz/followers" data-count-api="/users/MichalPaszkiewicz#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @MichalPaszkiewicz on GitHub">Follow   @MichalPaszkiewicz</a>
+                </div>
+                
+                <!--Start Links-->
+                <div class="related-links">
+                    <div class="related-links-title black">other things</div>
+                    <div class="related-links-content">
+
+                        <a class="related-link" href="../fireflygame/index.html">
+                            <img src="../fireflygame/index.png" alt="How to play the firefly board game better">
+                            <span>How to play the firefly board game better</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../officecosmology/index.html">
+                            <img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+                            <span>Learn the office. Beat the system.</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../jsquirks/index.html">
+                            <img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+                            <span>the weird parts of js I cannot seem to learn</span>
+                            <div class="newline"></div>
+                        </a>
+
+                        <a class="related-link" href="../reviewddcs/index.html">
+                            <img src="../reviewddcs/index.png" alt="A book review of Designing Distributed Control Systems - A Pattern Language Approach">
+                            <span>A book review of Designing Distributed Control Systems - A Pattern Language Approach</span>
+                            <div class="newline"></div>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Close Links -->
+
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+    <div class="footer black">
+        <div class="panel-box">
+            
+            <a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+            <a href='../index.html' alt='blog main menu'>Blog</a>
+
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+
+
