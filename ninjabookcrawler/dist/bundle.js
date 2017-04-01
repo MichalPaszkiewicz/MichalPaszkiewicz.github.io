@@ -19009,18 +19009,39 @@ var TopMenuState = (function () {
 }());
 var TopMenu = (function (_super) {
     __extends(TopMenu, _super);
-    function TopMenu() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function TopMenu(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            collapse: true
+        };
+        return _this;
     }
+    TopMenu.prototype.getClassName = function () {
+        return this.state.collapse == true ?
+            "collapse navbar-collapse navbar-right navbar-main-collapse" :
+            "navbar-collapse navbar-right navbar-main-collapse";
+    };
+    TopMenu.prototype.unCollapse = function () {
+        this.setState({
+            collapse: false
+        });
+    };
+    TopMenu.prototype.collapse = function () {
+        this.setState({
+            collapse: true
+        });
+    };
     TopMenu.prototype.render = function () {
+        var _this = this;
         return (React.createElement("nav", { className: "navbar navbar-custom navbar-fixed-top top-nav-collapse" },
             React.createElement("div", { className: "container" },
                 React.createElement("div", { className: "navbar-header" },
-                    React.createElement("button", { className: "navbar-toggle" }),
+                    React.createElement("button", { className: "navbar-toggle", onClick: function () { return _this.unCollapse(); } },
+                        React.createElement("i", { className: "fa fa-bars" }, "=")),
                     React.createElement("a", { href: "#", className: "navbar-brand page-scroll" },
                         React.createElement("i", { className: "fa fa-play-circle" }),
                         React.createElement("span", { className: "light" }, "Home"))),
-                React.createElement("div", { className: "collapse navbar-collapse navbar-right navbar-main-collapse" },
+                React.createElement("div", { className: this.getClassName(), onClick: function () { return _this.collapse(); } },
                     React.createElement("ul", { className: "nav navbar-nav" },
                         React.createElement("li", null,
                             React.createElement("a", { href: "#/crawls" }, "Crawls")),
