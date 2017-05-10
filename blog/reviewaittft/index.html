@@ -1,0 +1,271 @@
+<html>
+	<head>
+		<title>review: An Introduction to Traffic Flow Theory</title>
+		<meta name="description" content="A book review of Lily Elefteriadou's 'An Introduction to Traffic Flow Theory'">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@MichalYouDoing" />
+		<meta name="twitter:title" content="review: An Introduction to Traffic Flow Theory" />
+		<meta name="twitter:description" content="A book review of Lily Elefteriadou's 'An Introduction to Traffic Flow Theory'" />
+		<meta name="twitter:image" content="./index.png" />
+		
+		<meta property="og:type" content="website">
+		<meta property="og:image" itemprop="image primaryImageOfPage" content="./index.png">
+		
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+			ga('send', 'pageview');
+		</script>
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+		</script> 
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="black panel header">
+				<div class="panel-box">
+					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+					<h2>review: An Introduction to Traffic Flow Theory</h2>
+				</div>
+			</div>
+			<div class="white panel">
+				<div class="panel-box">
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+				
+					<div class="panel-content text">
+
+						<img src="index.png" style="max-width:100%;margin:auto;display:block;">
+<p>
+	Speed limits, as far as I have seen, are mostly a source of annoyance for drivers.
+	I have only recently started learning to drive, so the vast majority of my experiences of road signs are from being a passenger.
+	An overwhelming amount of people that have given me lifts view speed limits as one of the following:
+</p>
+<ol>
+	<li>a guideline</li>
+	<li>a guideline to follow when not in a rush</li>
+	<li>a guideline to follow when not showing off their fancy car</li>
+	<li>the speed limit for when there is a police car or speed camera around</li>
+</ol>
+<p>
+	This goes to the extent that it is common knowledge that some truck drivers use radios to track police on the roads, 
+	while I have personally seen countless cars across Europe flash their lights as a warning that there will be a police car on the other side of the oncoming hill.
+</p>
+<p>
+	What many people don't realise is that many speed limits are set due to calculations that would show that in a perfectly legal case where all drivers are following the law, an accident could still happen provided the speed of the cars exceeds a certain level.
+	This book provides numerous examples of these cases that I hope will stay in my mind forever, stopping me from breaking the laws that will protect me from myself.
+</p>
+<p>
+	The book begins with a quick revision of your standard mechanics course.
+	Linear motion with constant speed, followed by constant acceleration and then varying acceleration.
+	Equations of motion and vehicle trajectories. 
+	The first chapter then continues by bringing in the considerations that are essential for traffic modelling, but may not have featured on your mechanics course - the effects of vehicle, driver and driving environment on the motion of a vehicle.
+	You can model a car however you like, but at the end of the day it will be the driver that actually decides how the car moves (provided they are not in an AI car).
+</p>
+<p>
+	The second chapter then dives into car-following models. 
+	There are surprisingly many complexities when trying to model just one car following another and this book really makes that clear, 
+	while demonstrating various models along with their advantages and disadvantages.
+</p>
+<h3 style="text-align:center">
+	PITT car-following model
+</h3>
+<div style="max-width:100%;max-height:500px;">
+	<canvas id="traffic" height="500" width="500" style="display:block;margin:auto;"></canvas>
+</div>
+<script>
+            var canvas = document.getElementById("traffic");
+            var ctx = canvas.getContext("2d");
+            var colours = [
+                "red","green","blue","purple","black","pink","orange","cyan","brown","magenta"
+            ]
+            class Car{
+                constructor(position, velocity){
+                    this.position = position;
+                    this.velocity = velocity;
+                    this.acceleration = 0;
+                    this.colour = colours[Math.floor(Math.random() * colours.length )]
+                }
+                accelerate(accelerationDelta){
+                    this.position = this.position + this.velocity;
+                    this.velocity = this.velocity + this.acceleration;
+                    this.acceleration = this.acceleration + accelerationDelta;
+                }
+                follow(car){
+                    var L = 3;
+                    var B = 10;
+                    var b = 0.0001;
+                    var k = 10;
+                    var seperation = car.position - this.position
+                    this.acceleration = 2 * (seperation - L + B - this.velocity * (k + 1) - b * k * Math.pow(car.velocity - this.velocity, 2)) / ( 1 + 2 * k);
+                }
+            }
+            var cars = [];            
+            var carCount = 5;
+            var startSpeed = 8;
+            for(var i = carCount; i > 0; i--){
+                cars.push(new Car(i * 100, startSpeed));
+            }
+            var speedCoefficient = 0.001;
+            var drawCar = (car, middlePoint, radius) => {
+                ctx.beginPath();
+                ctx.strokeStyle= car.colour;
+                ctx.fillStyle= car.colour;
+                ctx.arc(middlePoint.x + radius * Math.cos(car.position * speedCoefficient), middlePoint.y + radius * Math.sin(car.position * speedCoefficient), 6, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.fill();
+            }
+            var t = 0;
+            var draw = () => {
+                canvas.height = Math.min(400, canvas.parentElement.offsetHeight);
+                canvas.width = Math.min(400, canvas.parentElement.offsetWidth);
+                ctx.beginPath();
+                ctx.strokeStyle="black";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                var middlePoint = {x: canvas.width / 2, y: canvas.height / 2};
+                var radius = 0.5 * 0.9 * Math.min(canvas.width, canvas.height);
+                ctx.arc(middlePoint.x, middlePoint.y, radius, 0, Math.PI * 2);
+                ctx.stroke();
+                for(var i = 0; i < cars.length; i++){
+                    drawCar(cars[i], middlePoint, radius);
+                }
+                cars[0].accelerate(0.008 * Math.cos(t/60));
+                for(var i = 1; i < cars.length; i++){
+                    cars[i].follow(cars[i-1]);
+                    cars[i].accelerate(0);
+                }
+                t++;  
+                window.requestAnimationFrame(draw)
+            }
+            draw();
+</script>
+<p>
+	Above, I've used one of the simpler car-following models to show how a leader affects following vehicles (or dots, in this case).
+	It is visible that there is a reaction time - the following car will accelerate or decelerate only a moment after its leader has.
+</p>
+<p>
+	Chapters 3-5 are considered Part II of the book and are all about measuring the flow, speed and density of a traffic flow and the capacity of a certain road.
+	It applies a more statistical approach to managing traffic control, including giving directions on figuring out what parts of a route may cause bottlenecks.
+</p>
+<p>
+	Part III of the book is titled "Traffic Operational Analysis Techniques" and it brought with it plenty of brilliant techniques for analysing traffic that I have found quite revolutionary. 
+	Shockwave analysis was one specific subject that I found particularly interesting and I particularly gained a lot from seeing the unusual graphs that the author was plotting (they may be perfectly normal for a traffic analyst, but they were definitely unusual to me).
+</p>
+<p>
+	The last part of the book deals with highways, intersections and networks and has given me a good understanding of both driving restrictions and the reasons for the design of various stretches of road.
+</p>
+<p>
+	The book was not as difficult to read as I thought it might be, 
+	although I found myself wondering if there could have been a better use of mathematical notation (maybe with more super and subscripts instead of equations with terms like "x(N+1)" which are not entirely clear that they are referring to the x following x(N)).
+	All in all, I have learnt a lot and it was nice to read a book that built upon the knowledge I gained at Uni without requiring quite as much work as I had to put in back then.
+	I would recommend this book to all drivers, to all lovers of applied maths and to anyone that isn't afraid of challenging their minds.
+	This book may stop you speeding, or it might just make you a little brighter.
+</p>
+<h2 style="text-align:center">
+	****
+</h2>
+						
+						<!-- AddToAny BEGIN -->
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_reddit"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+						<!-- AddToAny END -->
+
+						<p class="newline small">published: Fri May 05 2017</p>
+					</div>
+					
+					
+					<div class="info-panel">
+						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+						<div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London. All views on this site are the author's views only and do not necessarily represent the views of TfL.</div>
+						<div class="newline"></div>
+					</div>
+				
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+					
+					<!--Start Links-->
+					<div class="related-links">
+						<div class="related-links-title black">other things</div>
+						<div class="related-links-content">
+
+							<a class="menu-item" href="../reviewddcs/index.html">
+								<img src="../reviewddcs/index.png" alt="A book review of Designing Distributed Control Systems - A Pattern Language Approach">
+								<span class="menu-item-title">A book review of Designing Distributed Control Systems - A Pattern Language Approach</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewminc/index.html">
+								<img src="../reviewminc/index.png" alt="A book review of Christian Horsdal Gammelgaard's 'Microservices in .NET Core'">
+								<span class="menu-item-title">A book review of Christian Horsdal Gammelgaard's 'Microservices in .NET Core'</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewnewtonatc/index.html">
+								<img src="../reviewnewtonatc/index.png" alt="When Newton took over the role of Warden of the Royal Mint, little did he know that he would have to get involved in the bowels of London's underworld">
+								<span class="menu-item-title">When Newton took over the role of Warden of the Royal Mint, little did he know that he would have to get involved in the bowels of London's underworld</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewbdsmack/index.html">
+								<img src="../reviewbdsmack/index.png" alt="A book review of Big Data SMACK">
+								<span class="menu-item-title">A book review of Big Data SMACK</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../busfactor/index.html">
+								<img src="../busfactor/index.png" alt="how to deal with the bus factor (from a transport worker)">
+								<span class="menu-item-title">how to deal with the bus factor (from a transport worker)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewtnsr/index.html">
+								<img src="../reviewtnsr/index.png" alt="A book review of The New Silk Road - How a Rising Arab World is Turning Away from the West and Rediscovering China">
+								<span class="menu-item-title">A book review of The New Silk Road - How a Rising Arab World is Turning Away from the West and Rediscovering China</span>
+								<div class="newline"></div>
+							</a>
+
+						</div>
+					</div>
+					<!--Close Links -->
+
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer black">
+			<div class="panel-box">
+				
+				<a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+				<a href='../index.html' alt='blog main menu'>Blog</a>
+
+			</div>
+		</div>
+		<script src="./buttons.js"></script>
+		<!--<script src="https://buttons.github.io/buttons.js"></script>-->
+		<script src="index.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>
+
+

@@ -10,7 +10,10 @@ body, html {
     font-family: "Arial";
 }
 
-h1, h2, h3, h4, .black a, a.menu-item, a.related-link, .info-description, p.small{
+.panel.header h1, h1,
+.panel.header h2, h2, 
+.panel.header h3, 
+.panel.header h4, .black a, a.menu-item, a.related-link, .info-description{
     font-family: michalFont;
     word-spacing: 10px;
     letter-spacing: 2px;
@@ -292,8 +295,19 @@ body{
     color: #d6b579;
 }
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 600px){
     .menu-item{
+        width: 45%;
+        margin: 5px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .menu-item-title{
+        top: -100px !important;
+    }
+
+    /*.menu-item{
         margin: 10px 0;
         background: #eeeeee;
         padding: 10px;
@@ -324,6 +338,18 @@ body{
         position: relative;
         text-align: left;
         color:black;
+    }*/
+}
+
+@media screen and (min-width: 700px){
+    .menu-item-title{
+        top: 0 !important;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .menu-item{
+        width: 31%;
     }
 }
 
@@ -354,4 +380,16 @@ body{
 
 .color-blue{
     color: blue;
+}
+
+.illuminated-letter{
+    height: 53px;
+    font-size: 80px;
+    line-height: 80px;
+    box-sizing: border-box;
+    margin: 0 5px 2px 0;
+    display: inline-block;
+    vertical-align: baseline;
+    float: left;
+    font-family: michalFont;
 }

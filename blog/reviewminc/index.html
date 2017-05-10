@@ -1,0 +1,199 @@
+<html>
+	<head>
+		<title>review: Microservices in .NET Core</title>
+		<meta name="description" content="A book review of Christian Horsdal Gammelgaard's 'Microservices in .NET Core'">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@MichalYouDoing" />
+		<meta name="twitter:title" content="review: Microservices in .NET Core" />
+		<meta name="twitter:description" content="A book review of Christian Horsdal Gammelgaard's 'Microservices in .NET Core'" />
+		<meta name="twitter:image" content="./index.png" />
+		
+		<meta property="og:type" content="website">
+		<meta property="og:image" itemprop="image primaryImageOfPage" content="./index.png">
+		
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+			ga('send', 'pageview');
+		</script>
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+		</script> 
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="black panel header">
+				<div class="panel-box">
+					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+					<h2>review: Microservices in .NET Core</h2>
+				</div>
+			</div>
+			<div class="white panel">
+				<div class="panel-box">
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+				
+					<div class="panel-content text">
+
+						<img src="index.png" style="max-width:100%;margin:auto;display:block;">
+<p>
+	For a Domain Driven Design (DDD) practitioner,
+	one of the main things that have to be considered when developing a new project or new features is how to split apart bounded contexts.
+	A bounded context is a group of functionalities that can be developed independently from the rest of the project.
+	If you have an e-shopping application and you are working on the users section of your program, 
+	you shouldn't be worried about potentially making breaking changes to the stock items section of the program.
+	So it is a developer's duty to figure out how they can split their project into multiple sections that can be developed independently of each other.
+</p>
+<p>
+	When splitting apart <a href="https://martinfowler.com/bliki/BoundedContext.html">bounded contexts</a>, 
+	there is always the question of how far apart to split them technically.
+	Should they be seperate aggregates?
+	Should they be split into seperate projects?
+	Should they be entirely seperate services?
+</p>
+<p>
+	Truly <a href="https://en.wikipedia.org/wiki/Micro-">"micro"</a> services are an architectural pattern that delegate the behaviour of a bounded context to a single service.
+	Some DDD evangelists state that a microservice should be so small that you could bin it and rewrite it in a week.
+	So, assuming that you are an excellent engineer who can split up bounded contexts,
+	to work at this velocity with microservices, you will need to be confident with a toolset that will help you do the job efficiently.
+	I would like to present you with Microservices in .NET Core - possible the best book I have read for learning how to work with microservices in .NET.
+</p>
+<p>
+	The book starts with an overview of what a microservice architecture looks like and what the advantages and disadvantages of using them are.
+	Already in section 1.4 there is a very interesting study of how to differ the approach depending on whether you are writing an entirely new project, 
+	or potentially adding new features to a monolithic legacy project.
+	The author really cuts to the chase and is already providing code examples as early as chapter 1.8, to show the minimum amount of work you need to have a microservice.
+	Chapter 2 builds on this and teaches you to implement a simple shopping cart microservices, already with a retry policy.
+	At this point, the reader may not have a full understanding yet of the concepts the book is presenting, 
+	but the author has definitely proved that creating a microservice can be very simple and that the libraries presented are effective.
+</p>
+<p>
+	Chapter 3 goes on to explain some more theory on how to identify and scope microservices, 
+	while Chapters 4 and 5 introduce patterns that can be used to integrate microservices together and methods of dividing data ownership between the microservices.
+	Chapter 6 began with methods of dealing with failures and then moved on to implementing robustness patterns with Polly, such as a circuit breaker or a fast or slow-paced retry strategy.
+	The second section of the book then finishes off with a fairly comprehensive section on how to test your microservices.
+</p>
+<p>
+	Following this, the author takes the reader through some more advanced topics, introducing OWIN middleware, monitoring, security and reusability via NuGet. 
+	The 4th and final part of the book involves an example-heavy chapter on how to create an application that may be using one or many microservices, and different approaches to structuring the architecture of such a project.
+</p>
+<p>
+	The two main libraries that this book is presenting are Nancy and Polly.
+	I had already used Nancy before writing the book,
+	but any retry logic was usually hand-written.
+	Polly is a very simple but elegant solution and the book has covered all the main features I would expect from a retry library.
+	I will definitely be using Polly in future projects.
+</p>
+<p>
+	I am very impressed with the way the author has managed to capture almost everything that a developer needs to know when moving into enterprise level software without the reader needing to break into a sweat.
+	The book was very readable but didn't sacrifice any details that I expected to read about in a book on microservices. 
+	I hope I can persuade all my colleagues to read this book and with that hope, I award it:
+</p>
+<h2 style="text-align:center">
+	*****
+</h2>
+						
+						<!-- AddToAny BEGIN -->
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_reddit"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+						<!-- AddToAny END -->
+
+						<p class="newline small">published: Fri May 05 2017</p>
+					</div>
+					
+					
+					<div class="info-panel">
+						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+						<div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London. All views on this site are the author's views only and do not necessarily represent the views of TfL.</div>
+						<div class="newline"></div>
+					</div>
+				
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+					
+					<!--Start Links-->
+					<div class="related-links">
+						<div class="related-links-title black">other things</div>
+						<div class="related-links-content">
+
+							<a class="menu-item" href="../reviewddcs/index.html">
+								<img src="../reviewddcs/index.png" alt="A book review of Designing Distributed Control Systems - A Pattern Language Approach">
+								<span class="menu-item-title">A book review of Designing Distributed Control Systems - A Pattern Language Approach</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../officecosmology/index.html">
+								<img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+								<span class="menu-item-title">Learn the office. Beat the system.</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewpppofddd/index.html">
+								<img src="../reviewpppofddd/index.png" alt="A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune">
+								<span class="menu-item-title">A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../southeasternbear/index.html">
+								<img src="../southeasternbear/index.png" alt="south eastern bear hunt (we're going on a)">
+								<span class="menu-item-title">south eastern bear hunt (we're going on a)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../yolgo/index.html">
+								<img src="../yolgo/index.png" alt="This time I'm going with go">
+								<span class="menu-item-title">This time I'm going with go</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewtnsr/index.html">
+								<img src="../reviewtnsr/index.png" alt="A book review of The New Silk Road - How a Rising Arab World is Turning Away from the West and Rediscovering China">
+								<span class="menu-item-title">A book review of The New Silk Road - How a Rising Arab World is Turning Away from the West and Rediscovering China</span>
+								<div class="newline"></div>
+							</a>
+
+						</div>
+					</div>
+					<!--Close Links -->
+
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer black">
+			<div class="panel-box">
+				
+				<a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+				<a href='../index.html' alt='blog main menu'>Blog</a>
+
+			</div>
+		</div>
+		<script src="./buttons.js"></script>
+		<!--<script src="https://buttons.github.io/buttons.js"></script>-->
+		<script src="index.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>
+
+
