@@ -127,8 +127,7 @@ iframe{
 }
 
 body{
-    animation: fadein 1s linear;
-    -webkit-animation: webkitfadein 1s linear;
+
 }
 
 .text{
