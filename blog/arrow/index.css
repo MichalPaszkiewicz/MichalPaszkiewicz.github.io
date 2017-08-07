@@ -51,6 +51,12 @@ p.small{
     }
 }
 
+.quote{
+	margin-left: 40px;
+    margin-right: 40px;
+    font-style: italic;
+}
+
 .footer {
     position: relative;
     margin-top: -140px;
@@ -127,8 +133,7 @@ iframe{
 }
 
 body{
-    animation: fadein 1s linear;
-    -webkit-animation: webkitfadein 1s linear;
+
 }
 
 .text{
@@ -392,4 +397,30 @@ body{
     vertical-align: baseline;
     float: left;
     font-family: michalFont;
+}
+
+.left-image-wrap{
+    max-width: 300px;
+    margin: 7px 20px 20px 0;
+    float: left;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.right-image-wrap{
+    max-width: 300px;
+    margin: 7px 0px 20px 20px;
+    float: right;
+    display: inline-block;
+    border-radius: 4px;
+
+}
+
+@media screen and (max-width: 600px) {
+    .left-image-wrap, .right-image-wrap{
+        max-width: 100%;
+        margin: auto;
+        display: block;
+        float: none;
+    }
 }

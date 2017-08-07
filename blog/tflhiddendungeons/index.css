@@ -51,6 +51,12 @@ p.small{
     }
 }
 
+.quote{
+	margin-left: 40px;
+    margin-right: 40px;
+    font-style: italic;
+}
+
 .footer {
     position: relative;
     margin-top: -140px;
@@ -127,8 +133,7 @@ iframe{
 }
 
 body{
-    animation: fadein 1s linear;
-    -webkit-animation: webkitfadein 1s linear;
+
 }
 
 .text{
