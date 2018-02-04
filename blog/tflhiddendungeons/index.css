@@ -51,6 +51,12 @@ p.small{
     }
 }
 
+.quote{
+	margin-left: 40px;
+    margin-right: 40px;
+    font-style: italic;
+}
+
 .footer {
     position: relative;
     margin-top: -140px;
