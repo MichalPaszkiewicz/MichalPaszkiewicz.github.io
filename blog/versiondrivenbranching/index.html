@@ -1,0 +1,306 @@
+<html>
+	<head>
+		<title>Version Driven Branching</title>
+		<meta name="description" content="Some thoughts on branching, environments and life in general">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@MichalYouDoing" />
+		<meta name="twitter:title" content="Version Driven Branching" />
+		<meta name="twitter:description" content="Some thoughts on branching, environments and life in general" />
+		<meta name="twitter:image" content="./index.png" />
+		
+		<meta property="og:type" content="website">
+		<meta property="og:image" itemprop="image primaryImageOfPage" content="./index.png">
+		
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+			ga('send', 'pageview');
+		</script>
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+		</script> 
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="black panel header">
+				<div class="panel-box">
+					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+					<h2>Version Driven Branching</h2>
+				</div>
+			</div>
+			<div class="white panel">
+				<div class="panel-box">
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+				
+					<div class="panel-content text">
+
+						    <script src="https://cdn.rawgit.com/pshihn/rough/9be60b1e/dist/rough.min.js"></script>    
+    <script>
+        var arrow = (x1, y1, x2, y2, rctx) => {
+            var headSize = (x2 > x1 ? 10 : -10);
+            rctx.line(x1, y1, x2 - headSize, y2);
+            rctx.line(x2, y2, x2 - headSize, y2 - headSize);
+            rctx.line(x2 - headSize, y2 - headSize, x2 - headSize, y2 + headSize);
+            rctx.line(x2 - headSize, y2 + headSize, x2, y2);
+        }
+        var environment = (x1, y1, width, height, envName, rctx) => {
+            var marginSize = Math.min(width / 20, height / 20);
+            rctx.rectangle(x1, y1, width, height, {
+                stroke: 'blue',
+                strokeWidth: 2,
+                fill: 'rgba(255,0,0,0.15)'
+            });
+            rctx.ctx.textAlign = "center";
+            rctx.ctx.font = "20px monospace"
+            rctx.ctx.textBaseline = "middle"
+            var innerFill = {
+                fill: "rgba(255,255,255,0.4)",
+                fillStyle: "solid"
+            }
+            rctx.rectangle(x1 + marginSize, y1 + marginSize, width / 2 - 2 * marginSize, height / 2 - 2 * marginSize, innerFill);
+            arrow(x1 + width / 2 - marginSize, y1 + width / 4, x1 + width / 2 + marginSize, y1 + width / 4, rctx);
+            rctx.ctx.fillText("+1", x1 + width / 4, y1 + height / 4);
+            rctx.rectangle(x1 + marginSize, y1 + marginSize + height / 2, width / 2 - 2 * marginSize, height / 2 - 2 * marginSize, innerFill);
+            arrow(x1 + width / 2 + marginSize, y1 + height * 3 / 4, x1 + width / 2 - marginSize, y1 + height * 3 / 4, rctx);
+            rctx.ctx.fillText("-1", x1 + width / 4, y1 + height * 3 / 4);
+            rctx.rectangle(x1 + width / 2 + marginSize, y1 + marginSize, width / 2 - 2 * marginSize, height - 2 * marginSize, innerFill);
+            rctx.ctx.fillText(envName, x1 + width * 3 / 4, y1 + height / 2)
+        }
+    </script>
+
+	<p>
+		We recently reached a consensus in my team.
+		The idea was that we need to start prioritising the production environment.
+		This meant that we would have to get used to diagnosing problems there, instead of spending our time building expertise in debugging the software on our local machines and other environments that were not directly mimicking the production environment.
+	</p>
+	<p>
+		The thought process was largely driven by <a href="https://medium.com/@copyconstruct/testing-microservices-the-sane-way-9bb31d158c16">Cindy Sridharan's article on Medium</a>, which largely suggested dropping Pre-production testing and investing in Post-production testing.
+		One of the main points that intrigued us was that this solution would mean that we wouldn't require a build and deployment industry, which we have had in other projects.
+		Don't get me wrong, there are many cool things you can do with a team dedicated to build and deployment, but it will mean that your company will inadvertently end up spending a lot of money supporting a team that is not working on your business domain.
+		We made a bit of compromise with the article. 
+		We would have 2 sets of environments - "Test" and "Production", each with 2 slots (+1 for staging and -1 for rollback).
+	</p>
+    <div style="width:100%;overflow-x:scroll">
+	<canvas id="canvas1" width="510" height="240" style="margin: auto;display: block;"></canvas>
+	</div>
+
+    <script>
+        const rc1 = rough.canvas(document.getElementById('canvas1'));
+        environment(10, 10, 220, 220, "Test", rc1);
+        arrow(230, 120, 280, 120, rc1);
+        environment(280, 10, 220, 220, "Prod", rc1);
+    </script>
+
+	<p>
+		Tests ran in our Production staging environment (Prod +1) would let us check whether the code would work. If the tests passed, the slots would be switched around and the new code would be running in production.
+		The Test environment, which was to be an exact replica of the Production environment - slots and all - was there to ensure that the deployment mechanism worked. 
+		Slot swapping could be tested in the Test environment before we subjected the Production environment to the same process.
+	</p>
+	
+	<p>
+		Next we started talking about git branching strategies, and suddenly we were no longer agreeing.
+	</p>
+
+	<h2>Gitflow</h2>
+
+	<p>
+		A colleague had recently read about <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow</a> and was very keen on adopting this strategy.
+		Many projects in TfL use a similar branching strategy (albeit using Team Foundation Server), so it was not so much a new concept to them and we know it definitely works to an extent.
+		In Gitflow, you branch from the Master branch to a Develop branch, then once you are happy with a particular version of the Develop branch, you promote it to a Release branch, which can then be merged back into the Master branch.
+		The Master branch should contain the exact code that is on the production system, which should help with diagnosing issues in production due to the fact you know exactly what is there and you can perform hot fixes on the Master branch while the Develop and Release branches may contain changes you do not want to adopt yet.
+	</p>
+	<p>
+		We considered allowing our automated deployments to move the code to varying parts of our environment.
+		Any branch could be tested on Test +1, the Develop branch would be tested on Test +1 then on Test.
+		Release branches would go through the Test environments and then reach the Prod +1 stage and the Master branch would go through all the environments up to Production.
+	</p>
+	<p>
+		Most tests would most likely be running on the Test environment, as the Develop branch is most likely the branch that most code changes would go to and release branches would most likely be created quite rarely.
+		Our aim of trying to get good at testing our code on Production (or at least as close to as possible) was failing, since most of our testing would happen on a different environment.
+	</p>
+	<p>
+		Removing Release branches and merging code straight from the Develop branch to the Master branch was proposed as a solution.
+		We could allow the Develop branch to now go as far as Prod +1, meaning the tests would be run very often, very close to the actual Production system (although never on the production system).	
+		The issue with this idea is that at the point that the slots are changed between Prod +1 and Prod, one cannot be certain that it was definitely from the Master branch.
+		If the Master branch was moving through its deployment steps and had reached Prod +1 but was still waiting before it switched slots, if someone checked something into develop, it could replace the Master branch code in Prod +1, and when the slots were switched, there would be code from the Develop branch in production.
+		This issue could also occur in the case where Release branches are used - Release branch code could similarly end up in Production if someone had wanted to deploy it to do some testing while someone else was busy trying to get the Master branch into Production.
+	</p>
+	<p>
+		The easiest way to solve the problem would be via process - enforcing branching freezes while Master was on the deployment journey would definitely ensure that this issue couldn't occur.
+	</p>
+	<p>
+		Backing away from the solution in a way to try to avoid this problem, we tried to consider what environments we would need to be able to keep Release environments and not let code get accidentally dropped into Production.
+	</p>
+	<div style="width:100%;overflow-x:scroll">
+    <canvas id="canvas2" width="780" height="240" style="margin: auto;display: block;"></canvas>
+	</div>
+
+    <script>
+        const rc2 = rough.canvas(document.getElementById('canvas2'));
+        environment(10, 10, 220, 220, "Test", rc2);
+        arrow(230, 120, 280, 120, rc2);
+        environment(280, 10, 220, 220, "Release", rc2);
+        arrow(500, 120, 550, 120, rc2);
+        environment(550, 10, 220, 220, "Prod", rc2);
+    </script>
+	<p>
+		Of course, this means that an additional environment is needed for the Release branch.
+		It looks like one environment for now, but at the moment that there are multiple releases queued up, this will no doubt result in multiple environments, one for each release.
+		That would be the only way to ensure the quality of the code in each branch, in case something goes wrong during the wait till final deployment.
+	</p>
+	<h2>Physical deployment constraints</h2>
+<p>
+	Having a look at the process of the code's journey through all the environments, one can get a good idea of the (best case) time it would take for code to get from a developer's machine to Production.
+	If tests take time <i>t</i> to run and are run on each environment (and +1 slot) and each branch goes to an additional environment while still going through the previous environments, the Release branch with its dedicated environment has added <i>6t</i>, which is double the best-case time before the Release branch was added.
+	If these tests take just 30 minutes to run, this would result in a situation where code cannot possibly reach production in less than 6 hours, while the release environment itself doesn't seem to add any value, since the branched code had to go through the Test environment as well.
+</p>
+<p>
+	The alternative to this would be to allow a branch's code to only run on it's own environment - Develop would run on Test, Release on the Release environment and Master on the Production environment.
+	At this point, we no longer have the initial intended check of being able to check the <i>current code</i> whether it could go through the slot switch process in Production via a seperate complete Environment (as in the Test environment as first proposed) unless we are sure the merge from Release to master branch was definitely correct and we have had a branching freeze.
+</p>
+	<h2>Alternatives to Gitflow</h2>
+<p>
+	Interestingly, atlassian (who hosted the Gitflow article previously mentioned) also has articles on <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">other branching strategies</a> that can be used in projects.
+	The Feature workflow ultimately results in an environment per feature, while the Forking workflow will result in an environment per developer.
+	Both of these alternatives mean that we will not avoid an industry of build and deployment.
+	On the other hand, the Centralised workflow naturally fits a scenario with few environments.
+	It would have the benefit in that code would only need to go through deployments to each environment only once and the Master branch would consistently be updated with the latest code and make it to Production fast.
+	It would be easy to set up a policy to ensure that slots are only switched between Prod and Prod +1 if Prod +1 goes through some additional sanity tests.
+	This would mean that you may need branching freezes as mentioned before, but it definitely doesn't require the spinning up of any additional environments.
+</p>
+	<h2>Versioning Culture</h2>
+<p>
+	The greatest outcry against the idea of Centralised workflow is that it may become hard to manage versioning of the code.
+	What do you do when something goes wrong in Production? 
+	How do you hotfix Production, when the branch has already progressed so far since then?
+	It is no doubt possible to have a process where a branch's version is easily associated with the Production code - it could be branched from that point and hotfixed.
+	However, the concept of a Centralised workflow is better suited to a situation where code is released fast into Production - each check in can end up in Production if all the tests are running green in all the deployment steps in its journey.
+	If the tests are going green, why shouldn't the code be in production?
+	Additional tests can be run Post-production, as suggested in the original Medium article and we have reached that solution with the possibility of keeping the additional compromise-environments that give us more assurance on the final deployment steps.
+	Of course, a thing that is necessary for such a process to work is incredible trust in the developers on the project. 
+	Otherwise you cannot ensure that a developer doesn't remove or ignore valuable tests.
+	Enforced peer reviews can help with this trust - dodgy code would have had to make it through automated tests as well as the steely gaze of at least two professional code-ninjas.
+</p>
+<p>
+	In terms of version management itself, most businesses are not particularly interested in version numbers.
+	In fact the only time they ask about version numbers is when they are asking about what features are present in a version number.
+	The only versioning information that developers should have to pass on to businesses/clients is the time that a feature is added.
+	Features should be added to systems in a way that allows them to be loosely coupled and for the features to go through canary testing before they go live properly.
+	This means most features will originally have to be developed with feature switches that are initially turned off and are only turned on when the entire system is functionally capable of supporting that feature.
+	The version number/id of the branch starts to become irrelevant to the business, since there may be multiple features that are already in Production, but are not necessarily turned on.
+	In the meantime, tests can be set up to turn features on, test them, then turn them off again (and these tests don't necessarily have to run in Production).
+	In this way you can test multiple features being added to a codebase, while avoiding the need to add additional environments per feature, or per release or per developer.
+</p>
+	<h2>Branch sanity</h2>
+<p>
+	As in most cases in software development, there are trade-offs.
+	More dedicated branches means we can add more controls to the code, but it also means you require more environments to ensure that branch is in a fit state.
+	More environments and branches results in more time diagnosing issues on systems that are not your production system, although they DO mean that you get more assurance your code will work, if you are keeping them in a constant green state.
+	The right balance between control of your code and the management cost and time required to keep that solution sustainable are a choice that need to be made within your team to fit the trust you have in your code and process and undoubtedly there is no right or wrong answer.
+</p>
+						
+						<!-- AddToAny BEGIN -->
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_reddit"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+						<!-- AddToAny END -->
+
+						<p class="newline small">published: Wed Mar 14 2018</p>
+					</div>
+					
+					
+					<div class="info-panel">
+						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+						<div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London. All views on this site are the author's views only and do not necessarily represent the views of TfL.</div>
+						<div class="newline"></div>
+					</div>
+				
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+					
+					<!--Start Links-->
+					<div class="related-links">
+						<div class="related-links-title black">other things</div>
+						<div class="related-links-content">
+
+							<a class="menu-item" href="../yolruby/index.html">
+								<img src="../yolruby/index.png" alt="Analysing goodreads ratings with ruby">
+								<span class="menu-item-title">Analysing goodreads ratings with ruby</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../officecosmology/index.html">
+								<img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+								<span class="menu-item-title">Learn the office. Beat the system.</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../jsquirks/index.html">
+								<img src="../jsquirks/index.png" alt="the weird parts of js I cannot seem to learn">
+								<span class="menu-item-title">the weird parts of js I cannot seem to learn</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../arrow/index.html">
+								<img src="../arrow/index.png" alt="why arrow is the most frustrating TV series ever">
+								<span class="menu-item-title">why arrow is the most frustrating TV series ever</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewwfb/index.html">
+								<img src="../reviewwfb/index.png" alt="A book review of Wisdom for Beekeepers - 500 tips for successful beekeeping">
+								<span class="menu-item-title">A book review of Wisdom for Beekeepers - 500 tips for successful beekeeping</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewpppofddd/index.html">
+								<img src="../reviewpppofddd/index.png" alt="A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune">
+								<span class="menu-item-title">A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune</span>
+								<div class="newline"></div>
+							</a>
+
+						</div>
+					</div>
+					<!--Close Links -->
+
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer black">
+			<div class="panel-box">
+				
+				<a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+				<a href='../index.html' alt='blog main menu'>Blog</a>
+
+			</div>
+		</div>
+		<script src="./buttons.js"></script>
+		<!--<script src="https://buttons.github.io/buttons.js"></script>-->
+		<script src="index.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>
+
+
