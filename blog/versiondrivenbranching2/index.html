@@ -1,0 +1,192 @@
+<html>
+	<head>
+		<title>Version Driven Branching (part 2)</title>
+		<meta name="description" content="Some thoughts on branching, environments and life in general (part 2)">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@MichalYouDoing" />
+		<meta name="twitter:title" content="Version Driven Branching (part 2)" />
+		<meta name="twitter:description" content="Some thoughts on branching, environments and life in general (part 2)" />
+		<meta name="twitter:image" content="./index.png" />
+		
+		<meta property="og:type" content="website">
+		<meta property="og:image" itemprop="image primaryImageOfPage" content="./index.png">
+		
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+			ga('send', 'pageview');
+		</script>
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+		</script> 
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="black panel header">
+				<div class="panel-box">
+					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+					<h2>Version Driven Branching (part 2)</h2>
+				</div>
+			</div>
+			<div class="white panel">
+				<div class="panel-box">
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+				
+					<div class="panel-content text">
+
+						<a href="../versiondrivenbranching/index.html">This article is part 2 of a two part piece. Click here to read part 1.</a>
+<p>
+	Branch and Environment management seems to be a more controversial topic than I could have possibly imagined.
+	I have found almost a different opinion amongst every single person I have talked to on the subject and just a day after posting the original article, I have more than enough material to write another post.
+	To begin with, I have added a few clarifications to the original article at the bottom (since I don't want to use this article to try to defend points I made in the first one).
+	I am going to try to use this article to present arguments that were definitely missing in the first.
+</p>
+<p>
+	During my team's initial conversation about branching strategies, I remember the moment one of my colleagues suggested that we would need a Release environment to cater for the issues we were facing with our Release branch.
+	I was upset - we had got to a situation where we had just 2 environments (with their slots) and suddenly we were gaining environments out of nowhere.
+	I asked a question:
+</p>
+<span class="quote">
+	"What is the goal you are trying to achieve?"
+</span>
+<p>
+	The point I was trying to make was that we were now trying to solve the problem of having to deal with an extra branch by adding an entire environment.
+	If the most important objective was to ensure we used the Gitflow branching strategy and therefore we needed a Release branch, then this definitely WAS the solution.
+	But our aim was to try to figure out a branching strategy that would let us ensure we had good quality code smoothly flowing to Production, which is not the same goal.
+</p>
+<p>
+	In hindsight, I realise now that the same question could have been asked of all of us - our initial goal had clearly been different.
+	We had been trying to minimise the amount of environments in order to move towards a development process where we test code in Production and do not spend as much time managing environments that are not returning a profit.
+</p>
+<h2>Feedback loops</h2>
+<p>
+	Having additional environments does not mean that you necessarily have to spend much time managing all of them.
+	One of the problems with having just a few big environments, with many tests is that the feedback loop is too long - the more deployment steps that are needed and the more tests that are run, the longer it will take for you to realise something may be broken.
+	A case for many environments can be easily made on the basis that they would be lightweight, running just a few rudimentary tests that avoid any flaky scenarios.
+	If the overhead is lowered for managing these environments, they become very powerful tools for diagnosing major issues fast, which can be a great help to developers that want to get assurance about their code as soon as possible so that they are free to start working on their next ticket.
+	Whether these environments are split by release, team, individual or feature can have different merits depending on what individuals want to know about the state of their code.
+	For example, a team environment will quickly feed back to the team that they may carry the responsibility for a bug, which would allow them to get their heads together over it, while a feature environment would specifically state an issue with that feature and allow feature-based code fixes that could be shared across teams.
+</p>
+<h2>Conway's Law and artificial boundaries</h2>
+<p>
+	<a href="https://en.wikipedia.org/wiki/Conway%27s_law">Conway's Law</a> tells us that any system produced in a company will reflect the quality of communication within that company.
+	It is not hard to see that a breakdown in communications within a company can cause issues for any branching policy - the moment two teams have to merge their code together, they need to communicate with each other to ensure that no issue arises from the merge.
+	While it is easy to notice the effects retrospectively, it is not so easy to avoid them while working on software.
+</p>
+<p>
+	Developers are used to creating artificial boundaries in the software they build.
+	These range from access modifiers in classes and functions to code seperation into projects, solutions and folder structures.
+	The main reason we create these boundaries is to try to help communication - if a class is Private, we know we shouldn't be trying to access it somewhere else and that we might be taking the wrong approach.
+	If two domains in your code are split into seperate projects, you are are helping communicate the distinction between those domains to any other developers that may look at it.
+</p>
+<p>
+	When we arrive at a branching strategy, we should try to find the strategy that communicates the way we want to work, which may not be the way we are currently working.
+	I cannot see any better way towards moving towards better communication than to run a project in a way that encourages everyone to fit into the communication model we idealise.
+	I'm not entirely sure what this means in practice, but my gut feeling is that fewer dedicated branches can be useful if we want to develop trust between teams, while adding dedicated branches can be helpful for teams that already have a high level of trust and can release code fast, but are looking for a way to clarify what it is they are doing by applying labelled boundaries to their branched code.
+</p>
+						
+						<!-- AddToAny BEGIN -->
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_reddit"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+						<!-- AddToAny END -->
+
+						<p class="newline small">published: Wed Mar 14 2018</p>
+					</div>
+					
+					
+					<div class="info-panel">
+						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+						<div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London. All views on this site are the author's views only and do not necessarily represent the views of TfL.</div>
+						<div class="newline"></div>
+					</div>
+				
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+					
+					<!--Start Links-->
+					<div class="related-links">
+						<div class="related-links-title black">other things</div>
+						<div class="related-links-content">
+
+							<a class="menu-item" href="../yolruby/index.html">
+								<img src="../yolruby/index.png" alt="Analysing goodreads ratings with ruby">
+								<span class="menu-item-title">Analysing goodreads ratings with ruby</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../officecosmology/index.html">
+								<img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
+								<span class="menu-item-title">Learn the office. Beat the system.</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewttps/index.html">
+								<img src="../reviewttps/index.png" alt="A book review of Planka.nu's 'The Traffic Power Structure'">
+								<span class="menu-item-title">A book review of Planka.nu's 'The Traffic Power Structure'</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../southeasternbear/index.html">
+								<img src="../southeasternbear/index.png" alt="south eastern bear hunt (we're going on a)">
+								<span class="menu-item-title">south eastern bear hunt (we're going on a)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../antpowdersucks/index.html">
+								<img src="../antpowdersucks/index.png" alt="Ants attacking your home? Screw ant powder and just use a hammer.">
+								<span class="menu-item-title">Ants attacking your home? Screw ant powder and just use a hammer.</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewel/index.html">
+								<img src="../reviewel/index.png" alt="A book review of Roy Osherove's "Elastic Leadership"">
+								<span class="menu-item-title">A book review of Roy Osherove's "Elastic Leadership"</span>
+								<div class="newline"></div>
+							</a>
+
+						</div>
+					</div>
+					<!--Close Links -->
+
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer black">
+			<div class="panel-box">
+				
+				<a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+				<a href='../index.html' alt='blog main menu'>Blog</a>
+
+			</div>
+		</div>
+		<script src="./buttons.js"></script>
+		<!--<script src="https://buttons.github.io/buttons.js"></script>-->
+		<script src="index.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>
+
+

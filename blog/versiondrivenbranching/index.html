@@ -1,13 +1,13 @@
 <html>
 	<head>
-		<title>Version Driven Branching</title>
-		<meta name="description" content="Some thoughts on branching, environments and life in general">
+		<title>Version Driven Branching (part 1)</title>
+		<meta name="description" content="Some thoughts on branching, environments and life in general (part 1)">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@MichalYouDoing" />
-		<meta name="twitter:title" content="Version Driven Branching" />
-		<meta name="twitter:description" content="Some thoughts on branching, environments and life in general" />
+		<meta name="twitter:title" content="Version Driven Branching (part 1)" />
+		<meta name="twitter:description" content="Some thoughts on branching, environments and life in general (part 1)" />
 		<meta name="twitter:image" content="./index.png" />
 		
 		<meta property="og:type" content="website">
@@ -35,7 +35,7 @@
 			<div class="black panel header">
 				<div class="panel-box">
 					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
-					<h2>Version Driven Branching</h2>
+					<h2>Version Driven Branching (part 1)</h2>
 				</div>
 			</div>
 			<div class="white panel">
@@ -158,7 +158,7 @@
     </script>
 	<p>
 		Of course, this means that an additional environment is needed for the Release branch.
-		It looks like one environment for now, but at the moment that there are multiple releases queued up, this will no doubt result in multiple environments, one for each release.
+		It looks like one environment for now, but at the moment that there are multiple releases queued up, this will no doubt result in multiple environments, one for each release <a href="#1">[1]</a>.
 		That would be the only way to ensure the quality of the code in each branch, in case something goes wrong during the wait till final deployment.
 	</p>
 	<h2>Physical deployment constraints</h2>
@@ -168,8 +168,8 @@
 	If these tests take just 30 minutes to run, this would result in a situation where code cannot possibly reach production in less than 6 hours, while the release environment itself doesn't seem to add any value, since the branched code had to go through the Test environment as well.
 </p>
 <p>
-	The alternative to this would be to allow a branch's code to only run on it's own environment - Develop would run on Test, Release on the Release environment and Master on the Production environment.
-	At this point, we no longer have the initial intended check of being able to check the <i>current code</i> whether it could go through the slot switch process in Production via a seperate complete Environment (as in the Test environment as first proposed) unless we are sure the merge from Release to master branch was definitely correct and we have had a branching freeze.
+	The alternative to this would be to allow a branch's code to only run on its own environment - Develop would run on Test, Release on the Release environment and Master on the Production environment.
+	At this point, we no longer have the initial intended check of being able to check the <i>current code</i> whether it could go through the slot switch process in Production via a seperate complete Environment (as in the Test environment as first proposed) unless we are sure the merge from Release to master branch was definitely correct and we have had a branching freeze <a href="#2">[2]</a>.
 </p>
 	<h2>Alternatives to Gitflow</h2>
 <p>
@@ -191,7 +191,7 @@
 	If the tests are going green, why shouldn't the code be in production?
 	Additional tests can be run Post-production, as suggested in the original Medium article and we have reached that solution with the possibility of keeping the additional compromise-environments that give us more assurance on the final deployment steps.
 	Of course, a thing that is necessary for such a process to work is incredible trust in the developers on the project. 
-	Otherwise you cannot ensure that a developer doesn't remove or ignore valuable tests.
+	You cannot ensure that a developer doesn't remove or ignore valuable tests, you can only leave that to trust.
 	Enforced peer reviews can help with this trust - dodgy code would have had to make it through automated tests as well as the steely gaze of at least two professional code-ninjas.
 </p>
 <p>
@@ -199,7 +199,7 @@
 	In fact the only time they ask about version numbers is when they are asking about what features are present in a version number.
 	The only versioning information that developers should have to pass on to businesses/clients is the time that a feature is added.
 	Features should be added to systems in a way that allows them to be loosely coupled and for the features to go through canary testing before they go live properly.
-	This means most features will originally have to be developed with feature switches that are initially turned off and are only turned on when the entire system is functionally capable of supporting that feature.
+	This means that most features will originally have to be developed with feature switches that are initially turned off and are only turned on when the entire system is functionally capable of supporting that feature.
 	The version number/id of the branch starts to become irrelevant to the business, since there may be multiple features that are already in Production, but are not necessarily turned on.
 	In the meantime, tests can be set up to turn features on, test them, then turn them off again (and these tests don't necessarily have to run in Production).
 	In this way you can test multiple features being added to a codebase, while avoiding the need to add additional environments per feature, or per release or per developer.
@@ -210,6 +210,27 @@
 	More dedicated branches means we can add more controls to the code, but it also means you require more environments to ensure that branch is in a fit state.
 	More environments and branches results in more time diagnosing issues on systems that are not your production system, although they DO mean that you get more assurance your code will work, if you are keeping them in a constant green state.
 	The right balance between control of your code and the management cost and time required to keep that solution sustainable are a choice that need to be made within your team to fit the trust you have in your code and process and undoubtedly there is no right or wrong answer.
+</p>
+<a href="../versiondrivenbranching2/index.html">This article is part 1 of a two-part series. Click here to read on.</a>
+<h3>Clarifications</h3>
+<p id="1">
+	<i>
+		1. I may be extrapolating a bit here, but it is easy to imagine the scenario - Release 42 is ready, but suddenly there is an issue in the Production code. 
+		While hotfixes are being found and applied, someone in another team has managed to merge enough code to create Release 43. 
+		If a version manager insists that something in Release 42 needs to be out in the open before Release 43 and Release 43 branch has already been created and therefore has overriden the Release 42 code in environment x, the environment would have to be loaded up with Release 42 code again.
+		At this point someone will suggest that maybe it might be worthwhile having a seperate environment for Release 42 and both branches could be monitored and could have the same hotfixes that the Production code needs applied to them both (or it could be shown that a Release Y may not need the hotfix).
+		Ultimately, the point is that if code does not make it to the Master branch fast enough, Release branches will stack up and the only way to ensure the quality of each branch, it would make sense to have an environment per branch that may soon need to be released.
+		If your code moves fast and you merge and push code often you shouldn't have this issue, but the additional environment and the fact that more branches means that there are more merges and pushes required already puts physical limits to how fast you can get your code to the Master branch.
+	</i>
+</p>
+<p id="2">
+	<i>
+		2. The initial plan was to have Test +1 and Test to try to mimic the switch between Prod +1 and Prod to make sure the switching process will work.
+		If the Master branch is only deployed to Prod +1, tested and then switched into Production, we cannot be sure that this process will work if the branch the code had been merged from had already completed this process on a replicated environment.
+		This is due to the fact that the Merging process itself can result in errors.
+		For example, if a hotfix had been applied to the Master branch and then also added to a Release branch, at the point that the Release branch is merged into Master, a conflict could have been poorly resolved due to human error.
+		I may be splitting hairs over a rare and unlikely scenario, but isn't that part of the fun?
+	</i>
 </p>
 						
 						<!-- AddToAny BEGIN -->
@@ -250,9 +271,9 @@
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../officecosmology/index.html">
-								<img src="../officecosmology/index.png" alt="Learn the office. Beat the system.">
-								<span class="menu-item-title">Learn the office. Beat the system.</span>
+							<a class="menu-item" href="../versiondrivenbranching2/index.html">
+								<img src="../versiondrivenbranching2/index.png" alt="Some thoughts on branching, environments and life in general (part 2)">
+								<span class="menu-item-title">Some thoughts on branching, environments and life in general (part 2)</span>
 								<div class="newline"></div>
 							</a>
 
@@ -262,21 +283,21 @@
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../arrow/index.html">
-								<img src="../arrow/index.png" alt="why arrow is the most frustrating TV series ever">
-								<span class="menu-item-title">why arrow is the most frustrating TV series ever</span>
+							<a class="menu-item" href="../southeasternbear/index.html">
+								<img src="../southeasternbear/index.png" alt="south eastern bear hunt (we're going on a)">
+								<span class="menu-item-title">south eastern bear hunt (we're going on a)</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../reviewwfb/index.html">
-								<img src="../reviewwfb/index.png" alt="A book review of Wisdom for Beekeepers - 500 tips for successful beekeeping">
-								<span class="menu-item-title">A book review of Wisdom for Beekeepers - 500 tips for successful beekeeping</span>
+							<a class="menu-item" href="../reviewnapocs/index.html">
+								<img src="../reviewnapocs/index.png" alt="A book review of Neo-Aristotelian Perspectives on Contemporary Science (edited Simpson, Koons & Teh)">
+								<span class="menu-item-title">A book review of Neo-Aristotelian Perspectives on Contemporary Science (edited Simpson, Koons & Teh)</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../reviewpppofddd/index.html">
-								<img src="../reviewpppofddd/index.png" alt="A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune">
-								<span class="menu-item-title">A book review of Patterns, Principles, and Practices of Domain-Driven Design by Scott Millett and Nick Tune</span>
+							<a class="menu-item" href="../reviewiapis/index.html">
+								<img src="../reviewiapis/index.png" alt="A book review of Kirsten L. Hunter's "Irresistible APIs"">
+								<span class="menu-item-title">A book review of Kirsten L. Hunter's "Irresistible APIs"</span>
 								<div class="newline"></div>
 							</a>
 
