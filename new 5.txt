@@ -1,0 +1,16 @@
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+
+
+4:20
+
+
+
+"React in Action" by Mark Tielens Thomas for Manning Publications is ready for the review. The due date is Monday December 19, 2016. If you see that you won’t be able to participate, let me know as soon as you can! Chapters 1-7 are open for review totaling 188 pages.
+
+URL: https://manning.box.com/v/react-in-action
+Password: SQL3#dil
+
+Source code is available on GitHub:
+Main: https://github.com/react-in-action
+Samples: https://github.com/react-in-action/code
+App code: https://github.com/react-in-action/letters-social
