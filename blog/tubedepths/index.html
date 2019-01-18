@@ -1,0 +1,174 @@
+<html>
+	<head>
+		<title>London Underground Journey Elevations</title>
+		<meta name="description" content="Showing platform elevations on user defined journeys">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@MichalYouDoing" />
+		<meta name="twitter:title" content="London Underground Journey Elevations" />
+		<meta name="twitter:description" content="Showing platform elevations on user defined journeys" />
+		<meta name="twitter:image" content="./index.png" />
+		
+		<meta property="og:type" content="website">
+		<meta property="og:image" itemprop="image primaryImageOfPage" content="./index.png">
+		
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+			ga('send', 'pageview');
+		</script>
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+		</script> 
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="black panel header">
+				<div class="panel-box">
+					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+					<h2>London Underground Journey Elevations</h2>
+				</div>
+			</div>
+			<div class="white panel">
+				<div class="panel-box">
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+				
+					<div class="panel-content text">
+
+						<link rel="stylesheet" href="http://www.michalpaszkiewicz.co.uk/tubedepths/styles.css" />
+<h1>Train depths</h1>
+    <p>
+        A tool for figuring out how deep your journey takes you underground on the London Underground. 
+        Unfortunately not all routes are available. 
+        The route is chosen by least amount of stops rather than shortest distance or time, so it might not follow your usual path between stations. 
+        All numbers given in metres above sea level.</p>
+    <input id="from" />
+    <ul id="fromItems"></ul>
+    <input id="to" />
+    <ul id="toItems"></ul>
+    <p class="journey-description">
+		Platform elevations from <b class="location-name" id="fromDisplay"></b> to <b class="location-name" id="toDisplay"></b> (metres)
+    </p>
+    <div style="overflow-x: auto">
+        <canvas id="my-canvas" />
+    </div>
+    <div class="link">
+        <p>Click to copy link:
+            <br>   
+            <br>
+            <input id="copy" />
+        </p>
+    </div>
+    <script src="http://www.michalpaszkiewicz.co.uk/tubedepths/scripts/system.js"></script>
+    <script src="http://www.michalpaszkiewicz.co.uk/tubedepths/data/platformdepths.js"></script>
+    <script src="http://www.michalpaszkiewicz.co.uk/tubedepths/data/edges.js"></script>
+    <script src="http://www.michalpaszkiewicz.co.uk/tubedepths/data/vertices.js"></script>
+    <script src="http://www.michalpaszkiewicz.co.uk/tubedepths/search.js"></script>
+    <script>
+        System.import('search');
+    </script>
+						
+						<!-- AddToAny BEGIN -->
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_reddit"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+						<!-- AddToAny END -->
+
+						<p class="newline small">published: Fri Jan 18 2019</p>
+					</div>
+					
+					
+					<div class="info-panel">
+						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+						<div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London. All views on this site are the author's views only and do not necessarily represent the views of TfL.</div>
+						<div class="newline"></div>
+					</div>
+				
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+					
+					<!--Start Links-->
+					<div class="related-links">
+						<div class="related-links-title black">other things</div>
+						<div class="related-links-content">
+
+							<a class="menu-item" href="../yolgo/index.html">
+								<img src="../yolgo/index.png" alt="This time I'm going with go">
+								<span class="menu-item-title">This time I'm going with go</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../versiondrivenbranching2/index.html">
+								<img src="../versiondrivenbranching2/index.png" alt="Some thoughts on branching, environments and life in general (part 2)">
+								<span class="menu-item-title">Some thoughts on branching, environments and life in general (part 2)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../versiondrivenbranching/index.html">
+								<img src="../versiondrivenbranching/index.png" alt="Some thoughts on branching, environments and life in general (part 1)">
+								<span class="menu-item-title">Some thoughts on branching, environments and life in general (part 1)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../reviewnapocs/index.html">
+								<img src="../reviewnapocs/index.png" alt="A book review of Neo-Aristotelian Perspectives on Contemporary Science (edited Simpson, Koons & Teh)">
+								<span class="menu-item-title">A book review of Neo-Aristotelian Perspectives on Contemporary Science (edited Simpson, Koons & Teh)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../tflhiddendungeons/index.html">
+								<img src="../tflhiddendungeons/index.png" alt="Underneath the London Underground, lies another city">
+								<span class="menu-item-title">Underneath the London Underground, lies another city</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../montyhallexplained/index.html">
+								<img src="../montyhallexplained/index.png" alt="explaining the Monty Hall problem to the disbelievers">
+								<span class="menu-item-title">explaining the Monty Hall problem to the disbelievers</span>
+								<div class="newline"></div>
+							</a>
+
+						</div>
+					</div>
+					<!--Close Links -->
+
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer black">
+			<div class="panel-box">
+				
+				<a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+				<a href='../index.html' alt='blog main menu'>Blog</a>
+
+			</div>
+		</div>
+		<script src="./buttons.js"></script>
+		<!--<script src="https://buttons.github.io/buttons.js"></script>-->
+		<script src="index.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>
+
+
