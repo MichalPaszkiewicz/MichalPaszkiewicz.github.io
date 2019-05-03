@@ -1,4 +1,8 @@
-<body>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body style="margin:0">
     <script src="http://www.michalpaszkiewicz.co.uk/plotjs/plotjs.js"></script>
 
     <canvas id="my-canvas"></canvas>
@@ -14,82 +18,149 @@
             xmlHttp.open("GET", theUrl, true); // true for asynchronous 
             xmlHttp.send(null);
         }
-    
-        httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (dataString) => {
 
-            
+        function Quartile(data, q) {
+            data=data.sort((a, b) => a - b);
+            var pos = ((data.length) - 1) * q;
+            var base = Math.floor(pos);
+            var rest = pos - base;
+            if( (data[base+1]!==undefined) ) {
+                return data[base] + rest * (data[base+1] - data[base]);
+            } else {
+                return data[base];
+            }
+        }
 
-            var data = JSON.parse(dataString);
+        function displayTime(numInMins){
+            var mins = Math.floor(numInMins);
+            var secs = Math.floor((numInMins - mins) * 60);
+            var stringSecs = secs.toString();
+            if(stringSecs.length < 2){
+                stringSecs = "0" + stringSecs;
+            }
+            return `${mins}'${secs == 0 ? "" : stringSecs}`
+        }
 
+        var data = {Analyses: []};
 
-            var canvas = document.getElementById("my-canvas");
-            canvas.height = 1000;
-            canvas.width = canvas.parentElement.clientWidth;
-            var ctx = canvas.getContext("2d");
-
-            ctx.textAlign = "center";
-
+        var drawer = (canvas, ctx) => () => {
             var tenMinPoint = 40;
+            var rowHeight = 42;
+            canvas.height = rowHeight * (data.Analyses.length + 1);   
+            canvas.width = canvas.parentElement.clientWidth;                     
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             ctx.beginPath();
             ctx.moveTo(50, 0);
             ctx.lineTo(50, canvas.clientHeight)
             ctx.stroke();
             ctx.closePath();
-
             for(var i = 0; i < data.Analyses.sort((a,b) => a.RouteName - b.RouteName).length; i++){
-                var y = (i + 1) * 30;
+                ctx.textAlign = "center";
+                
+                var y = (i + 1) * rowHeight;
                 ctx.beginPath();
                 ctx.fillStyle = "black";
-                ctx.fillText(data.Analyses[i].RouteName, 10, y);
+                ctx.fillText(data.Analyses[i].RouteName, 25, y - rowHeight / 2 + 9);
                 ctx.closePath();
-
                 ctx.beginPath();
-                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2,y );
-                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y);
+                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2, y - 10);
+                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y - 10);
                 ctx.strokeStyle = "red";
                 ctx.fillStyle = "red";
                 ctx.stroke();
-                ctx.fillText(data.Analyses[i].MinArrivalTime / 2, 50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2, y - 2)
-                ctx.fillText(data.Analyses[i].MaxArrivalTime / 2, 50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y - 2)
+                ctx.fillText(displayTime(data.Analyses[i].MinArrivalTime / 2), 50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2, y)
+                ctx.fillText(displayTime(data.Analyses[i].MaxArrivalTime / 2), 50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y)
                 ctx.closePath();
                 
-                ctx.fillText(data.Analyses[i].RouteName, 10, y);
                 ctx.beginPath();
-                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint,y);
-                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint, y);
+                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint,y - 10);
+                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint, y - 10);
                 ctx.strokeStyle = "blue";
                 ctx.fillStyle = "blue";
                 ctx.stroke();
                 ctx.closePath();
-
                 ctx.strokeStyle = "black";
                 ctx.fillStyle = "green";
+                var greenPos = 12;
 
                 ctx.beginPath();
-                ctx.fillRect(50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 8, 4, 4);
-                ctx.fillText(Number.parseFloat(data.Analyses[i].AverageCurrentWaitingTime).toFixed(2), 50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 10)
+                ctx.fillRect(50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 4, y - 9 - greenPos, 6, 6);
+                ctx.fillText("mean: " + displayTime(data.Analyses[i].AverageCurrentWaitingTime), 50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 13 - greenPos)
+                ctx.closePath();
+                var lowerQuart = Quartile(data.Analyses[i].CurrentWaitTimes, 0.25);
+                var median = Quartile(data.Analyses[i].CurrentWaitTimes, 0.5);
+                var upperQuart = Quartile(data.Analyses[i].CurrentWaitTimes, 0.75);
+                ctx.strokeStyle = "green";
+                
+                ctx.beginPath();
+                ctx.strokeRect(50 + lowerQuart * tenMinPoint / 60 - 2, y - 11 - greenPos, (upperQuart - lowerQuart) * tenMinPoint / 60, 10);
                 ctx.closePath();
 
+                ctx.beginPath();
+                ctx.fillRect(50 + median * tenMinPoint / 60, y - 11 - greenPos, 1, 10);
+                ctx.closePath();
                 ctx.fillStyle = "black";
-
-                var min = data.Analyses[i].CurrentWaitTimes.sort((a,b) => a-b)[0]/60;
-                var max = data.Analyses[i].CurrentWaitTimes.sort((a,b) => b-a)[0]/60;
-
-
-                ctx.beginPath();
-                ctx.fillRect(50 + max * tenMinPoint - 2, y - 8, 4, 4);
-                ctx.fillText(`max: ${Number.parseFloat(max).toFixed(2)}`, 50 + max * tenMinPoint - 2, y - 10);
-                ctx.closePath();
-
+                ctx.strokeStyle = "black";
+                var min = data.Analyses[i].CurrentWaitTimes.sort((a,b) => a-b)[3]/60;
+                var timeThen = new Date(data.Analyses[i].CreatedTime).getTime();
+                var timeNow = new Date().getTime();
+                var diff = (timeNow - timeThen) % (lowerQuart * 1000);
+                var max = data.Analyses[i].CurrentWaitTimes.sort((a,b) => b-a)[0] / 60 - diff / (60 * 1000);
+                var maxPos = 50 + max * tenMinPoint - 2;
+                if(maxPos > canvas.width - 25){
+                    ctx.beginPath();
+                    var arrowMiddle = canvas.width - 10;
+                    ctx.moveTo(arrowMiddle - 5, y - 6 - greenPos);
+                    ctx.lineTo(arrowMiddle + 5, y - 6 - greenPos);
+                    ctx.moveTo(arrowMiddle + 5, y - 6 - greenPos);
+                    ctx.lineTo(arrowMiddle + 2, y - 6 - greenPos - 3);
+                    ctx.moveTo(arrowMiddle + 5, y - 6 - greenPos);
+                    ctx.lineTo(arrowMiddle + 2, y - 6 - greenPos + 3);
+                    ctx.stroke();
+                    ctx.textAlign = "right";
+                    ctx.fillText(`max: ${displayTime(max)}`, arrowMiddle, y - 10 - greenPos);                    
+                    ctx.closePath();        
+                    ctx.textAlign = "center";            
+                }
+                else{
+                    ctx.beginPath();
+                    ctx.fillRect(maxPos, y - 8 - greenPos, 4, 4);
+                    ctx.fillText(`max: ${displayTime(max)}`, maxPos, y - 10 - greenPos);
+                    ctx.closePath();
+                }
+                // draw bottom line
                 ctx.beginPath();
                 ctx.moveTo(0, y + 5);
                 ctx.lineTo(canvas.width, y + 5);
                 ctx.stroke();
                 ctx.closePath();
             }
+
+            window.requestAnimationFrame(() => {
+                drawer(canvas, ctx)();
+            })
+        }
+    
+        httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (dataString) => {
+            
+            data = JSON.parse(dataString);
+            var canvas = document.getElementById("my-canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.textAlign = "center";
+            
+            drawer(canvas, ctx)();
+
+            window.setInterval(() => {
+                httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (updatedDataString) => {
+                    console.log("updated data");
+                    data = JSON.parse(updatedDataString);
+                });
+            }, 10 * 60 * 1000);
         });
         
     </script>
 
 </body>
+</html>
