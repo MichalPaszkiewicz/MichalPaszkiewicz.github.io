@@ -1,0 +1,95 @@
+<body>
+    <script src="http://www.michalpaszkiewicz.co.uk/plotjs/plotjs.js"></script>
+
+    <canvas id="my-canvas"></canvas>
+
+    <script>
+        function httpGetAsync(theUrl, callback)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+    
+        httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (dataString) => {
+
+            
+
+            var data = JSON.parse(dataString);
+
+
+            var canvas = document.getElementById("my-canvas");
+            canvas.height = 1000;
+            canvas.width = canvas.parentElement.clientWidth;
+            var ctx = canvas.getContext("2d");
+
+            ctx.textAlign = "center";
+
+            var tenMinPoint = 40;
+
+            ctx.beginPath();
+            ctx.moveTo(50, 0);
+            ctx.lineTo(50, canvas.clientHeight)
+            ctx.stroke();
+            ctx.closePath();
+
+            for(var i = 0; i < data.Analyses.sort((a,b) => a.RouteName - b.RouteName).length; i++){
+                var y = (i + 1) * 30;
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.fillText(data.Analyses[i].RouteName, 10, y);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2,y );
+                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y);
+                ctx.strokeStyle = "red";
+                ctx.fillStyle = "red";
+                ctx.stroke();
+                ctx.fillText(data.Analyses[i].MinArrivalTime / 2, 50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2, y - 2)
+                ctx.fillText(data.Analyses[i].MaxArrivalTime / 2, 50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y - 2)
+                ctx.closePath();
+                
+                ctx.fillText(data.Analyses[i].RouteName, 10, y);
+                ctx.beginPath();
+                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint,y);
+                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint, y);
+                ctx.strokeStyle = "blue";
+                ctx.fillStyle = "blue";
+                ctx.stroke();
+                ctx.closePath();
+
+                ctx.strokeStyle = "black";
+                ctx.fillStyle = "green";
+
+                ctx.beginPath();
+                ctx.fillRect(50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 8, 4, 4);
+                ctx.fillText(Number.parseFloat(data.Analyses[i].AverageCurrentWaitingTime).toFixed(2), 50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 10)
+                ctx.closePath();
+
+                ctx.fillStyle = "black";
+
+                var min = data.Analyses[i].CurrentWaitTimes.sort((a,b) => a-b)[0]/60;
+                var max = data.Analyses[i].CurrentWaitTimes.sort((a,b) => b-a)[0]/60;
+
+
+                ctx.beginPath();
+                ctx.fillRect(50 + max * tenMinPoint - 2, y - 8, 4, 4);
+                ctx.fillText(`max: ${Number.parseFloat(max).toFixed(2)}`, 50 + max * tenMinPoint - 2, y - 10);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.moveTo(0, y + 5);
+                ctx.lineTo(canvas.width, y + 5);
+                ctx.stroke();
+                ctx.closePath();
+            }
+        });
+        
+    </script>
+
+</body>
