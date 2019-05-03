@@ -1,0 +1,435 @@
+<html>
+	<head>
+		<title>How well do London buses match the timetables?</title>
+		<meta name="description" content="Live data compared to TfL timetables">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@MichalYouDoing" />
+		<meta name="twitter:title" content="How well do London buses match the timetables?" />
+		<meta name="twitter:description" content="Live data compared to TfL timetables" />
+		<meta name="twitter:image" content="./index.png" />
+		
+		<meta property="og:type" content="website">
+		<meta property="og:image" itemprop="image primaryImageOfPage" content="./index.png">
+		
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />    
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+			ga('send', 'pageview');
+		</script>
+		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</script> 
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="black panel header">
+				<div class="panel-box">
+					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
+					<h2>How well do London buses match the timetables?</h2>
+				</div>
+			</div>
+			<div class="white panel">
+				<div class="panel-box">
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+				
+					<div class="panel-content text">
+
+						<p>
+        There is a lot to be said about timetables. 
+        Buses in particular have a complex relationship with their timetables that can differ between countries, cities and even operators within cities.
+        In the UK, where I live, there are usually timetables provided for passengers to help them plan their journeys.
+        In rural and suburban areas, a bus may come at a very specific time, 
+        while urban and other busy areas may have timetables specifying that buses on a route should arrive at some constant interval.
+        On the other hand, when I was travelling in Rwanda in 2011, I was impressed by the fact that many of the buses did not run according to any timetable at all! 
+        Buses left when they were full rather than at some specified time.
+        These differing strategies each have their benefits and disadvantages.
+        Having a clear timetable with buses arriving on time can help an individual plan their journey well and use their time efficiently.
+        Filling up buses before sending them on a journey may not be as efficient for individuals who want to use their time well, 
+        but it is a strategy that can be efficient both economically and environmentally. 
+        With a full bus there can be both a greater profit for the operators and lower fares for passengers,
+        while the passengers' carbon footprint is reduced.
+    </p>
+    <p>
+        While I thoroughly enjoyed travelling in Rwanda, 
+        I am not going to spend my time trying to make authorities abandon timetables (at least not presently).
+        Instead, I am going to be discussing a particular type of timetable 
+            - the kind where passengers are told that a bus should arrive every x minutes.
+        The thing that has really piqued my interest about this particular type of timetable was 
+            <a href="https://jakevdp.github.io/blog/2018/09/13/waiting-time-paradox/">this article about the waiting time paradox</a>.
+        The waiting time paradox is a particular case of the 
+            <a href="http://allendowney.blogspot.com/2015/08/the-inspection-paradox-is-everywhere.html">inspection paradox</a>.
+        This paradox occurs when the probability of observing a quantity is related to the quantity being observed.
+        In the special case of the waiting time paradox, 
+            this means that when a person arrives at a bus stop, they are more likely to be waiting for a late bus than for an early one.
+        This is because there will be a higher chance of arriving during the longer time span between buses in the case where a bus is delayed than in the shorter time span when the next bus will be early.
+        If buses on average arrive every x minutes at a bus stop, 
+            the average time that one will have to wait for a bus will therefore likely be more than the x/2 one could naively expect.
+    </p>
+
+    <p>
+        In fact, we can consider a simple scenario. 
+        Let consider a bus stop at which a bus should arrive every 10 minutes.
+        One could therefore think that the average time one would have to wait would therefore be 5 minutes.
+        In fact there are two buses that are soon going to arrive, one in 15 minutes followed by a bus that arrives 5 minutes after that.
+        The average bus arrival time is therefore (15 + 5) / 2 = 10, so the buses have not strayed too far from the schedule.
+        However, if a person arrives at random during these 20 minutes,
+            the chance they will be waiting for the delayed bus is 15/20 and the chance they will be waiting for the early bus is 5/20.
+        Therefore, the time one could expect to wait at this bus stop would be: 
+    </p>
+    <pre>
+        15/2 x 15/20 + 5/2 x 5/20 = 6.25mins
+    </pre>
+    <p>
+        So we can see that delays on a bus service mean that average waiting times for a bus will increase, 
+            even if there are buses that speed up and arrive earlier to try and counter this fact, 
+                keeping the average arrival time steady.
+        In fact, 
+            it can be shown that the average waiting time should increase proportionally to the square of the average delay of buses on the route.
+    </p>
+<table style="width:100%">
+  <tr>
+    <th>Term</th>
+    <th>Meaning</th> 
+  </tr>
+  <tr>
+    <td><b>Average arrival time</b></td>
+    <td>The average time between buses arriving at a station</td>
+  </tr>
+  <tr>
+	<td><b>Average waiting time</b></td> 
+    <td>The average time you would have to wait for a bus if you arrived at a bus stop</td> 
+  </tr>
+</table>
+    <h2>
+        Transport for London's schedule keeping
+    </h2>
+    <p>
+        Out of interest, I have tried to investigate what effect the waiting time paradox has on Transport for London's buses.
+        Below is a <b>live</b> chart showing bus data as it is happening right now.
+        The number on the left is the bus route.
+        The <span style="color:blue;">blue</span> line represents how often a bus should arrive at bus stops at the current time 
+            (TfL usually specifies a time range - e.g. 9 to 13 minutes).
+        The <span style="color:red;">red</span> line represents how much time one would expect to have to wait for a bus (i.e. half the arrival times of buses).
+        The <span style="color:green;">green</span> data represents current data as has been acquired from the TfL open API.
+        The <span style="color:green;">green</span> rectangle with the line through it represents the lower quartile, median and upper quartile respectively.
+        The filled <span style="color:green;">green</span> square is the mean waiting time at bus stops for the next bus on that route at the current time.
+        The maximum current waiting time on the route is represented by the black filled square and attached text.
+    </p>
+    <p>
+        Please bare in mind that this data is sampled every 10 minutes to reduce pressure on the TfL open API.
+        The data is also not complete 
+            - it includes only Bus Routes 1-50 and only displays those routes where the timetable states that a bus should arrive every x minutes at the current time.
+        The TfL open API uses GPS data to track arrival times, so they are fairly accurate.
+        However, there is always a possibility for error, as no piece of technology is perfect.
+        I once was told that a bus will arrive in 3 minutes before, but never saw it arrive at all 
+            - but overall this API is still the most accurate data I can access without leaving my chair.
+    </p>
+
+    <canvas id="my-canvas"></canvas>
+    <p>
+        <i>Powered by TfL open data</i>
+    </p>
+
+    <p>
+        At the time of writing (5th March 2019), Transport for London are doing rather well when this data is analysed.
+        A vast majority of passengers at bus stops are going to have buses that arrive within or under the expected waiting time.
+        The average bus on the 5th March 2019 has arrived in 92% of the expected waiting time in fact.
+    </p>
+    <p>
+        What does this mean when we consider the waiting time paradox?
+        Why are the current waiting times not (necessarily) longer than the expected waiting times?
+        What we are looking at is a timetable that does not tell us an objective truth.
+    </p>
+    <p>
+        Timetables can serve multiple purposes, 
+            not necessarily just a statement of how often buses factually arrive.
+        We can prove mathematically that the waiting paradox is true.
+        If most real waiting times are lower or within the expected waiting times,
+            what is clearly happening is that the timetable is stating that buses arrive less frequently than they actually do.
+        There are many reasons to do this 
+            - the main one being to ensure that passengers' expectations are met.
+        If buses are more frequent than the timetable states,
+            then the quotas stated in the timetable are more likely to be met.
+    </p>
+    <p>
+        In this case, 
+            the timetable is not in any way a source of truth.
+        It is some form of contract that specifies what criteria the bus operators should meet to keep the passengers happy.
+        This is a bit of a bizarre observation,
+            especially since most people will feel that they have never been asked what would make them happy.
+        Few people will have had an input as to how frequent buses should be on a route (other than by voting via the ticketing system a.k.a supply and demand),
+            yet here stands some form of contract that bus operators will try to meet by adding buses to the route or by regulating the service.
+    </p>
+    <p>
+        For those who may wait for buses often,
+            this may be wonderful.
+        But what happened to truth? 
+        Should timetables reflect reality, 
+            an ideal we are striving towards, 
+            or a minimum that we should always exceed?
+        With the availability of live bus data on screens at bus stops and on websites, 
+            these questions may be slowly becoming irrelevant,
+            but these questions will always remain in other walks of life where we use metrics to measure performance or expectancy.
+        Should such questions be treated differently in transport than elsewhere?
+        I cannot say I know the answers, but the debate is certainly interesting.
+    </p>
+
+    <script>
+        function httpGetAsync(theUrl, callback)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+
+        function Quartile(data, q) {
+            data=data.sort((a, b) => a - b);
+            var pos = ((data.length) - 1) * q;
+            var base = Math.floor(pos);
+            var rest = pos - base;
+            if( (data[base+1]!==undefined) ) {
+                return data[base] + rest * (data[base+1] - data[base]);
+            } else {
+                return data[base];
+            }
+        }
+
+        function displayTime(numInMins){
+            var mins = Math.floor(numInMins);
+            var secs = Math.floor((numInMins - mins) * 60);
+            var stringSecs = secs.toString();
+            if(stringSecs.length < 2){
+                stringSecs = "0" + stringSecs;
+            }
+            return `${mins}'${secs == 0 ? "" : stringSecs}`
+        }
+
+        var data = {Analyses: []};
+
+        var drawer = (canvas, ctx) => () => {
+            var tenMinPoint = 30;
+            var rowHeight = 42;
+            canvas.height = rowHeight * (data.Analyses.length + 1);   
+            canvas.width = canvas.parentElement.clientWidth;                     
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.moveTo(50, 0);
+            ctx.lineTo(50, canvas.clientHeight)
+            ctx.stroke();
+            ctx.closePath();
+            for(var i = 0; i < data.Analyses.sort((a,b) => a.RouteName - b.RouteName).length; i++){
+                ctx.textAlign = "center";
+                
+                var y = (i + 1) * rowHeight;
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.fillText(data.Analyses[i].RouteName, 25, y - rowHeight / 2 + 9);
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2, y - 10);
+                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y - 10);
+                ctx.strokeStyle = "red";
+                ctx.fillStyle = "red";
+                ctx.stroke();
+                ctx.fillText(displayTime(data.Analyses[i].MinArrivalTime / 2), 50 + data.Analyses[i].MinArrivalTime * tenMinPoint / 2, y)
+                ctx.fillText(displayTime(data.Analyses[i].MaxArrivalTime / 2), 50 + data.Analyses[i].MaxArrivalTime * tenMinPoint / 2, y)
+                ctx.closePath();
+                
+                ctx.beginPath();
+                ctx.moveTo(50 + data.Analyses[i].MinArrivalTime * tenMinPoint,y - 10);
+                ctx.lineTo(50 + data.Analyses[i].MaxArrivalTime * tenMinPoint, y - 10);
+                ctx.strokeStyle = "blue";
+                ctx.fillStyle = "blue";
+                ctx.stroke();
+                ctx.closePath();
+                ctx.strokeStyle = "black";
+                ctx.fillStyle = "green";
+                var greenPos = 12;
+
+                ctx.beginPath();
+                ctx.fillRect(50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 4, y - 9 - greenPos, 6, 6);
+                ctx.fillText("mean: " + displayTime(data.Analyses[i].AverageCurrentWaitingTime), 50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 13 - greenPos)
+                ctx.closePath();
+                var lowerQuart = Quartile(data.Analyses[i].CurrentWaitTimes, 0.25);
+                var median = Quartile(data.Analyses[i].CurrentWaitTimes, 0.5);
+                var upperQuart = Quartile(data.Analyses[i].CurrentWaitTimes, 0.75);
+                ctx.strokeStyle = "green";
+                
+                ctx.beginPath();
+                ctx.strokeRect(50 + lowerQuart * tenMinPoint / 60 - 2, y - 11 - greenPos, (upperQuart - lowerQuart) * tenMinPoint / 60, 10);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.fillRect(50 + median * tenMinPoint / 60, y - 11 - greenPos, 1, 10);
+                ctx.closePath();
+                ctx.fillStyle = "black";
+                ctx.strokeStyle = "black";
+                var min = data.Analyses[i].CurrentWaitTimes.sort((a,b) => a-b)[3]/60;
+                var timeThen = new Date(data.Analyses[i].CreatedTime).getTime();
+                var timeNow = new Date().getTime();
+                var diff = (timeNow - timeThen) % (lowerQuart * 1000);
+                var max = data.Analyses[i].CurrentWaitTimes.sort((a,b) => b-a)[0] / 60 - diff / (60 * 1000);
+                var maxPos = 50 + max * tenMinPoint - 2;
+                if(maxPos > canvas.width - 25){
+                    ctx.beginPath();
+                    var arrowMiddle = canvas.width - 10;
+                    ctx.moveTo(arrowMiddle - 5, y - 6 - greenPos);
+                    ctx.lineTo(arrowMiddle + 5, y - 6 - greenPos);
+                    ctx.moveTo(arrowMiddle + 5, y - 6 - greenPos);
+                    ctx.lineTo(arrowMiddle + 2, y - 6 - greenPos - 3);
+                    ctx.moveTo(arrowMiddle + 5, y - 6 - greenPos);
+                    ctx.lineTo(arrowMiddle + 2, y - 6 - greenPos + 3);
+                    ctx.stroke();
+                    ctx.textAlign = "right";
+                    ctx.fillText(`max: ${displayTime(max)}`, arrowMiddle, y - 10 - greenPos);                    
+                    ctx.closePath();        
+                    ctx.textAlign = "center";            
+                }
+                else{
+                    ctx.beginPath();
+                    ctx.fillRect(maxPos, y - 8 - greenPos, 4, 4);
+                    ctx.fillText(`max: ${displayTime(max)}`, maxPos, y - 10 - greenPos);
+                    ctx.closePath();
+                }
+                // draw bottom line
+                ctx.beginPath();
+                ctx.moveTo(0, y + 5);
+                ctx.lineTo(canvas.width, y + 5);
+                ctx.stroke();
+                ctx.closePath();
+            }
+
+            window.requestAnimationFrame(() => {
+                drawer(canvas, ctx)();
+            })
+        }
+    
+        httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (dataString) => {
+            
+            data = JSON.parse(dataString);
+            var canvas = document.getElementById("my-canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.textAlign = "center";
+            
+            drawer(canvas, ctx)();
+
+            window.setInterval(() => {
+                httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (updatedDataString) => {
+                    console.log("updated data");
+                    data = JSON.parse(updatedDataString);
+                });
+            }, 10 * 60 * 1000);
+        });
+        
+    </script>
+						
+						<!-- AddToAny BEGIN -->
+						<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+						<a class="a2a_button_facebook"></a>
+						<a class="a2a_button_twitter"></a>
+						<a class="a2a_button_google_plus"></a>
+						<a class="a2a_button_linkedin"></a>
+						<a class="a2a_button_reddit"></a>
+						</div>
+						<script async src="https://static.addtoany.com/menu/page.js"></script>
+						<!-- AddToAny END -->
+
+						<p class="newline small">published: Fri May 03 2019</p>
+					</div>
+					
+					
+					<div class="info-panel">
+						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
+						<div class="info-description">Michal Paszkiewicz reads books, solves equations and plays instruments whenever he isn't developing software for Transport For London. All views on this site are the author's views only and do not necessarily represent the views of TfL.</div>
+						<div class="newline"></div>
+					</div>
+				
+					<div class="link-box">
+						<a href="https://twitter.com/MichalYouDoing" data-size="large" class="twitter-follow-button" data-show-count="false">@MichalYouDoing</a>
+						<a class="github-button" href="https://github.com/MichalPaszkiewicz" data-size="large" data-show-count="true" aria-label="Follow @MichalPaszkiewicz on GitHub">@MichalPaszkiewicz</a>
+					</div>
+					
+					<!--Start Links-->
+					<div class="related-links">
+						<div class="related-links-title black">other things</div>
+						<div class="related-links-content">
+
+							<a class="menu-item" href="../tflhiddendungeons/index.html">
+								<img src="../tflhiddendungeons/index.png" alt="Underneath the London Underground, lies another city">
+								<span class="menu-item-title">Underneath the London Underground, lies another city</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../jaywalking-poland/index.html">
+								<img src="../jaywalking-poland/index.png" alt="An interview where I find out why jaywalking is still illegal in Poland">
+								<span class="menu-item-title">An interview where I find out why jaywalking is still illegal in Poland</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../tubedepths/index.html">
+								<img src="../tubedepths/index.png" alt="Showing platform elevations on user defined journeys">
+								<span class="menu-item-title">Showing platform elevations on user defined journeys</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../versiondrivenbranching/index.html">
+								<img src="../versiondrivenbranching/index.png" alt="Some thoughts on branching, environments and life in general (part 1)">
+								<span class="menu-item-title">Some thoughts on branching, environments and life in general (part 1)</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../montyhallexplained/index.html">
+								<img src="../montyhallexplained/index.png" alt="explaining the Monty Hall problem to the disbelievers">
+								<span class="menu-item-title">explaining the Monty Hall problem to the disbelievers</span>
+								<div class="newline"></div>
+							</a>
+
+							<a class="menu-item" href="../beetraining/index.html">
+								<img src="../beetraining/index.png" alt="bees taught to pull string">
+								<span class="menu-item-title">bees taught to pull string</span>
+								<div class="newline"></div>
+							</a>
+
+						</div>
+					</div>
+					<!--Close Links -->
+
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer black">
+			<div class="panel-box">
+				
+				<a href="/index.html" alt="The home of all the best bits of software ever.">Home</a>
+				<a href='../index.html' alt='blog main menu'>Blog</a>
+
+			</div>
+		</div>
+		<script src="./buttons.js"></script>
+		<!--<script src="https://buttons.github.io/buttons.js"></script>-->
+		<script src="index.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>
+
+
