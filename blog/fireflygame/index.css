@@ -10,6 +10,14 @@ body, html {
     font-family: "Arial";
 }
 
+ol{
+	margin-bottom: 30px;
+}
+
+li{
+	margin-bottom: 20px;
+}
+
 .panel.header h1, h1,
 .panel.header h2, h2, 
 .panel.header h3, 
@@ -52,6 +60,8 @@ p.small{
 }
 
 .quote{
+    margin-bottom: 40px;
+    display: block;
 	margin-left: 40px;
     margin-right: 40px;
     font-style: italic;

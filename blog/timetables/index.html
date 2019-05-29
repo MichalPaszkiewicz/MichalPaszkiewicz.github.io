@@ -24,10 +24,10 @@
 			ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
 			ga('send', 'pageview');
 		</script>
-		<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</script> 
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 	</head>
 	<body>
 		<div class="main-container">
@@ -48,7 +48,7 @@
 
 						<p>
         There is a lot to be said about timetables. 
-        Buses in particular have a complex relationship with their timetables that can differ between countries, cities and even operators within cities.
+        Buses in particular have a complex relationship with their timetables that can differ between countries, cities and even operators within the same city.
         In the UK, where I live, there are usually timetables provided for passengers to help them plan their journeys.
         In rural and suburban areas, a bus may come at a very specific time, 
         while urban and other busy areas may have timetables specifying that buses on a route should arrive at some constant interval.
@@ -128,13 +128,13 @@
         The maximum current waiting time on the route is represented by the black filled square and attached text.
     </p>
     <p>
-        Please bare in mind that this data is sampled every 10 minutes to reduce pressure on the TfL open API.
+        Please bear in mind that this data is sampled every 10 minutes to reduce pressure on the TfL open API.
         The data is also not complete 
             - it includes only Bus Routes 1-50 and only displays those routes where the timetable states that a bus should arrive every x minutes at the current time.
         The TfL open API uses GPS data to track arrival times, so they are fairly accurate.
-        However, there is always a possibility for error, as no piece of technology is perfect.
-        I was once told that a bus would arrive in 3 minutes, but I never saw it arrive at all 
-            - but overall this API is still the most accurate data I can access without leaving my chair.
+        However, there is always a possibility for error;
+        I was once told that a bus would arrive in 3 minutes, but I never saw it arrive at all - no technology is perfect. 
+        Overall, this API is still the most accurate data I can access without leaving my chair.
     </p>
 
     <canvas id="my-canvas"></canvas>
@@ -143,9 +143,9 @@
     </p>
 
     <p>
-        At the time of writing (5th March 2019), Transport for London are doing rather well when this data is analysed.
+        At the time of writing (5th May 2019), Transport for London are doing rather well when this data is analysed.
         A vast majority of passengers waiting at bus stops will see their buses arrive within or under the expected waiting time.
-        In fact, the average bus on the 5th March 2019 has arrived in 92% of the expected waiting time.
+        In fact, the average bus on the 5th May 2019 has arrived in only 92% of the expected waiting time.
     </p>
     <p>
         What does this mean when we consider the waiting time paradox?
@@ -196,7 +196,6 @@
             xmlHttp.open("GET", theUrl, true); // true for asynchronous 
             xmlHttp.send(null);
         }
-
         function Quartile(data, q) {
             data=data.sort((a, b) => a - b);
             var pos = ((data.length) - 1) * q;
@@ -208,7 +207,6 @@
                 return data[base];
             }
         }
-
         function displayTime(numInMins){
             var mins = Math.floor(numInMins);
             var secs = Math.floor((numInMins - mins) * 60);
@@ -218,17 +216,13 @@
             }
             return `${mins}'${secs == 0 ? "" : stringSecs}`
         }
-
         var data = {Analyses: []};
-
         var drawer = (canvas, ctx) => () => {
             var tenMinPoint = 25;
             var rowHeight = 42;
             canvas.height = rowHeight * (data.Analyses.length + 1);   
             canvas.width = canvas.parentElement.clientWidth;                     
-
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             ctx.beginPath();
             ctx.moveTo(50, 0);
             ctx.lineTo(50, canvas.clientHeight)
@@ -262,7 +256,6 @@
                 ctx.strokeStyle = "black";
                 ctx.fillStyle = "green";
                 var greenPos = 12;
-
                 ctx.beginPath();
                 ctx.fillRect(50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 4, y - 9 - greenPos, 6, 6);
                 ctx.fillText("mean: " + displayTime(data.Analyses[i].AverageCurrentWaitingTime), 50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 13 - greenPos)
@@ -275,7 +268,6 @@
                 ctx.beginPath();
                 ctx.strokeRect(50 + lowerQuart * tenMinPoint / 60 - 2, y - 11 - greenPos, (upperQuart - lowerQuart) * tenMinPoint / 60, 10);
                 ctx.closePath();
-
                 ctx.beginPath();
                 ctx.fillRect(50 + median * tenMinPoint / 60, y - 11 - greenPos, 1, 10);
                 ctx.closePath();
@@ -315,7 +307,6 @@
                 ctx.stroke();
                 ctx.closePath();
             }
-
             window.requestAnimationFrame(() => {
                 drawer(canvas, ctx)();
             })
@@ -329,7 +320,6 @@
             ctx.textAlign = "center";
             
             drawer(canvas, ctx)();
-
             window.setInterval(() => {
                 httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (updatedDataString) => {
                     console.log("updated data");
