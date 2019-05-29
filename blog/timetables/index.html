@@ -196,7 +196,6 @@
             xmlHttp.open("GET", theUrl, true); // true for asynchronous 
             xmlHttp.send(null);
         }
-
         function Quartile(data, q) {
             data=data.sort((a, b) => a - b);
             var pos = ((data.length) - 1) * q;
@@ -208,7 +207,6 @@
                 return data[base];
             }
         }
-
         function displayTime(numInMins){
             var mins = Math.floor(numInMins);
             var secs = Math.floor((numInMins - mins) * 60);
@@ -218,17 +216,13 @@
             }
             return `${mins}'${secs == 0 ? "" : stringSecs}`
         }
-
         var data = {Analyses: []};
-
         var drawer = (canvas, ctx) => () => {
             var tenMinPoint = 25;
             var rowHeight = 42;
             canvas.height = rowHeight * (data.Analyses.length + 1);   
             canvas.width = canvas.parentElement.clientWidth;                     
-
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             ctx.beginPath();
             ctx.moveTo(50, 0);
             ctx.lineTo(50, canvas.clientHeight)
@@ -262,7 +256,6 @@
                 ctx.strokeStyle = "black";
                 ctx.fillStyle = "green";
                 var greenPos = 12;
-
                 ctx.beginPath();
                 ctx.fillRect(50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 4, y - 9 - greenPos, 6, 6);
                 ctx.fillText("mean: " + displayTime(data.Analyses[i].AverageCurrentWaitingTime), 50 + data.Analyses[i].AverageCurrentWaitingTime * tenMinPoint - 2, y - 13 - greenPos)
@@ -275,7 +268,6 @@
                 ctx.beginPath();
                 ctx.strokeRect(50 + lowerQuart * tenMinPoint / 60 - 2, y - 11 - greenPos, (upperQuart - lowerQuart) * tenMinPoint / 60, 10);
                 ctx.closePath();
-
                 ctx.beginPath();
                 ctx.fillRect(50 + median * tenMinPoint / 60, y - 11 - greenPos, 1, 10);
                 ctx.closePath();
@@ -315,7 +307,6 @@
                 ctx.stroke();
                 ctx.closePath();
             }
-
             window.requestAnimationFrame(() => {
                 drawer(canvas, ctx)();
             })
@@ -329,7 +320,6 @@
             ctx.textAlign = "center";
             
             drawer(canvas, ctx)();
-
             window.setInterval(() => {
                 httpGetAsync("https://waitingtimeparadox.azurewebsites.net/", (updatedDataString) => {
                     console.log("updated data");
