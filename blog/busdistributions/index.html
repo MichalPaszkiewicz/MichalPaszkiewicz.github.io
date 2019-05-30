@@ -1,13 +1,13 @@
 <html>
 	<head>
-		<title>Analysis of distances between buses</title>
-		<meta name="description" content="I set out on an adventure to analyse distances between buses">
+		<title>Analysis of distances between bus stops</title>
+		<meta name="description" content="I set out on an adventure to analyse distances between bus stops">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@MichalYouDoing" />
-		<meta name="twitter:title" content="Analysis of distances between buses" />
-		<meta name="twitter:description" content="I set out on an adventure to analyse distances between buses" />
+		<meta name="twitter:title" content="Analysis of distances between bus stops" />
+		<meta name="twitter:description" content="I set out on an adventure to analyse distances between bus stops" />
 		<meta name="twitter:image" content="./index.png" />
 		
 		<meta property="og:type" content="website">
@@ -34,7 +34,7 @@
 			<div class="black panel header">
 				<div class="panel-box">
 					<h1 onclick="window.location='/'"> Michal Paszkiewicz</h1>
-					<h2>Analysis of distances between buses</h2>
+					<h2>Analysis of distances between bus stops</h2>
 				</div>
 			</div>
 			<div class="white panel">
@@ -78,7 +78,7 @@
     </p>
 
     <h3>Longest</h3>
-    <p>Of course, not all bus routes in London are short. Some bus routes in London have bus stops quite a distance apart - it wouldn't be fun to walk between them. Below are presented the 5 bus routes with the longest average distances between stops. Please note that the scale is different so that the distribution fits in most browsers. The scale is highlighted red to make this more obvious.</p>
+    <p>Of course, not all bus routes in London are short. Some bus routes in London have bus stops quite a distance apart - it wouldn't be fun to walk between them. Below are presented the 5 bus routes with the longest average distances between stops. Please note that the scale is much smaller on this plot so that the distribution fits in most browsers. The scale is highlighted red to make this more obvious.</p>
     <canvas id="longest"></canvas>
 
     <h3>Averages</h3>
@@ -136,7 +136,7 @@
     <p>This page would be no fun if you couldn't interact with it, so I have placed a search function here below for you to find your own buses that you have used in London.
     </p>
     <p>Search for your bus:</p>
-    <input type="text" id="search" style="clear:left;display: block;" placeholder="bus route name">
+    <input type="text" id="search" style="clear:left;display: block;width: 300px;padding: 5px;" placeholder="bus route name">
     <canvas id="myCanvas"></canvas>
 
     <p>You can also seperate bus names by commas if you want to compare a few buses in the above search functionality.
@@ -144,7 +144,37 @@
     </p>
 
     <p>
-        I hope this article has been of at least vague interest to you and you have not got too lost in the data or grown too sick of box plots. 
+        Why do distances between bus stops differ so much on different routes?
+	Partly it has to do with density - where there are fewer people, it makes less sense to stop often, as there would be fewer passengers to pick up. Some areas might not even have any people there - they may be industrial or rural, for example.
+	Another reason is due to accessibility - in areas where there may be a lot of elderly or disabled people for example, it makes sense to have more bus stops so that they can have better access to buses.
+	Sometimes bus stops cannot be a set distance apart, because of convenience - there may not be a good piece of pavement, or the road may not have space to allow a bus to stop at that point.
+	What do bus stop distances mean for our journeys?
+	As stated before - more bus stops can mean that a bus becomes less efficient - both in terms of energy and in how fast it can get from one area to another.
+	There is always a trade-off between ease of access and bus efficiency - you can't have supreme ease of access without putting the buses at risk of delays due to people waiting for and hailing the bus at numerous stops on its route.
+	Similarly, bus bunching is more likely to happen with more bus stops - if one bus has people waiting at multiple stops, it can be delayed by quite a lot while the bus behind it may not need to pick anyone up at those stops. 
+	This results in more cases where buses come in twos or threes.
+	Authorities try to stop bus bunching by "regulating the service", meaning that buses will wait additional lengths of times at bus stops to ensure that they do not catch up to the buses in front.
+	This can be quite frustrating for passengers, but is necessary to provide a more regular service.
+	It is easy to get annoyed when buses seem irregular or arriving late, but it is much harder to ensure that they ARE regular and on time.
+</p>
+<p>
+	What is worth reiterating is that so many decisions in infrastructure have trade-offs - you must sacrifice one thing to achieve another.
+	When we want two things that are both good, sometimes we have to accept that we cannot have both fully, but must have a part of each.
+	For example, justice and mercy cannot both be fully achieved - if we are to be just, then those facing justice cannot have full mercy. 
+	Similarly, those to whom we are merciful cannot have full justice.
+	Both justice and mercy are good and important things, but there has to be a balance between them.
+	Such trade-offs are ever present in the world of buses. 
+We cannot have both ease of access to bus stops and bus efficiency.
+We cannot have highly regular services and services that travel to their destinations in the shortest amount of time. 
+We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/index.html">timetables that are both truthful and satisfying for customers</a>.
+	When making decisions with regards to bus route design and service, authorities need to find out what is most important to us and act accordingly.
+	The balances decided upon by transport authorities will never make everyone satisfied - some people prefer one thing to another.
+	However, any such dissatisfaction shold come with the knowledge that someone else's needs are being met as a result.
+	People may still feel that they are being unfairly disregarded due to this - is someone else being prioritised over them?
+	The only way we can ensure that we can be satisfied with such decisions is if we have open dialogues in our local communities so that we can understand each others' needs and come to an agreement as to what the middle ground is.
+	If you are looking for a challenge, here it is - try to meet some people in your local area who live differently to you and try to understand them. Work together to find your common grounds. You will not be disappointed.
+</p>
+<p>
         The data was acquired from <a href="https://api.tfl.gov.uk/">TfL's open data API</a> (on the 29th May 2019) which is a resource definitely worth checking out!
     </p>
 
@@ -287,7 +317,7 @@
 
                 ctx.textAlign = "center";
                 
-                var counterSize = scale ? (scale < 1? 100 : 20) : 20;               
+                var counterSize = scale ? (scale < 0.7? 100 : 20) : 20;               
 
                 // axis
                 ctx.fillStyle = ctx.strokeStyle = counterSize == 100 ? "#f8a1a1" : "#c4cecc";
@@ -332,7 +362,7 @@
             return array.reduce((a, b) => a + b, 0);
         }
 
-        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.5);
+        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.3);
         draw("shortest", busRouteDistances.sort((a,b) => a.average - b.average).slice(0,5));
 
         draw("shortestWithoutBranches", branchlessDists.sort((a,b) => a.average - b.average).slice(0,5));
@@ -355,19 +385,19 @@
             analyse("night", "averages", busRouteDistances.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.average)),
             analyse("no branch", "averages", branchlessDists.map(brd => brd.average)),
             analyse("no branch", "day avgs", branchlessDists.filter(brd => brd.name.indexOf("N") == -1).map(brd => brd.average)),
-            analyse("no branch", "night avgs", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.average))])
+            analyse("no branch", "night avgs", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.average))], 0.8)
             
         draw("medians",[analyse("all route", "medians", busRouteDistances.map(brd => brd.median)),
             analyse("day bus", "medians", busRouteDistances.filter(brd => brd.name.indexOf("N") == -1).map(brd => brd.median)),
             analyse("night bus", "medians", busRouteDistances.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.median)),
             analyse("no branch", "medians", branchlessDists.map(brd => brd.median)),
             analyse("no branch", "day meds", branchlessDists.filter(brd => brd.name.indexOf("N") == -1).map(brd => brd.median)),
-            analyse("no branch", "night meds", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.median))])
+            analyse("no branch", "night meds", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.median))], 0.8)
 
         draw("consistency", [analyse("quartile", "spread", busRouteDistances.map(brd => brd.upperQuartile - brd.lowerQuartile)),
-            analyse("branchless", "q spread", branchlessDists.map(brd => brd.upperQuartile - brd.lowerQuartile))]);
+            analyse("branchless", "q spread", branchlessDists.map(brd => brd.upperQuartile - brd.lowerQuartile))], 0.8);
 
-        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.5);
+        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,3), 0.5);
 
         draw("thinnestSpread", busRouteDistances.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5));
 
@@ -411,7 +441,7 @@
                 routes = busRouteDistances.filter(brd => aSearchTermIsIn(brd)).slice(0, 10);
             }
 
-            var myScale = routes.some(r => r.average > 500) ? 0.5 : null
+            var myScale = routes.some(r => r.average > 500) ? 0.5 : 0.8
 
             draw("myCanvas",routes, myScale);
         };
