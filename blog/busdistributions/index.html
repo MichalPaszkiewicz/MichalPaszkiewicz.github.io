@@ -367,7 +367,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
             return array.reduce((a, b) => a + b, 0);
         }
 
-        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.13);
+        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.11);
         draw("shortest", busRouteDistances.sort((a,b) => a.average - b.average).slice(0,5), 0.8);
 
         draw("shortestWithoutBranches", branchlessDists.sort((a,b) => a.average - b.average).slice(0,5), 0.8);
@@ -402,7 +402,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
         draw("consistency", [analyse("quartile", "spread", busRouteDistances.map(brd => brd.upperQuartile - brd.lowerQuartile)),
             analyse("branchless", "q spread", branchlessDists.map(brd => brd.upperQuartile - brd.lowerQuartile))], 0.8);
 
-        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.13);
+        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.11);
 
         draw("thinnestSpread", busRouteDistances.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5), 0.7);
 
@@ -446,7 +446,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
                 routes = busRouteDistances.filter(brd => aSearchTermIsIn(brd)).slice(0, 10);
             }
 
-            var myScale = routes.some(r => r.average > 2000) ? 0.13 : routes.some(r => r.average > 500) ? 0.2 : 0.7
+            var myScale = routes.some(r => r.average > 2000) ? 0.11 : routes.some(r => r.average > 500) ? 0.2 : 0.7
 
             draw("myCanvas",routes, myScale);
         };
