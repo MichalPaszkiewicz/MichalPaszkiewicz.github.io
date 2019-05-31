@@ -177,7 +177,8 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
     </p>
 
 <p>
-<b>Edit</b>: this post was initially published with erroneous data. It was initially calling the endpoint "https://api.tfl.gov.uk/line/53/Route/Sequence/inbound" and using the "lineStrings" field, which does not equate to bus stop locations, but locations used to draw the map of the bus route. The data presented above is now correctly using the field "stopPointSequences". Big thanks to @zimpenfish on twitter for notifying me of the error. Distances between bus stops were calculated using the <a href="https://www.movable-type.co.uk/scripts/latlong.html">haversine function</a> on two adjacent lon/lats. To see the original version of the post in order to see comparisons between erroneous and correct data, please click <a href="https://www.michalpaszkiewicz.co.uk/blog/busdistributions_old/index.html">here</a>.
+<b>Edit</b>: this post was initially published with erroneous data. 
+	It was initially calling <a href="https://api.tfl.gov.uk/line/53/Route/Sequence/inbound">this endpoint</a> and using the "lineStrings" field, which does not equate to bus stop locations, but locations used to draw the map of the bus route. The data presented above is now correctly using the field "stopPointSequences". Big thanks to @zimpenfish on twitter for notifying me of the error. Distances between bus stops were calculated using the <a href="https://www.movable-type.co.uk/scripts/latlong.html">haversine function</a> on two adjacent lon/lats. To see the original version of the post in order to see comparisons between erroneous and correct data, please click <a href="https://www.michalpaszkiewicz.co.uk/blog/busdistributions_old/index.html">here</a>.
 </p>
 
     <script>
@@ -367,7 +368,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
             return array.reduce((a, b) => a + b, 0);
         }
 
-        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.11);
+        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.1);
         draw("shortest", busRouteDistances.sort((a,b) => a.average - b.average).slice(0,5), 0.8);
 
         draw("shortestWithoutBranches", branchlessDists.sort((a,b) => a.average - b.average).slice(0,5), 0.8);
@@ -402,7 +403,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
         draw("consistency", [analyse("quartile", "spread", busRouteDistances.map(brd => brd.upperQuartile - brd.lowerQuartile)),
             analyse("branchless", "q spread", branchlessDists.map(brd => brd.upperQuartile - brd.lowerQuartile))], 0.8);
 
-        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.11);
+        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.1);
 
         draw("thinnestSpread", busRouteDistances.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5), 0.7);
 
@@ -446,7 +447,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
                 routes = busRouteDistances.filter(brd => aSearchTermIsIn(brd)).slice(0, 10);
             }
 
-            var myScale = routes.some(r => r.average > 2000) ? 0.11 : routes.some(r => r.average > 500) ? 0.2 : 0.7
+            var myScale = routes.some(r => r.average > 2000) ? 0.1 : routes.some(r => r.average > 500) ? 0.2 : 0.7
 
             draw("myCanvas",routes, myScale);
         };
