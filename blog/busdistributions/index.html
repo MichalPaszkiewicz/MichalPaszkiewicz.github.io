@@ -177,8 +177,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
     </p>
 
 <p>
-<b>Edit</b>: this post was initially published with erroneous data. 
-	It was initially calling <a href="https://api.tfl.gov.uk/line/53/Route/Sequence/inbound">this endpoint</a> and using the "lineStrings" field, which does not equate to bus stop locations, but locations used to draw the map of the bus route. The data presented above is now correctly using the field "stopPointSequences". Big thanks to @zimpenfish on twitter for notifying me of the error. Distances between bus stops were calculated using the <a href="https://www.movable-type.co.uk/scripts/latlong.html">haversine function</a> on two adjacent lon/lats. To see the original version of the post in order to see comparisons between erroneous and correct data, please click <a href="https://www.michalpaszkiewicz.co.uk/blog/busdistributions_old/index.html">here</a>.
+<b>Edit</b>: this post was initially published with erroneous data. It was initially calling the endpoint "https://api.tfl.gov.uk/line/53/Route/Sequence/inbound" and using the "lineStrings" field, which does not equate to bus stop locations, but locations used to draw the map of the bus route. The data presented above is now correctly using the field "stopPointSequences". Big thanks to @zimpenfish on twitter for notifying me of the error. Distances between bus stops were calculated using the <a href="https://www.movable-type.co.uk/scripts/latlong.html">haversine function</a> on two adjacent lon/lats. To see the original version of the post in order to see comparisons between erroneous and correct data, please click <a href="https://www.michalpaszkiewicz.co.uk/blog/busdistributions_old/index.html">here</a>.
 </p>
 
     <script>
@@ -323,10 +322,10 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
 
                 ctx.textAlign = "center";
                 
-                var counterSize = scale ? (scale < 0.3? 500 : scale < 0.7 ? 200 : 50) : 50;               
+                var counterSize = scale ? (scale < 0.7? 200 : 50) : 50;               
 
                 // axis
-                ctx.fillStyle = ctx.strokeStyle = counterSize == 500 ? "#f8a1a1" : "#c4cecc";
+                ctx.fillStyle = ctx.strokeStyle = counterSize == 200 ? "#f8a1a1" : "#c4cecc";
                 ctx.beginPath();
                 ctx.moveTo(50, y - 8);
                 ctx.lineTo(canvas.width, y - 8);
@@ -368,10 +367,10 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
             return array.reduce((a, b) => a + b, 0);
         }
 
-        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.1);
-        draw("shortest", busRouteDistances.sort((a,b) => a.average - b.average).slice(0,5), 0.8);
+        draw("longest", busRouteDistances.sort((a,b) => b.average - a.average).slice(0,5), 0.15);
+        draw("shortest", busRouteDistances.sort((a,b) => a.average - b.average).slice(0,5));
 
-        draw("shortestWithoutBranches", branchlessDists.sort((a,b) => a.average - b.average).slice(0,5), 0.8);
+        draw("shortestWithoutBranches", branchlessDists.sort((a,b) => a.average - b.average).slice(0,5));
 
         function analyse(name, subName, data){
             return {
@@ -391,23 +390,23 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
             analyse("night", "averages", busRouteDistances.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.average)),
             analyse("no branch", "averages", branchlessDists.map(brd => brd.average)),
             analyse("no branch", "day avgs", branchlessDists.filter(brd => brd.name.indexOf("N") == -1).map(brd => brd.average)),
-            analyse("no branch", "night avgs", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.average))], 0.7)
+            analyse("no branch", "night avgs", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.average))], 0.8)
             
         draw("medians",[analyse("all route", "medians", busRouteDistances.map(brd => brd.median)),
             analyse("day bus", "medians", busRouteDistances.filter(brd => brd.name.indexOf("N") == -1).map(brd => brd.median)),
             analyse("night bus", "medians", busRouteDistances.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.median)),
             analyse("no branch", "medians", branchlessDists.map(brd => brd.median)),
             analyse("no branch", "day meds", branchlessDists.filter(brd => brd.name.indexOf("N") == -1).map(brd => brd.median)),
-            analyse("no branch", "night meds", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.median))], 0.7)
+            analyse("no branch", "night meds", branchlessDists.filter(brd => brd.name.indexOf("N") > -1).map(brd => brd.median))], 0.8)
 
         draw("consistency", [analyse("quartile", "spread", busRouteDistances.map(brd => brd.upperQuartile - brd.lowerQuartile)),
-            analyse("branchless", "q spread", branchlessDists.map(brd => brd.upperQuartile - brd.lowerQuartile))], 0.8);
+            analyse("branchless", "q spread", branchlessDists.map(brd => brd.upperQuartile - brd.lowerQuartile))], 1);
 
-        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.1);
+        draw("widestSpread", busRouteDistances.sort((a,b) => (b.upperQuartile - b.lowerQuartile) - (a.upperQuartile - a.lowerQuartile)).slice(0,5), 0.15);
 
-        draw("thinnestSpread", busRouteDistances.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5), 0.7);
+        draw("thinnestSpread", busRouteDistances.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5));
 
-        draw("thinnestSpreadWithoutBranches", branchlessDists.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5), 0.7);
+        draw("thinnestSpreadWithoutBranches", branchlessDists.sort((a,b) => (a.upperQuartile - a.lowerQuartile) - (b.upperQuartile - b.lowerQuartile)).slice(0,5), 0.8);
 
         var srch = document.getElementById("search")
         srch.onkeyup = () => {
@@ -447,7 +446,7 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
                 routes = busRouteDistances.filter(brd => aSearchTermIsIn(brd)).slice(0, 10);
             }
 
-            var myScale = routes.some(r => r.average > 2000) ? 0.1 : routes.some(r => r.average > 500) ? 0.2 : 0.7
+            var myScale = routes.some(r => r.average > 2000) ? 0.12 : routes.some(r => r.average > 500) ? 0.3 : 0.8
 
             draw("myCanvas",routes, myScale);
         };
@@ -469,6 +468,16 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
 						<p class="newline small">published: Wed May 29 2019</p>
 					</div>
 					
+					<div>
+    <a class="menu-item menu-item-clear" href="https://www.amazon.co.uk/Perfect-Transport-science-cant-have/dp/1739314522/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1677832171&sr=8-1">
+        <img src="cover.png" alt="New Book - The Perfect Transport: and the science of why you can't have it">    
+    </a>
+    <div class="doubledesc">
+        <h2>New book!</h2>
+        <p class="illuminate">My new book <em>The Perfect Transport: and the science of why you can't have it</em> is now on sale on <a href="https://www.amazon.co.uk/Perfect-Transport-science-cant-have/dp/1739314522/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1677832171&sr=8-1">amazon</a>, or can be ordered at your <a href="https://www.waterstones.com/book/the-perfect-transport/michal-paszkiewicz/9781739314521">local bookstore</a>.</p>
+    </div>
+    <div class="newline"></div>
+</div> 
 					
 					<div class="info-panel">
 						<img class="info-pic" src="info.png" alt="Michal Paszkiewicz's face">
@@ -486,39 +495,39 @@ We cannot have <a href="https://www.michalpaszkiewicz.co.uk/blog/timetables/inde
 						<div class="related-links-title black">other things</div>
 						<div class="related-links-content">
 
-							<a class="menu-item" href="../reviewaagtloe/index.html">
-								<img src="../reviewaagtloe/index.png" alt="A book review of An Astronaut's Guide to Life on Earth">
-								<span class="menu-item-title">A book review of An Astronaut's Guide to Life on Earth</span>
+							<a class="menu-item" href="../montyhallexplained/index.html">
+								<img src="../montyhallexplained/index.png" alt="explaining the Monty Hall problem to the disbelievers">
+								<span class="menu-item-title">explaining the Monty Hall problem to the disbelievers</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../timetables/index.html">
-								<img src="../timetables/index.png" alt="Live data compared to TfL timetables">
-								<span class="menu-item-title">Live data compared to TfL timetables</span>
+							<a class="menu-item" href="../busfactor/index.html">
+								<img src="../busfactor/index.png" alt="how to deal with the bus factor (from a transport worker)">
+								<span class="menu-item-title">how to deal with the bus factor (from a transport worker)</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../jaywalking-poland/index.html">
-								<img src="../jaywalking-poland/index.png" alt="An interview where I find out why jaywalking is still illegal in Poland">
-								<span class="menu-item-title">An interview where I find out why jaywalking is still illegal in Poland</span>
+							<a class="menu-item" href="../fireflygame/index.html">
+								<img src="../fireflygame/index.png" alt="How to play the firefly board game better">
+								<span class="menu-item-title">How to play the firefly board game better</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../versiondrivenbranching/index.html">
-								<img src="../versiondrivenbranching/index.png" alt="Some thoughts on branching, environments and life in general (part 1)">
-								<span class="menu-item-title">Some thoughts on branching, environments and life in general (part 1)</span>
+							<a class="menu-item" href="../reviewddcs/index.html">
+								<img src="../reviewddcs/index.png" alt="A book review of Designing Distributed Control Systems - A Pattern Language Approach">
+								<span class="menu-item-title">A book review of Designing Distributed Control Systems - A Pattern Language Approach</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../beetraining/index.html">
-								<img src="../beetraining/index.png" alt="bees taught to pull string">
-								<span class="menu-item-title">bees taught to pull string</span>
+							<a class="menu-item" href="../reviewbdsmack/index.html">
+								<img src="../reviewbdsmack/index.png" alt="A book review of Big Data SMACK">
+								<span class="menu-item-title">A book review of Big Data SMACK</span>
 								<div class="newline"></div>
 							</a>
 
-							<a class="menu-item" href="../reviewttps/index.html">
-								<img src="../reviewttps/index.png" alt="A book review of Planka.nu's 'The Traffic Power Structure'">
-								<span class="menu-item-title">A book review of Planka.nu's 'The Traffic Power Structure'</span>
+							<a class="menu-item" href="../reviewwfb/index.html">
+								<img src="../reviewwfb/index.png" alt="A book review of Wisdom for Beekeepers - 500 tips for successful beekeeping">
+								<span class="menu-item-title">A book review of Wisdom for Beekeepers - 500 tips for successful beekeeping</span>
 								<div class="newline"></div>
 							</a>
 
